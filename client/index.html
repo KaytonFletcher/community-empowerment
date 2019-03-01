@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+
+    <!-- Here angular and the 3rd party module ui-router are included -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.min.js"></script>
+    
+    <!-- boostrap 4 javascript source and css styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- added font awesome cdn for extra styling (go crazy) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+
+    <script src="app.js"></script>
+    <script src="js/config/states.js"></script>
+
+    <script src="js/controllers/home.js"></script>
+
+     
+  </head>
+  <!-- Jacob was here -->
+ 
+    
+  <body ng-app="SpoderApp">
+  
+    <!-- Dummy buttons to show load different html pages -->
+    <a ui-sref="hello" ui-sref-active="active">Hello</a>
+    <a ui-sref="about" ui-sref-active="active">About</a>
+    <a ui-sref="users" ui-sref-active="active">Users</a>
+
+
+    <!-- This is where code gets injected from html files in /pages -->
+    <ui-view></ui-view>
+
+  </body>
+</html>
