@@ -2,8 +2,8 @@ angular.module('states').config(function($stateProvider) {
     var states = 
     [
       {
-        name: 'hello',
-        url: '/hello',
+        name: 'home',
+        url: '/',
         templateUrl: '../../pages/home.html',
         controller: 'homeController as HC',      
       },
