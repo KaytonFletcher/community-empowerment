@@ -22,29 +22,19 @@
     <script src="js/config/states.js"></script>
     <script src="js/controllers/home.js"></script>
 
+    <!-- This sets the starting url and gets rid of #! -->
+    <base href="/">
+
     <!-- Used to init bootstrap popovers-->
     <script>
       $(document).ready(function(){
         $('[data-toggle="popover"]').popover(); 
       });
-    </script>
-    
-
-     
+    </script>     
   </head>
  
     
   <body ng-app="SpoderApp">
-
-    
-  
-    <!-- Dummy buttons to show load different html pages -->
-    <!-- <a ui-sref="hello" ui-sref-active="active">Hello</a>
-    <a ui-sref="about" ui-sref-active="active">About</a>
-    <a ui-sref="users" ui-sref-active="active">Users</a>
-    -->
-
-    
 
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
 
@@ -52,10 +42,10 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a ui-sref="Home" class="nav-link" ui-sref-active="active">Home</a>
+          <a ui-sref="home" class="nav-link" ui-sref-active="active">Home</a>
         </li>
         <li class="nav-item">
-          <a ui-sref="About Us" class="nav-link" ui-sref-active="active">About Us</a>
+          <a ui-sref="about" class="nav-link" ui-sref-active="active">About Us</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -88,36 +78,7 @@
         </li>
       </ul>
 
-
     </nav>
-
-    <!-- Below is SPODER popover boxes -->
-    <div class="spodersquares">
-      <a tabindex="0" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
-        <span class="letter">S</span>
-      </a>
-
-      <a tabindex="1" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
-        <span class="letter">P</span>
-      </a>
-
-      <a tabindex="2" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
-        <span class="letter">O</span>
-      </a>
-
-      <a tabindex="3" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
-        <span class="letter">D</span>
-      </a>
-
-      <a tabindex="4" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
-        <span class="letter">E</span>
-      </a>
-
-      <a tabindex="5" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
-        <span class="letter">R</span>
-      </a>
-
-    </div>
         
 
     <!-- This is where code gets injected from html files in /pages -->
