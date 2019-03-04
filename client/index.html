@@ -8,31 +8,117 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.min.js"></script>
     
     <!-- boostrap 4 javascript source and css styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
     <!-- added font awesome cdn for extra styling (go crazy) -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+    <link rel="stylesheet" href="styles/main.css">
 
     <script src="app.js"></script>
     <script src="js/config/states.js"></script>
-
     <script src="js/controllers/home.js"></script>
+
+    <!-- Used to init bootstrap popovers-->
+    <script>
+      $(document).ready(function(){
+        $('[data-toggle="popover"]').popover(); 
+      });
+    </script>
+    
 
      
   </head>
-  <!-- Jacob was here -->
  
     
   <body ng-app="SpoderApp">
+
+    
   
     <!-- Dummy buttons to show load different html pages -->
-    <a ui-sref="hello" ui-sref-active="active">Hello</a>
+    <!-- <a ui-sref="hello" ui-sref-active="active">Hello</a>
     <a ui-sref="about" ui-sref-active="active">About</a>
     <a ui-sref="users" ui-sref-active="active">Users</a>
+    -->
 
+    
+
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+
+      <a ui-sref="Logo" class="navbar-brand" ui-sref-active="active">SPODER</a>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a ui-sref="Home" class="nav-link" ui-sref-active="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a ui-sref="About Us" class="nav-link" ui-sref-active="active">About Us</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a ui-sref="Info" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" ui-sref-active="active">
+            Resources
+          </a>
+          <div class="dropdown-menu">
+            <a ui-sref="Understand" class="dropdown-item" ui-sref-active="active">Understanding the SPODER Model</a>
+            <a ui-sref="Research" class="dropdown-item" ui-sref-active="active">Research</a>
+            <a ui-sref="EntRes" class="dropdown-item" ui-sref-active="active">Entrepreneurship Resources</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a ui-sref="Affil" class="nav-link" ui-sref-active="active">Affiliates and Partners</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a ui-sref="Community" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" ui-sref-active="active">
+            Community
+          </a>
+          <div class="dropdown-menu">
+            <a ui-sref="Blog" class="dropdown-item" ui-sref-active="active">Blog</a>
+            <a ui-sref="Commentary" class="dropdown-item" ui-sref-active="active">Commentary</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a ui-sref="Calendar" class="nav-link" ui-sref-active="active">Calendar/Upcoming Events</a>
+        </li>
+      </ul>
+
+
+    </nav>
+
+    <!-- Below is SPODER popover boxes -->
+    <div class="spodersquares">
+      <a tabindex="0" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
+        <span class="letter">S</span>
+      </a>
+
+      <a tabindex="1" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
+        <span class="letter">P</span>
+      </a>
+
+      <a tabindex="2" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
+        <span class="letter">O</span>
+      </a>
+
+      <a tabindex="3" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
+        <span class="letter">D</span>
+      </a>
+
+      <a tabindex="4" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
+        <span class="letter">E</span>
+      </a>
+
+      <a tabindex="5" class="mybox rounded" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-content="Some content inside the popover">
+        <span class="letter">R</span>
+      </a>
+
+    </div>
+        
 
     <!-- This is where code gets injected from html files in /pages -->
     <ui-view></ui-view>
