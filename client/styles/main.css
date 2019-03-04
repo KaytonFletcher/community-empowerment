@@ -1,0 +1,22 @@
+.mybox{
+    display: inline-block;
+    position: relative;
+
+    width: 140px;
+    height: 140px;
+    background-color: rgb(226, 192, 192);
+}
+
+.mybox .letter{
+    text-align: center;
+    font-size: 96px;
+    color: black;
+    
+}
+
+.spodersquares{
+    text-align: center;
+    position: relative;
+    margin-top: 5%;
+}
+
