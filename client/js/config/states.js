@@ -18,7 +18,12 @@ angular.module('states').config(function($stateProvider) {
         url: '/users',
         templateUrl: '../../pages/users.html',
         controller: 'userController as UC'
-      }
+      },
+	  {
+        name: 'signin',
+        url: '/signin',
+        templateUrl: '../../pages/signin.html'
+      },
   ]
   
     //registers each state with angular
