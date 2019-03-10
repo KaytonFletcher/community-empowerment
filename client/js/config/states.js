@@ -24,6 +24,21 @@ angular.module('states').config(function($stateProvider) {
         url: '/signin',
         templateUrl: '../../pages/signin.html'
       },
+	  {
+        name: 'createacct',
+        url: '/createacct',
+        templateUrl: '../../pages/createacct.html'
+      },
+	  {
+        name: 'resetpsw',
+        url: '/resetpsw',
+        templateUrl: '../../pages/resetpsw.html'
+      },
+	  {
+        name: 'termsandconditions',
+        url: '/termsandconditions',
+        templateUrl: '../../pages/termsandconditions.html'
+      }
   ]
   
     //registers each state with angular
