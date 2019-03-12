@@ -7,11 +7,45 @@ angular.module('states').config(function($stateProvider) {
         templateUrl: '../../pages/home.html',
         controller: 'homeController as HC',      
       },
-  
-      {
+        {
         name: 'about',
         url: '/about',
         templateUrl: '../../pages/about.html'
+      },
+      {
+        name: 'understand',
+        url: '/understand',
+        templateUrl: '../../pages/understand.html'
+      },
+      {
+        name: 'research',
+        url: '/research',
+        templateUrl: '../../pages/research.html'
+      },
+      {
+        name: 'entRes',
+        url: '/entRes',
+        templateUrl: '../../pages/entRes.html'
+      },
+      {
+        name: 'affil',
+        url: '/affil',
+        templateUrl: '../../pages/affil.html'
+      },
+      {
+        name: 'blog',
+        url: '/blog',
+        templateUrl: '../../pages/blog.html'
+      },
+      {
+        name: 'commentary',
+        url: '/commentary',
+        templateUrl: '../../pages/commentary.html'
+      },
+      {
+        name: 'calendar',
+        url: '/calendar',
+        templateUrl: '../../pages/calendar.html'
       },
       {
         name: 'users',
