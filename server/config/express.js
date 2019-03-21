@@ -5,17 +5,17 @@ var path = require('path'),
     bodyParser = require('body-parser'),
     config = require('./config')
     errorHandler = require('../helpers/errorHandler');
-    usersRouter = require('../routes/user')
+    usersRouter = require('../routes/userRoutes')
 
 
 module.exports.init = function() {
 
+mongoose.connect(config.db.uri);
+
 //app initialization    
 var app = express();
 
-
 /***   here all the things the app uses will be defined (routes)   ***/
-
 
 //enable request logging for development debugging
 app.use(morgan('dev'));

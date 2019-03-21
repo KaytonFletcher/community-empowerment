@@ -72,6 +72,11 @@ angular.module('states').config(function($stateProvider) {
         name: 'termsandconditions',
         url: '/termsandconditions',
         templateUrl: '../../pages/termsandconditions.html'
+      },
+    {
+        name: 'account',
+        url: '/account',
+        templateUrl: '../../pages/account.html'
       }
   ]
   
