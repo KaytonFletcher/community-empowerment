@@ -7,6 +7,5 @@ angular.module('users').controller('userController', ['$scope', 'Users',
           }, function(error) {
             console.log('Unable to retrieve users: ', error);
           });
-          
     }
 ]);
