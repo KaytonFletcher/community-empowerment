@@ -3,7 +3,7 @@ var users = require('../controllers/usersController.js'),
     router = express.Router();
 
 
-router.route('/account')
+router.route('/api/users')
     .get(users.list);  
 
 
