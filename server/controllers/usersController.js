@@ -8,6 +8,7 @@ exports.list = function(req, res) {
     // .sort() returns alphabetically by default
     User.find().sort('name').then(users => {
       res.send(users);
+      console.log('herro');
     }).catch(err => {
       res.status(400).send(err); 
       console.log('error: ' + err); 
