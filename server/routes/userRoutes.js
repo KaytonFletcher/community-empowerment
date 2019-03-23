@@ -4,7 +4,10 @@ var users = require('../controllers/usersController.js'),
 
 
 router.route('/')
-    .get(users.list);  
+    .get(users.list)
+    .post(users.create);
 
+router.route('/:userId')
+    .delete(users.delete);
 
 module.exports = router;
