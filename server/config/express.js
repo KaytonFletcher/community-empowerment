@@ -10,7 +10,7 @@ var path = require('path'),
 
 module.exports.init = function() {
 
-mongoose.connect(config.db.uri,  { useNewUrlParser: true } );
+mongoose.connect(config.db.uri,  {useMongoClient: true } );
 
 //app initialization    
 var app = express();

@@ -9,8 +9,19 @@ var userSchema = new Schema({
     email: {
         type: String, 
         required: true, 
+        unique: true, 
+        trim: true,
+        lowerCase: true,
+        match: [/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/]
+    },
+    password: {
+        type: String,
+        required: true,
         unique: true
-    }, 
+    } ,
+    organization: {
+        type: String
+    } ,
     created_at: Date,
     updated_at: Date
 });
