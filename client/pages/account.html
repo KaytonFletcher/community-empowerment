@@ -19,7 +19,7 @@
               <tr ng-repeat="user in users | filter : query">
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
-                <td><span style="color: red;" class="fas fa-user-slash"></span></td>
+                <td ng-click="deleteUser(user._id)"><span style="color: red;" class="fas fa-user-slash"></span></td>
               </tr>
             </table>
           </div>

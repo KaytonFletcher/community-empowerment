@@ -8,11 +8,34 @@ exports.list = function(req, res) {
     // .sort() returns alphabetically by default
     User.find().sort('name').then(users => {
       res.send(users);
-      console.log('herro');
     }).catch(err => {
       res.status(400).send(err); 
       console.log('error: ' + err); 
     }
     )
+  };
+
+exports.create = function(req, res) {
+      var user = new User(req.body);
   
-};
+      user.save(function(err) {
+        if(err) {
+          console.log(err);
+          res.status(400).send(err);
+        } else {
+          console.log('user saved');
+          res.json(user);
+        }
+      });
+    };
+
+exports.delete = function(req, res) {
+      // Gets user from request variable, then removes it and puts it in the response variable. 
+      var user = req.user; 
+      
+      user.remove(err=>{
+        if(err) throw err; 
+        res.json(user); 
+        console.log('user deleted');
+      })
+    };
