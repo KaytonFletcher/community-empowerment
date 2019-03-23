@@ -10,4 +10,6 @@ router.route('/')
 router.route('/:userId')
     .delete(users.delete);
 
+router.param('userId', users.findUserId);
+
 module.exports = router;

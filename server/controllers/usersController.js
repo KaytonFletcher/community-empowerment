@@ -39,3 +39,14 @@ exports.delete = function(req, res) {
         console.log('user deleted');
       })
     };
+
+exports.findUserId = function(req, res, next, id) {
+  User.findById(id).exec(function(err, user) {
+    if(err) {
+      res.status(400).send(err);
+    } else {
+      req.user = user;
+      next();
+    }
+  });
+};
