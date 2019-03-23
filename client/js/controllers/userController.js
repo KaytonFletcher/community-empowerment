@@ -9,6 +9,7 @@ angular.module('users').controller('userController', ['$scope', 'Users',
           });
 
           $scope.addUser = function() {
+            console.log('hello');
             Users.create($scope.newUser).then(function(response){
               $scope.users.push($scope.newUser); 
               $scope.newUser = {}; 
