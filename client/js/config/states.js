@@ -4,8 +4,7 @@ angular.module('states').config(function($stateProvider) {
       {
         name: 'home',
         url: '/',
-        templateUrl: '../../pages/home.html',
-        controller: 'homeController as HC',      
+        templateUrl: '../../pages/home.html',   
       },
         {
         name: 'about',
@@ -47,31 +46,31 @@ angular.module('states').config(function($stateProvider) {
         url: '/calendar',
         templateUrl: '../../pages/calendar.html'
       },
-      {
-        name: 'users',
-        url: '/users',
-        templateUrl: '../../pages/users.html',
-        controller: 'userController as UC'
-      },
-	  {
+	    {
         name: 'signin',
         url: '/signin',
         templateUrl: '../../pages/signin.html'
       },
-	  {
+	    {
         name: 'createacct',
         url: '/createacct',
         templateUrl: '../../pages/createacct.html'
       },
-	  {
+	    {
         name: 'resetpsw',
         url: '/resetpsw',
         templateUrl: '../../pages/resetpsw.html'
       },
-	  {
+	    {
         name: 'termsandconditions',
         url: '/termsandconditions',
         templateUrl: '../../pages/termsandconditions.html'
+      },
+      {
+        name: 'account',
+        url: '/account',
+        templateUrl: '../../pages/account.html' ,
+        controller: 'userController as UC'
       }
   ]
   
