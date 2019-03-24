@@ -7,6 +7,7 @@ angular.module('users').factory('Authenticate', function($http) {
         },
 
         register: function(user) {
+            //this is the post request for register, appending the user object to it (go to authRoutes.js)
             return $http.post('http://localhost:8080/api/auth/register/', user);
         },
 
