@@ -1,13 +1,13 @@
-angular.module('states').config(function($stateProvider) {
-    var states = 
+angular.module('states').config(function ($stateProvider) {
+  var states =
     [
       {
         name: 'home',
         url: '/',
         templateUrl: '../../pages/home.html',
-        controller: 'homeController as HC',      
+        controller: 'homeController as HC',
       },
-        {
+      {
         name: 'about',
         url: '/about',
         templateUrl: '../../pages/about.html'
@@ -53,31 +53,61 @@ angular.module('states').config(function($stateProvider) {
         templateUrl: '../../pages/users.html',
         controller: 'userController as UC'
       },
-	  {
+      {
         name: 'signin',
         url: '/signin',
         templateUrl: '../../pages/signin.html'
       },
-	  {
+      {
         name: 'createacct',
         url: '/createacct',
         templateUrl: '../../pages/createacct.html'
       },
-	  {
+      {
         name: 'resetpsw',
         url: '/resetpsw',
         templateUrl: '../../pages/resetpsw.html'
       },
-	  {
+      {
         name: 'termsandconditions',
         url: '/termsandconditions',
         templateUrl: '../../pages/termsandconditions.html'
+      },
+      {
+        name: 'S',
+        url: '/S',
+        templateUrl: '../../pages/S.html'
+      },
+      {
+        name: 'P',
+        url: '/P',
+        templateUrl: '../../pages/P.html'
+      },
+      {
+        name: 'O',
+        url: '/O',
+        templateUrl: '../../pages/O.html'
+      },
+      {
+        name: 'D',
+        url: '/D',
+        templateUrl: '../../pages/D.html'
+      },
+      {
+        name: 'E',
+        url: '/E',
+        templateUrl: '../../pages/E.html'
+      },
+      {
+        name: 'R',
+        url: '/R',
+        templateUrl: '../../pages/R.html'
       }
-  ]
-  
-    //registers each state with angular
-    states.forEach(function(state) {
-      $stateProvider.state(state);
-    });
-  
+    ]
+
+  //registers each state with angular
+  states.forEach(function (state) {
+    $stateProvider.state(state);
   });
+
+});
