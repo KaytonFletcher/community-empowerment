@@ -3,7 +3,7 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
 var config = require('../config/config');
 
-
+//this is the contrller function called in authRoutes when a post request is made to /api/auth/register
 exports.register = function(req, res) {
   
   var hashedPassword = bcrypt.hashSync(req.body.password, 8);
@@ -28,7 +28,8 @@ exports.register = function(req, res) {
             expiresIn: 86400 // expires in 24 hours
       });
 
-      res.status(200).send({ auth: true, token: token });
+      //here is how you return data, can be accessed in authController front end with res.data.auth, res.data.token
+      res.json({ auth: true, token: token });
       }
   });
 };
