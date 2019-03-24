@@ -54,7 +54,8 @@ angular.module('states').config(function($stateProvider) {
 	    {
         name: 'createacct',
         url: '/createacct',
-        templateUrl: '../../pages/createacct.html'
+        templateUrl: '../../pages/createacct.html',
+        controller: 'userController as UC'
       },
 	    {
         name: 'resetpsw',
