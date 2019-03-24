@@ -49,28 +49,50 @@ angular.module('states').config(function($stateProvider) {
 	    {
         name: 'signin',
         url: '/signin',
-        templateUrl: '../../pages/signin.html'
+        templateUrl: '../../pages/accountPages/signin.html',
+        controller: 'authController as AC'
       },
 	    {
         name: 'createacct',
         url: '/createacct',
-        templateUrl: '../../pages/createacct.html'
+        templateUrl: '../../pages/accountPages/createacct.html', 
+        controller: 'authController as AC'
       },
 	    {
         name: 'resetpsw',
         url: '/resetpsw',
-        templateUrl: '../../pages/resetpsw.html'
+        templateUrl: '../../pages/accountPages/resetpsw.html'
       },
-	    {
-        name: 'termsandconditions',
-        url: '/termsandconditions',
-        templateUrl: '../../pages/termsandconditions.html'
-      },
+	    
       {
         name: 'account',
         url: '/account',
-        templateUrl: '../../pages/account.html' ,
-        controller: 'userController as UC'
+        templateUrl: '../../pages/accountPages/account.html'
+      },
+      {
+        name: 'userAccount',
+        url: '/account/user',
+        templateUrl: '../../pages/accountPages/user.html',
+        controller: 'userController as UC',
+        data: {
+          authorization: true,
+          redirectTo: 'login'
+        }     
+      },
+      {
+        name: 'adminAccount',
+        url: '/account/admin',
+        templateUrl: '../../pages/accountPages/admin.html' ,
+        controller: 'userController as UC',
+        data: {
+          authorization: true,
+          redirectTo: 'login'
+        }
+      },
+      {
+        name: 'termsandconditions',
+        url: '/termsandconditions',
+        templateUrl: '../../pages/termsandconditions.html'
       }
   ]
   
@@ -78,5 +100,5 @@ angular.module('states').config(function($stateProvider) {
     states.forEach(function(state) {
       $stateProvider.state(state);
     });
-  
+
   });
