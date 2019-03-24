@@ -1,10 +1,11 @@
 var User = require('../models/userSchema.js');
 var mongoose = require('mongoose');
-
+var jwt = require('jsonwebtoken');
+var bcrypt = require('bcrypt');
+var config = require('../config/config');
 
 
 exports.list = function(req, res) {
-    /** TODO **/
    
     //editing find all function from bootcamp 3 to sort, empty brackets returns all users
     // .sort() returns alphabetically by default
@@ -15,5 +16,27 @@ exports.list = function(req, res) {
       console.log('error: ' + err); 
     }
     )
-  
+  };
+
+exports.delete = function(req, res) {
+      // Gets user from request variable, then removes it and puts it in the response variable. 
+      var user = req.user; 
+      
+      user.remove(err=>{
+        if(err) throw err; 
+        res.json(user); 
+        console.log('user deleted');
+      })
+    };
+
+exports.findUserId = function(req, res, next, id) {
+
+  User.findById(id).exec(function(err, user) {
+    if(err) {
+      res.status(400).send(err);
+    } else {
+      req.user = user;
+      next();
+    }
+  });
 };

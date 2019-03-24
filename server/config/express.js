@@ -6,6 +6,7 @@ var path = require('path'),
     config = require('./config')
     errorHandler = require('../helpers/errorHandler');
     usersRouter = require('../routes/userRoutes')
+    authRoutes = require('../routes/authRoutes')
 
 
 module.exports.init = function() {
@@ -32,6 +33,8 @@ app.use(errorHandler);
 
 //links to user factory in frontend
 app.use('/api/users', usersRouter);
+
+app.use('/api/auth', authRoutes);
 
 //path resolution
 app.all('/*', function(req, res){

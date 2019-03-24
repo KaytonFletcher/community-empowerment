@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 var userSchema = new Schema({
     name: {
         type: String, 
-        required: true,
+        required: false,
     }, 
     email: {
         type: String, 
@@ -14,14 +14,17 @@ var userSchema = new Schema({
         lowerCase: true,
         match: [/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/]
     },
-    password: {
-        type: String,
-        required: true,
-        unique: true
-    } ,
     organization: {
         type: String
-    } ,
+    } , 
+    password: {
+        type: String,
+        required: true, 
+    },
+    admin: {
+        type: Boolean,
+        required: true
+    },
     created_at: Date,
     updated_at: Date
 });
