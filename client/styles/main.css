@@ -25,10 +25,10 @@
     text-align: center;
 }
 .column-left.bl{    /*bottom left column (upcoming events)*/
-    border-top-style: solid;
+    /*border-top-style: solid;
     border-top-color: black;
     border-right-style: solid;
-    border-right-color: black;
+    border-right-color: black;*/
 }
 
 .column-main{
