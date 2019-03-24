@@ -72,6 +72,36 @@ angular.module('states').config(function ($stateProvider) {
         url: '/account',
         templateUrl: '../../pages/account.html' ,
         controller: 'userController as UC'
+      },
+      {
+        name: 'S',
+        url: '/S',
+        templateUrl: '../../pages/S.html'
+      },
+      {
+        name: 'P',
+        url: '/P',
+        templateUrl: '../../pages/P.html'
+      },
+      {
+        name: 'O',
+        url: '/O',
+        templateUrl: '../../pages/O.html'
+      },
+      {
+        name: 'D',
+        url: '/D',
+        templateUrl: '../../pages/D.html'
+      },
+      {
+        name: 'E',
+        url: '/E',
+        templateUrl: '../../pages/E.html'
+      },
+      {
+        name: 'R',
+        url: '/R',
+        templateUrl: '../../pages/R.html'
       }
     ]
 
