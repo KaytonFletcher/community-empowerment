@@ -76,7 +76,7 @@ angular.module('states').config(function($stateProvider) {
         controller: 'userController as UC',
         data: {
           authorization: true,
-          redirectTo: 'login'
+          redirectTo: 'signin'
         }     
       },
       {
@@ -86,7 +86,7 @@ angular.module('states').config(function($stateProvider) {
         controller: 'userController as UC',
         data: {
           authorization: true,
-          redirectTo: 'login'
+          redirectTo: 'signin'
         }
       },
       {

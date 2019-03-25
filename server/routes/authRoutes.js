@@ -1,7 +1,7 @@
 var auth = require('../controllers/authController.js'), 
     express = require('express'), 
     router = express.Router(),
-    VerifyToken = require('../helpers/VerifyToken');
+    verifyToken = require('../helpers/VerifyToken');
 
 //here we use the backend authController's "register" function, 
 // when a post request is made to the /register route    
@@ -11,10 +11,13 @@ router.route('/register')
     .post(auth.register);
 
 router.route('/login')
-    .post(auth.validate);   
+    .post(auth.validate);
+    
+router.route('/verify')    
+    .get(verifyToken)
     
 router.route('/getUser')    
-    .get(VerifyToken, auth.getUser)
+    .get(verifyToken, auth.getUser)
 
 
 module.exports = router;
