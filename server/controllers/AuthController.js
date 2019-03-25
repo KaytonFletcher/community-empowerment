@@ -3,7 +3,7 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
 var config = require('../config/config');
 
-
+//this is the contrller function called in authRoutes when a post request is made to /api/auth/register
 exports.register = function(req, res) {
   
   var hashedPassword = bcrypt.hashSync(req.body.password, 8);
@@ -25,10 +25,11 @@ exports.register = function(req, res) {
 
       // create a token
       var token = jwt.sign({ id: user._id }, config.secret, {
-            expiresIn: 86400 // expires in 24 hours
+            expiresIn: 1 //86400 expires in 24 hours
       });
 
-      res.status(200).send({ auth: true, token: token });
+      //here is how you return data, can be accessed in authController front end with res.data.auth, res.data.token
+      res.status(200).json({ auth: true, token: token });
       }
   });
 };
@@ -44,13 +45,13 @@ exports.validate = function(req, res) {
 
       //compares hash of password sent to hash in database, returns true if matched
       var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-      if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
+      if (!passwordIsValid) {console.log("bad password"); return res.status(401).send({ auth: false, token: null });}
       var token = jwt.sign({ id: user._id }, config.secret, {
-        expiresIn: 86400 // expires in 24 hours
+        expiresIn: 3600 // expires in 24 hours
       });
 
 
-      res.json({ auth: true, admin: user.admin ,token: token });
+      res.status(200).json({ auth: true, admin: user.admin ,token: token });
   });
 };
 
