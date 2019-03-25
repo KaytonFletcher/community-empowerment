@@ -8,8 +8,7 @@ angular.module('users').controller('authController', ['$scope', '$state','Authen
 
                 if(res.data.auth){
                     localStorage.setItem('token', res.data.token);
-                    $scope.getUser();
-
+                
                     if(res.data.admin){
                         $state.go('adminAccount');
                     } else { $state.go('userAccount'); }
