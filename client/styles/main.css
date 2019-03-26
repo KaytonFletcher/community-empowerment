@@ -39,37 +39,22 @@
 }
 
 
-
-/*.column{
-    float: left;*/
-    /*margin-top: 1%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+/*body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
 }*/
-/*
-.column.left{
-    width: 20%;
-    border-bottom-style: solid;
-    border-bottom-color: black;
-    border-right-style: solid;
-    border-right-color: black;
-    border-top-style: solid;
-    border-top-color: black;
-    text-align: center;
+
+#loading {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
-.column.main{
-    width: 80%;
-    border-bottom-style: solid;
-    border-bottom-color: black;
-    border-top-style: solid;
-    border-top-color: black;
-    text-align: center;
-
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
 }
-
-@media screen and (max-width: 600px) {
-    .column.left, .column.main {
-        width: 100%;
-    }
-}*/
 
