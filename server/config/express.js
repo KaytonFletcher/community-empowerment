@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 
 //serving static files
 app.use('/', express.static(__dirname + '/../../client'));
-app.use('/public', express.static(__dirname + '/../../public'));
+//app.use('/public', express.static(__dirname + '/../../public'));
 
 // global error handler 
 app.use(errorHandler);
@@ -36,10 +36,16 @@ app.use('/api/users', usersRouter);
 
 app.use('/api/auth', authRoutes);
 
+
 //path resolution
-app.all('/*', function(req, res){
+app.use('*', function(req, res, next){
+    console.log("RESOLVING PATH");
+    console.log("resolve request: " + req.body);
     //resolving the path insured the directory was found, loading the index.html page
+    console.log(path.resolve('client/index.html'));
+
     res.sendFile(path.resolve('client/index.html'));
+    
   });
 
 return app;
