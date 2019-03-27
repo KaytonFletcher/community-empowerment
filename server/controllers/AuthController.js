@@ -25,11 +25,11 @@ exports.register = function(req, res) {
 
       // create a token
       var token = jwt.sign({ id: user._id }, config.secret, {
-            expiresIn: 1 //86400 expires in 24 hours
+            expiresIn: 3600 //86400 expires in 24 hours
       });
 
       //here is how you return data, can be accessed in authController front end with res.data.auth, res.data.token
-      res.status(200).json({ auth: true, token: token });
+      res.status(201).json({ auth: true, token: token });
       }
   });
 };
@@ -49,7 +49,7 @@ exports.validate = function(req, res) {
       var token = jwt.sign({ id: user._id }, config.secret, {
         expiresIn: 3600 // expires in 24 hours
       });
-
+      console.log("sending status");
 
       res.status(200).json({ auth: true, admin: user.admin ,token: token });
   });
@@ -61,7 +61,8 @@ exports.getUser = function(req, res, next) {
     if (err) return res.status(500).send("There was a problem finding the user.");
     if (!user) return res.status(404).send("No user found.");
     
-    res.json({ user: user });
+    console.log("\nFOUND USER LETS GOOOO\n");
+    res.status(200).json({ user: user });
   });
 
 };

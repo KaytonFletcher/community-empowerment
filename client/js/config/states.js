@@ -2,6 +2,11 @@ angular.module('states').config(function($stateProvider) {
     var states = 
     [
       {
+          name: "otherwise", 
+          url: "*path",
+          templateUrl: "../../pages/home.html"
+      },
+      {
         name: 'home',
         url: '/',
         templateUrl: '../../pages/home.html',   
@@ -75,8 +80,9 @@ angular.module('states').config(function($stateProvider) {
         templateUrl: '../../pages/accountPages/user.html',
         controller: 'userController as UC',
         data: {
+          redirectTo: 'signin' ,
           authorization: true,
-          redirectTo: 'signin'
+          admin: false
         }     
       },
       {
@@ -85,8 +91,9 @@ angular.module('states').config(function($stateProvider) {
         templateUrl: '../../pages/accountPages/admin.html' ,
         controller: 'userController as UC',
         data: {
+          redirectTo: 'signin' ,
           authorization: true,
-          redirectTo: 'signin'
+          admin: true
         }
       },
       {
