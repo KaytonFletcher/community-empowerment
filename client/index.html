@@ -22,7 +22,7 @@
     <script src="js/config/states.js"></script>
     <script src="js/controllers/userController.js"></script>
     <script src="js/factories/userFactory.js"></script>
-
+    
     <!-- This sets the starting url and gets rid of #! -->
     <base href="/">
 
@@ -39,7 +39,7 @@
 
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
 
-      <a ui-sref="Logo" class="navbar-brand" ui-sref-active="active">SPODER</a>
+      <a ui-sref="Logo" class="navbar-brand" ui-sref-active="active">Entrepreneurship Empowerment</a>
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -83,9 +83,11 @@
         </li>
 		
 		<li class="nav-item">
-          <a ui-sref="signin" class="nav-link" ui-sref-active="active">Sign In</a>
+       <a ui-sref="home" class= "nav-link" ui-sref-active="active" <button onclick="document.getElementById('id01').style.display='block'">Sign Up</button> </a>
+     <!--
+      <a ui-sref="signin" class="nav-link" ui-sref-active="active">Sign In</a>
+     -->
         </li>
-        
 		
       </ul>
 
@@ -94,6 +96,43 @@
 
     <!-- This is where code gets injected from html files in /pages -->
     <ui-view></ui-view>
-
-  </body>
+   <!-- The Modal (contains the Sign Up form) -->
+  
+<div id="id01" class="modal">
+   
+    <form class="modal-content" action="/action_page.php">
+      <div class="container">
+        <h1>Sign Up</h1>
+        <p>Please create an account to access our resources.</p>
+        <hr>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+  
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+  
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+  
+  
+        <p>By creating an account you agree to our <a href="termsandconditions" style="color:dodgerblue">Terms & Privacy</a>.</p>
+  
+        <div class="clearfix">
+            <button type="submit" class="signup">Sign Up</button>
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script>
+      // Get the modal
+      var modal = document.getElementById('id01');
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+      </script>
 </html>
