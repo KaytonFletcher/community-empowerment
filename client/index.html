@@ -46,9 +46,8 @@
           <a ui-sref="home" class="nav-link" ui-sref-active="active">Home</a>
         </li>
         <li class="nav-item">
-          <a ui-sref="about" class="nav-link" ui-sref-active="active">About Us</a>
+          <a href="identifier" class="nav-link" ui-sref-active="active">About Us</a>
         </li>
-
         <li class="nav-item dropdown">
           <a ui-sref="info" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" ui-sref-active="active">
             Resources
@@ -83,7 +82,7 @@
         </li>
 		
 		<li class="nav-item">
-       <a ui-sref="home" class= "nav-link" ui-sref-active="active" <button onclick="document.getElementById('id01').style.display='block'">Sign Up</button> </a>
+       <a ui-sref="home" class= "nav-link" ui-sref-active="active" <button onclick="document.getElementById('id01').style.display='block'">Sign In</button> </a>
      <!--
       <a ui-sref="signin" class="nav-link" ui-sref-active="active">Sign In</a>
      -->
@@ -99,10 +98,9 @@
    <!-- The Modal (contains the Sign Up form) -->
   
 <div id="id01" class="modal">
-   
     <form class="modal-content" action="/action_page.php">
       <div class="container">
-        <h1>Sign Up</h1>
+        <h1>Sign In</h1>
         <p>Please create an account to access our resources.</p>
         <hr>
         <label for="email"><b>Email</b></label>
@@ -111,14 +109,9 @@
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
   
-        <label for="psw-repeat"><b>Repeat Password</b></label>
-        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-  
-  
-        <p>By creating an account you agree to our <a href="termsandconditions" style="color:dodgerblue">Terms & Privacy</a>.</p>
-  
+        <p>Don't have an account? Please create one to access our resources: <a href="createacct" onclick="document.getElementById('id01').style.display='none'" style="color:dodgerblue">Create Account</a></p>
         <div class="clearfix">
-            <button type="submit" class="signup">Sign Up</button>
+            <button type="submit" class="signup">Sign In</button>
           <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
         </div>
       </div>
