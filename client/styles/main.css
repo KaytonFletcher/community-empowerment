@@ -84,7 +84,7 @@ button.fullwidth{
     width: 100%;
 }
 
-.submit.fullwidth{
+.signup.fullwidth{
     width: 100%;
 }
   
@@ -167,4 +167,33 @@ hr {
     width: 100%;
   }
   
+}
+
+.textarea-req{
+    width: 100%;
+    height: 150px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #f1f1f1;
+    resize: none;
+    padding: 15px;
+}
+
+.modal.fade.req-modal{
+    text-align: left;
+}
+
+.datetime-req{
+    box-sizing: border-box;
+    border: none;
+    background-color: #f1f1f1;
+    resize: none;
+    padding: 15px;
+    top: -25px;
+    margin-bottom: 10px;
+}
+
+.req-moveup{
+    position: relative;
+    top: -15px;
 }
