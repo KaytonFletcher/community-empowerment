@@ -83,6 +83,10 @@ button {
 button.fullwidth{
     width: 100%;
 }
+
+.submit.fullwidth{
+    width: 100%;
+}
   
 button:hover {
     opacity:1;
