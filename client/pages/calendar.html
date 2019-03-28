@@ -116,7 +116,7 @@
                 <div id='calendarList'></div>
 
                 <button style="margin-top: 5%" type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestEventModal" >Request Event</button>
-                <div id="requestEventModal" class="modal fade" role="dialog">
+                <div id="requestEventModal" class="modal fade req-modal" role="dialog">
                     <div class="modal-dialog">
                   
                       <!-- Modal content-->
@@ -128,6 +128,25 @@
                         <div class="modal-body">
                           <label for="eventtitle"><b>Event Title</b></label>
                           <input type="text" placeholder="Enter Event Title" name="eventtitle" required>
+
+                          <div class="req-moveup">
+                          <label for="eventdate"><b>Date</b></label> <br>
+                          <input type="date" class="datetime-req" name="eventdate" required> <br>
+
+                          <label for="starttime"><b>Time Period</b></label> <br>
+
+                          <input type="time" class="datetime-req" name="starttime" required>
+                          <span> to </span>
+                          <input type="time" class="datetime-req" name="endtime" required> <br>
+                          
+                          
+
+                          <label for="eventdesc"><b>Event Description</b></label>
+                          <textarea class="textarea-req" placeholder="Enter Event Description" name="eventdesc" required></textarea>
+
+                          </div>
+
+                          <button type="submit" class="signup fullwidth">Submit Request</button>
                         </div>
                         
                       </div>
