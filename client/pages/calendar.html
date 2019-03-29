@@ -1,1 +1,175 @@
-<h3>Calendar for upcoming events</h3>
+<!-- Below scripts if for full calendar -->
+<script>
+    
+    
+      var calendarEl = document.getElementById('calendar');
+      
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+  
+        height: 'auto',
+
+        
+
+        plugins: [ 'interaction', 'dayGrid', 'googleCalendar' ],
+  
+        header: {
+          left: 'prev,next',
+          center: 'title',
+          right: 'today'
+        },
+
+        
+  
+        displayEventTime: false, // don't show the time column in list view
+  
+        
+        googleCalendarApiKey: 'AIzaSyCUCBUEbfvOFZ_k3VbNOWfA8B32Onx-nrg',
+  
+        
+        events: 'spoder.dev@gmail.com',
+  
+        eventClick: function(arg) {
+          // opens events in a popup window
+          window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
+  
+          arg.jsEvent.preventDefault() // don't navigate in main tab
+        },
+  
+        loading: function(bool) {
+          
+          document.getElementById('loading').style.display =
+            bool ? 'block' : 'none';
+        }
+  
+      });
+  
+      calendar.render();
+    
+
+    
+  
+  </script>
+
+
+<!-- Below script is for list of events in left column -->
+<script>
+    
+    
+    var calendarE2 = document.getElementById('calendarList');
+    
+    var calendarList = new FullCalendar.Calendar(calendarE2, {
+
+      plugins: [ 'interaction', 'list', 'googleCalendar' ],
+      defaultView: 'listWeek',
+
+      header: {
+        left: 'prev,next',
+        center: '',
+        right: 'today'
+      },
+
+      displayEventTime: false, // don't show the time column in list view
+
+      
+      googleCalendarApiKey: 'AIzaSyCUCBUEbfvOFZ_k3VbNOWfA8B32Onx-nrg',
+
+      
+      events: 'spoder.dev@gmail.com',
+
+      eventClick: function(arg) {
+        // opens events in a popup window
+        window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
+
+        arg.jsEvent.preventDefault() // don't navigate in main tab
+      },
+
+      loading: function(bool) {
+        
+        document.getElementById('loading').style.display =
+          bool ? 'block' : 'none';
+      }
+
+    });
+
+    calendarList.render();
+  
+
+  
+
+</script>
+
+<div>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 column-left">
+                <h2></h2>
+            </div>
+            <div class="col-lg-8 column-main">      <!-- On devices smaller than "large", these columns will stack -->
+                <!--<h2>Calendar</h2>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 column-left bl">
+                <h2 style="margin-bottom: 5%">Upcoming Events</h2>
+                
+
+                <div id='calendarList'></div>
+
+                <button style="margin-top: 5%" type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestEventModal" >Request Event</button>
+                <div id="requestEventModal" class="modal fade req-modal" role="dialog">
+                    <div class="modal-dialog">
+                  
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title"></h4>
+                        </div>
+                        <div class="modal-body">
+                          <label for="eventtitle"><b>Event Title</b></label>
+                          <input type="text" placeholder="Enter Event Title" name="eventtitle" required>
+
+                          <div class="req-moveup">
+                          <label for="eventdate"><b>Date</b></label> <br>
+                          <input type="date" class="datetime-req" name="eventdate" required> <br>
+
+                          <label for="starttime"><b>Time Period</b></label> <br>
+
+                          <input type="time" class="datetime-req" name="starttime" required>
+                          <span> to </span>
+                          <input type="time" class="datetime-req" name="endtime" required> <br>
+                          
+                          
+
+                          <label for="eventdesc"><b>Event Description</b></label>
+                          <textarea class="textarea-req" placeholder="Enter Event Description" name="eventdesc" required></textarea>
+
+                          </div>
+
+                          <button type="submit" class="signup fullwidth">Submit Request</button>
+                        </div>
+                        
+                      </div>
+                  
+                    </div>
+                  </div>
+
+                
+            </div>
+            <div class="col-lg-8" align="center">      <!-- On devices smaller than "large", these columns will stack -->
+                <!--<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ccccff&amp;src=spoder.dev%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>-->
+                
+                
+              <!-- If these divs are moved to index.html, calendar shows ???-->
+              <div id='loading'>loading...</div>
+                
+              <div id='calendar'></div>
+                
+
+            </div>
+        </div>
+        <div class="row">
+            
+        </div>
+    </div>
+</div>
