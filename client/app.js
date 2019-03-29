@@ -5,7 +5,7 @@ angular.module('users', []);
 //   return $window._; // assumes underscore has already been loaded on the page
 // }]);
 
-var app = angular.module('SpoderApp', ['ui.router', 'states', 'users']);
+var app = angular.module('SpoderApp', ['ui.router', 'ui.bootstrap', 'states', 'users']);
 
 app.config(["$locationProvider" , function($locationProvider, $urlRouterProvider){
     $locationProvider.html5Mode(true);

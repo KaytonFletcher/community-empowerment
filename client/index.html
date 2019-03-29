@@ -12,6 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/angular.bootstrap/0.11.0/ui-bootstrap-tpls.js"></script>
     
     <!-- added font awesome cdn for extra styling (go crazy) -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -41,16 +42,15 @@
 
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
 
-      <a ui-sref="Logo" class="navbar-brand" ui-sref-active="active">SPODER</a>
+      <a ui-sref="Logo" class="navbar-brand" ui-sref-active="active">Entrepreneurship Empowerment</a>
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a ui-sref="home" class="nav-link" ui-sref-active="active">Home</a>
         </li>
         <li class="nav-item">
-          <a ui-sref="about" class="nav-link" ui-sref-active="active">About Us</a>
+          <a href="identifier" class="nav-link" ui-sref-active="active">About Us</a>
         </li>
-
         <li class="nav-item dropdown">
           <a ui-sref="info" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" ui-sref-active="active">
             Resources
@@ -84,18 +84,47 @@
           <a ui-sref="account" class="nav-link" ui-sref-active="active">Account</a>
         </li>
 		
-		<li class="nav-item">
-          <a ui-sref="signin" class="nav-link" ui-sref-active="active">Sign In</a>
+        <li class="nav-item">
+          <a class="nav-link" onclick="document.getElementById('signin-modal').style.display='block'">Sign In </a>
         </li>
-        
 		
-      </ul>
-
-    </nav>
+    </ul>
+ </nav>
         
-
     <!-- This is where code gets injected from html files in /pages -->
-    <ui-view></ui-view>
+   <ui-view></ui-view>
+    
 
-  </body>
+   <div id="signin-modal" class="modal">
+    <form class="modal-content" ng-controller="authController" ng-submit="login()" >
+      <div class="container">
+        <h1>Sign In</h1>
+        <p>Please create an account to access our resources.</p>
+        <hr>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required ng-model="login.user.email">
+  
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required ng-model="login.user.password" >
+
+        <p>Don't have an account? Please create one to access our resources: <a href="createacct" onclick="document.getElementById('signin-modal').style.display='none'" style="color:dodgerblue">Create Account</a></p>
+        <div class="clearfix">
+            <button type="submit" onclick="document.getElementById('signin-modal').style.display='none'" class="signup">Sign In</button>
+          <button type="button" onclick="document.getElementById('signin-modal').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <script>
+      // Get the modal
+      var modal = document.getElementById('signin-modal');
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+      </script>   
+  
 </html>
