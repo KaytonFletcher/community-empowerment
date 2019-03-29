@@ -1,5 +1,5 @@
-angular.module('states').config(function($stateProvider) {
-    var states = 
+angular.module('states').config(function ($stateProvider) {
+  var states =
     [
       {
           name: "otherwise", 
@@ -11,7 +11,7 @@ angular.module('states').config(function($stateProvider) {
         url: '/',
         templateUrl: '../../pages/home.html',   
       },
-        {
+      {
         name: 'about',
         url: '/about',
         templateUrl: '../../pages/about.html'
@@ -54,8 +54,12 @@ angular.module('states').config(function($stateProvider) {
 	    {
         name: 'signin',
         url: '/signin',
-        templateUrl: '../../pages/accountPages/signin.html',
-        controller: 'authController as AC'
+        onEnter: function($modal){
+            var modalInstance;
+            modalInstance = $modal.open( { templateUrl: '../../pages/accountPages/signin.html'  });
+            console.log(modalInstance);
+
+        }
       },
 	    {
         name: 'createacct',
@@ -100,12 +104,43 @@ angular.module('states').config(function($stateProvider) {
         name: 'termsandconditions',
         url: '/termsandconditions',
         templateUrl: '../../pages/termsandconditions.html'
+      },
+      {
+        name: 'S',
+        url: '/S',
+        templateUrl: '../../pages/S.html'
+      },
+      {
+        name: 'P',
+        url: '/P',
+        templateUrl: '../../pages/P.html'
+      },
+      {
+        name: 'O',
+        url: '/O',
+        templateUrl: '../../pages/O.html'
+      },
+      {
+        name: 'D',
+        url: '/D',
+        templateUrl: '../../pages/D.html'
+      },
+      {
+        name: 'E',
+        url: '/E',
+        templateUrl: '../../pages/E.html'
+      },
+      {
+        name: 'R',
+        url: '/R',
+        templateUrl: '../../pages/R.html'
       }
-  ]
-  
-    //registers each state with angular
-    states.forEach(function(state) {
-      $stateProvider.state(state);
-    });
+    ]
 
+
+  //registers each state with angular
+  states.forEach(function (state) {
+    $stateProvider.state(state);
   });
+
+});
