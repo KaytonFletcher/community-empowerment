@@ -25,11 +25,13 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 //serving static files
+app.use('/js', express.static(__dirname + '/../../client/js'));
+app.use('/styles', express.static(__dirname + '/../../client/styles'));
 app.use('/', express.static(__dirname + '/../../client'));
 //app.use('/public', express.static(__dirname + '/../../public'));
 
 // global error handler 
-app.use(errorHandler);
+//app.use(errorHandler);
 
 //links to user factory in frontend
 app.use('/api/users', usersRouter);
@@ -37,16 +39,10 @@ app.use('/api/users', usersRouter);
 app.use('/api/auth', authRoutes);
 
 
-//path resolution
-app.use('*', function(req, res, next){
-    console.log("RESOLVING PATH");
-    console.log("resolve request: " + req.body);
-    //resolving the path insured the directory was found, loading the index.html page
-    console.log(path.resolve('client/index.html'));
+app.use('/*', function(req, res) {
+  res.sendFile(path.resolve('client/index.html'));
+});
 
-    res.sendFile(path.resolve('client/index.html'));
-    
-  });
 
 return app;
 
