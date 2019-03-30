@@ -1,7 +1,9 @@
+    
+    
     <!-- Below is SPODER popover boxes -->
   
     <div class="spodersquares">
-        <a ui-sref="S" tabindex="0" class="mybox rounded" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Supportive architecture">
+        <a tabindex="0" id="spoderslide" class="mybox rounded" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Supportive architecture">
           <span class="letter">S</span>
         </a>
   
@@ -27,6 +29,17 @@
   
       </div>
       <!--<div id="identifier">...TO JUMP HERE</div>-->
+      <h1><div id="tee">GO GO INSPECTOR GADGET</div></h1>
+      <p class="hide">
+      test test
+      </p>
+      
+      <script>
+      $('#spoderslide').click(function(){
+          $('p').toggleClass('hide').toggleClass('show');
+          return false;
+      });
+      </script>   
       
       <h1>SPODER</h1>
       <p>SPODERSPODERSPODERSPODERSPODERSPODERSPODERSPODERSPODERSPODER
