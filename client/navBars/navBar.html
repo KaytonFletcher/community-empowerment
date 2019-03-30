@@ -1,0 +1,8 @@
+<ul ng-controller="navBarController" class="navbar navbar-expand-sm bg-light navbar-light" role="navigation">
+  <ul class="navbar-nav ml-auto">
+      <li ng-class="nav-item" ng-repeat="page in pages">
+         <a ng-if="(page.showForUser == true && authController.user == true) || (page.showForGuest == true && authController.user == false)" 
+         ui-sref="{{page.name}}" ui-sref-active="active" class="nav-link">{{page.name}}</a> 
+      </li>
+  </ul>
+</ul>
