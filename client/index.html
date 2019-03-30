@@ -23,6 +23,7 @@
     <script src="app.js"></script>
     <script src="js/config/states.js"></script>
     <script src="js/controllers/userController.js"></script>
+    <script src="js/controllers/navBarController.js"></script>
     <script src="js/factories/userFactory.js"></script>
     <script src="js/controllers/authController.js"></script>
     <script src="js/factories/authFactory.js"></script>
@@ -55,61 +56,22 @@
  
     
   <body ng-app="SpoderApp">
-      
-
-    <nav class="navbar navbar-expand-sm bg-light navbar-light">
-
-      <a ui-sref="Logo" class="navbar-brand" ui-sref-active="active">Entrepreneurship Empowerment</a>
-
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a ui-sref="home" class="nav-link" ui-sref-active="active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="identifier" class="nav-link" ui-sref-active="active">About Us</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a ui-sref="info" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" ui-sref-active="active">
-            Resources
-          </a>
-          <div class="dropdown-menu">
-            <a ui-sref="understand" class="dropdown-item" ui-sref-active="active">Understanding the SPODER Model</a>
-            <a ui-sref="research" class="dropdown-item" ui-sref-active="active">Research</a>
-            <a ui-sref="entRes" class="dropdown-item" ui-sref-active="active">Entrepreneurship Resources</a>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a ui-sref="affil" class="nav-link" ui-sref-active="active">Affiliates and Partners</a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a ui-sref="community" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" ui-sref-active="active">
-            Community
-          </a>
-          <div class="dropdown-menu">
-            <a ui-sref="blog" class="dropdown-item" ui-sref-active="active">Blog</a>
-            <a ui-sref="commentary" class="dropdown-item" ui-sref-active="active">Commentary</a>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <a ui-sref="calendar" class="nav-link" ui-sref-active="active">Calendar/Upcoming Events</a>
-        </li>
-
-        <li class="nav-item">
-          <a ui-sref="account" class="nav-link" ui-sref-active="active">Account</a>
-        </li>
-		
-        <li class="nav-item">
-          <a class="nav-link" onclick="document.getElementById('signin-modal').style.display='block'">Sign In </a>
-        </li>
-		
-    </ul>
- </nav>
+      <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <a ui-sref="Logo" class="navbar-brand" ui-sref-active="active">SPODER</a>
+        <ul ng-controller="NavbarCtrl" class="navbar-nav ml-auto">
+            <li class="nav-item" ng-repeat="page in pages">
+                <a ui-sref="{{page.ref}}" ui-sref-active="active" class="nav-link">{{page.name}}</a> 
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="document.getElementById('signin-modal').style.display='block'">Sign In </a>
+            </li>
+          </ul>
+        <!-- <div ng-include src="'navBars/navBar.html'"></div> -->
         
+        
+      </nav>
     
-    
+        
     <!-- This is where code gets injected from html files in /pages -->
    <ui-view></ui-view>
     

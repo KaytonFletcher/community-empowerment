@@ -1,7 +1,9 @@
 
 //passed the ng scope objects, states to go to, and Authenticate factory to the controller function
-angular.module('users').controller('authController', ['$scope', '$state','Authenticate', 
-    function($scope, $state, Authenticate) {
+angular.module('users').controller('authController', ['$scope', '$window', '$state','Authenticate', 
+    function($scope, $window, $state, Authenticate) {
+        $scope.user = false; 
+        
         $scope.login = function() {
             console.log('logging in....');
             Authenticate.login($scope.login.user).then(function(res){
@@ -10,12 +12,14 @@ angular.module('users').controller('authController', ['$scope', '$state','Authen
                 if(res.data.auth){
                     localStorage.setItem('token', res.data.token);
                 
-                    $state.go('adminAccount')
-
-                    // if(res.data.admin){
-                    //     console.log("going to admin account");
-                    //     $state.go('adminAccount');
-                    // } else { $state.go('userAccount'); }
+                    if(res.data.admin){
+                        $state.go('adminAccount');
+                        //$window.location.href = "http://" + $window.location.host + "/account/admin";
+                        location.reload(); 
+                    } else { 
+                        $state.go('userAccount', {}, {reload: true});
+                        //$window.location.href = "http://" + $window.location.host + "/account/user";
+                     }
                 
                 } else {
                     console.log("Wrong email or password");
@@ -37,6 +41,7 @@ angular.module('users').controller('authController', ['$scope', '$state','Authen
                 //whatever is sent back can be accessed through res.data.thingsentback
                 console.log("registered!!!")
                 localStorage.setItem('token', res.data.token);
+                $scope.user = true; 
 
                 //no one is an admin when registered, go to user account
                 $state.go('userAccount');
@@ -49,11 +54,11 @@ angular.module('users').controller('authController', ['$scope', '$state','Authen
 
         $scope.getUser = function() {
             Authenticate.getUser(localStorage.getItem('token')).then(function(res){
-                
+                $scope.user = true; 
                 console.log("got the user!! " + res.data.user);
 
             },function(error){
-                /* DISPLAY ERROR MESSAGE TO USER IN HTML */
+                $scope.user = false; 
                 console.log('User not authenticated ', error);
             });
         };
