@@ -5,20 +5,28 @@ angular.module('users', []);
 //   return $window._; // assumes underscore has already been loaded on the page
 // }]);
 
-var app = angular.module('SpoderApp', ['ui.router', 'ui.bootstrap', 'states', 'users']);
+var app = angular.module('SpoderApp', ['ui.router','states', 'users']);
 
-app.config(["$locationProvider" , function($locationProvider, $urlRouterProvider){
+app.config(["$locationProvider" , function($locationProvider){
     $locationProvider.html5Mode(true);
-
 }]);
 
 
-
-app.run( function($transitions, Authenticate) {
+app.run( function($transitions, Authenticate, $rootScope) {
    
+    if(!$rootScope.currentUser){
+        console.log("Checking if user is logged in!");
+
+        Authenticate.getUser(localStorage.getItem('token')).then(function(res){
+            $rootScope.currentUser = res.data.user;
+        },function(error){
+            console.log('No token in storage or token expired', error);
+        });
+    }
+
     $transitions.onStart({}, function(transition) {
         const st = transition.to();
-        console.log(st);
+
       //if state to go to needs authentification
         if (st.data && st.data.authorization) {
    
@@ -40,8 +48,8 @@ app.run( function($transitions, Authenticate) {
                             return transition.router.stateService.target('home');
                        }else {
                            console.log("success boys");
+                           $rootScope.currentUser = res.data.user;
                        }
-
                 }
             },function(error){
                 console.log('User not authenticated ', error);

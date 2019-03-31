@@ -10,6 +10,8 @@
     
     <!-- boostrap 4 javascript source and css styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -22,7 +24,7 @@
 
     <script src="app.js"></script>
     <script src="js/config/states.js"></script>
-    <script src="js/controllers/userController.js"></script>
+    <script src="js/controllers/adminController.js"></script>
     <script src="js/controllers/navBarController.js"></script>
     <script src="js/factories/userFactory.js"></script>
     <script src="js/controllers/authController.js"></script>
@@ -58,17 +60,25 @@
   <body ng-app="SpoderApp">
       <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <a ui-sref="Logo" class="navbar-brand" ui-sref-active="active">SPODER</a>
-        <ul ng-controller="NavbarCtrl" class="navbar-nav ml-auto">
-            <li class="nav-item" ng-repeat="page in pages">
+
+    
+          <ul ng-controller="NavbarCtrl" class="navbar-nav ml-auto" ng-if="!currentUser">
+            <li class="nav-item" ng-repeat="page in signoutPages">
                 <a ui-sref="{{page.ref}}" ui-sref-active="active" class="nav-link">{{page.name}}</a> 
             </li>
             <li class="nav-item">
                 <a class="nav-link" onclick="document.getElementById('signin-modal').style.display='block'">Sign In </a>
             </li>
           </ul>
-        <!-- <div ng-include src="'navBars/navBar.html'"></div> -->
-        
-        
+
+          <ul ng-controller="NavbarCtrl" class="navbar-nav ml-auto" ng-if="currentUser">
+            <li class="nav-item"  ng-repeat="page in signinPages">
+                <a ui-sref="{{page.ref}}" ui-sref-active="active" class="nav-link">{{page.name}}</a> 
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="document.getElementById('logout-modal').style.display='block'">Log out </a>
+            </li>
+          </ul>        
       </nav>
     
         
@@ -77,7 +87,7 @@
     
 
    <div id="signin-modal" class="modal signin">
-    <form class="modal-content signin-content" ng-controller="authController" ng-submit="login()" >
+    <form class="modal-content signin-content"  ng-controller="authController" ng-submit="login()" >
       <div class="container">
         <h1>Sign In</h1>
         <p>Please create an account to access our resources.</p>
@@ -96,17 +106,39 @@
       </div>
     </form>
   </div>
+
+
+  <div id="logout-modal" class="modal logout">
+      <form class="modal-content logout-content" ng-controller="authController" ng-submit="logout()" >
+        <div class="container">
+          <h1>Log out</h1>
+          <p>Are you sure you wish to logout?</p>
+          <div class="clearfix">
+              <button type="submit" onclick="document.getElementById('logout-modal').style.display='none'" class="logout fullwidth">Log out</button>
+            <button type="button" onclick="document.getElementById('logout-modal').style.display='none'" class="cancelbtn">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
   <script>
       // Get the modal
-      var modal = document.getElementById('signin-modal');
+      var signinModal = document.getElementById('signin-modal');
+      var logoutModal = document.getElementById('logout-modal');
       
       // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
-          if (event.target == modal) {
-              modal.style.display = "none";
+          if (event.target == signinModal) {
+              signinModal.style.display = "none";
+          }
+          if(event.target == logoutModal) {
+            logoutModal.style.display = "none";
           }
       }
-      </script>   
+
+
+  </script>   
   
     
     

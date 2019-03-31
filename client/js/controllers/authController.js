@@ -1,31 +1,24 @@
 
 //passed the ng scope objects, states to go to, and Authenticate factory to the controller function
-angular.module('users').controller('authController', ['$scope', '$window', '$state','Authenticate', 
-    function($scope, $window, $state, Authenticate) {
-        $scope.user = false; 
+angular.module('users').controller('authController', ['$scope', '$rootScope', '$state','Authenticate', 
+    function($scope, $rootScope, $state, Authenticate) {
+        $rootScope.currentUser = undefined; 
         
         $scope.login = function() {
             console.log('logging in....');
             Authenticate.login($scope.login.user).then(function(res){
-                console.log("after post");
-                console.log(res.data);
+                console.log("We logged in!");
+
                 if(res.data.auth){
                     localStorage.setItem('token', res.data.token);
                 
-                    if(res.data.admin){
-                        $state.go('adminAccount');
-                        //$window.location.href = "http://" + $window.location.host + "/account/admin";
-                        location.reload(); 
-                    } else { 
-                        $state.go('userAccount', {}, {reload: true});
-                        //$window.location.href = "http://" + $window.location.host + "/account/user";
-                     }
-                
+                    //calls getUser in app.js
+                    $state.go('account');
                 } else {
                     console.log("Wrong email or password");
                 }
             }, function(error) {
-
+                $rootScope.currentUser = undefined;
                /* DISPLAY ERROR MESSAGE TO USER IN HTML */
               console.log('Unable to login: ', error);
             })
@@ -40,13 +33,13 @@ angular.module('users').controller('authController', ['$scope', '$window', '$sta
                 //after the backend has finished handling the post request
                 //whatever is sent back can be accessed through res.data.thingsentback
                 console.log("registered!!!")
+
                 localStorage.setItem('token', res.data.token);
-                $scope.user = true; 
 
-                //no one is an admin when registered, go to user account
-                $state.go('userAccount');
+                //calls getUser in app.js
+                $state.go('account');
             }, function(error) {
-
+                $scope.currentUser = undefined;
                 /* DISPLAY ERROR MESSAGE TO USER IN HTML */
               console.log('Unable to create new user: ', error);
             });
@@ -54,13 +47,18 @@ angular.module('users').controller('authController', ['$scope', '$window', '$sta
 
         $scope.getUser = function() {
             Authenticate.getUser(localStorage.getItem('token')).then(function(res){
-                $scope.user = true; 
                 console.log("got the user!! " + res.data.user);
 
             },function(error){
-                $scope.user = false; 
+                $scope.user = undefined;
                 console.log('User not authenticated ', error);
             });
+        };
+
+        $scope.logout = function() {       
+            localStorage.removeItem('token');
+            $rootScope.currentUser = undefined;
+            $state.go('home');
         };
     }     
 ]);

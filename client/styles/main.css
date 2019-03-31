@@ -24,12 +24,12 @@
     width: 20%;
     text-align: center;
 }
-.column-left.bl{    /*bottom left column (upcoming events)*/
-    /*border-top-style: solid;
+/* .column-left.bl{    bottom left column (upcoming events)
+    border-top-style: solid;
     border-top-color: black;
     border-right-style: solid;
-    border-right-color: black;*/
-}
+    border-right-color: black;
+} */
 
 .column-main{
     width: 80%;
@@ -110,7 +110,7 @@ button:hover {
 }
 
 /* The sign in Modal (background) */
-.modal.signin{
+.modal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -124,7 +124,7 @@ button:hover {
 }
 
 /* sign in Modal Content/Box */
-.modal-content.signin-content {
+.modal-content{
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
@@ -138,7 +138,7 @@ hr {
 }
 
 /* The sign in Close Button (x) */
-.close.signin-close {
+.close{
     position: absolute;
     right: 35px;
     top: 15px;
@@ -196,4 +196,8 @@ hr {
 .req-moveup{
     position: relative;
     top: -15px;
+}
+
+.input-group{
+    align-items: center;
 }
