@@ -1,4 +1,4 @@
-angular.module('users').controller('userController', ['$scope', 'Users', 'Authenticate',
+angular.module('users').controller('adminController', ['$scope', 'Users', 'Authenticate',
     function($scope, Users) {
         
         Users.getAll().then(function(res) {

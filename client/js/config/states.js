@@ -52,16 +52,6 @@ angular.module('states').config(function ($stateProvider) {
         templateUrl: '../../pages/calendar.html'
       },
 	    {
-        name: 'signin',
-        url: '/signin',
-        onEnter: function($modal){
-            var modalInstance;
-            modalInstance = $modal.open( { templateUrl: '../../pages/accountPages/signin.html'  });
-            console.log(modalInstance);
-
-        }
-      },
-	    {
         name: 'createacct',
         url: '/createacct',
         templateUrl: '../../pages/accountPages/createacct.html', 
@@ -72,30 +62,23 @@ angular.module('states').config(function ($stateProvider) {
         url: '/resetpsw',
         templateUrl: '../../pages/accountPages/resetpsw.html'
       },
-	    
       {
         name: 'account',
         url: '/account',
-        templateUrl: '../../pages/accountPages/account.html'
-      },
-      {
-        name: 'userAccount',
-        url: '/account/user',
         templateUrl: '../../pages/accountPages/user.html',
-        controller: 'userController as UC',
         data: {
-          redirectTo: 'signin' ,
+          redirectTo: 'home' ,
           authorization: true,
           admin: false
         }     
       },
       {
-        name: 'adminAccount',
-        url: '/account/admin',
+        name: 'admin',
+        url: '/admin',
         templateUrl: '../../pages/accountPages/admin.html' ,
-        controller: 'userController as UC',
+        controller: 'adminController as AC',
         data: {
-          redirectTo: 'signin' ,
+          redirectTo: 'home' ,
           authorization: true,
           admin: true
         }
