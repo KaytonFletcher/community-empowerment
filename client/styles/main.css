@@ -307,3 +307,18 @@ hr {
 .table-row{
   width: 80%;
 }
+
+tr.tbl-dropdown:hover td > ul{
+    display: block;
+    position:absolute;
+}
+
+tr.tbl-dropdown td > ul{
+  display: none;
+}
+.fa-check {
+  color: #4CAF50;
+}
+.fa-times {
+  color: red;
+}
