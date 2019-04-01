@@ -1,10 +1,9 @@
 angular.module('users').factory('Cals', function($http) {
 
     var methods = {
-        reqEvent: function(token) {
-            return $http.post('http://localhost:8080/api/cal', { headers: {'x-access-token': token} });
+        reqEvent: function(event) {
+            return $http.post('http://localhost:8080/api/cal', event);
         }, 
-
         getAll: function() {
             return $http.get('http://localhost:8080/api/cal');
         },

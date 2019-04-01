@@ -6,7 +6,7 @@ var config = require('../config/config');
 
 
 exports.submitReq = function(req, res) {
-  
+    console.log('bruuu');
     var event = new Event ({
       title : req.body.title,
       date : req.body.date,
@@ -22,7 +22,6 @@ exports.submitReq = function(req, res) {
       } else {
         console.log('event saved');
         //res.json(user);
-  
         res.status(201).json({ success: true });
         }
     });
@@ -54,12 +53,12 @@ exports.submitReq = function(req, res) {
 
 exports.findEventId = function(req, res, next, id) {
 
-Event.findById(id).exec(function(err, event) {
-  if(err) {
-    res.status(400).send(err);
-  } else {
-    req.event = event;
-    next();
-  }
-});
+  Event.findById(id).exec(function(err, event) {
+    if(err) {
+      res.status(400).send(err);
+    } else {
+      req.event = event;
+      next();
+    }
+  });
 };

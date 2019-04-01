@@ -1,6 +1,8 @@
 angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenticate',
     function($scope, Cals) {
 
+      $scope.event.userID = Authenticate.getUser(localStorage.getItem('token')); 
+
         Cals.getAll().then(function(res) {
             $scope.eventReqs = res.data;
             console.log('Calendar data displayed');
@@ -10,10 +12,10 @@ angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenti
 
             $scope.submitRequest = function() {
                 // requests event to be posted to database in factory
-                var startTime = document.getElementById("startTime"); 
-                var endTime = document.getElementById("endTime"); 
-                $scope.event.startTime = startTime; 
-                $scope.event.endTime = endTime; 
+                // var startTime = document.getElementById("startTime"); 
+                // var endTime = document.getElementById("endTime"); 
+                // $scope.event.startTime = startTime; 
+                // $scope.event.endTime = endTime; 
                 Cals.reqEvent($scope.event).then(function(res){
                     if(!res){
                         console.log('sorry event no work');
@@ -33,6 +35,10 @@ angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenti
                     console.log('Unable to delete user: ', error);
                   }
             )};
+
+            $scope.acceptEvent = function(id) {
+              
+            }
               
     }
 ]);

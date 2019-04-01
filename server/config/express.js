@@ -7,7 +7,7 @@ var path = require('path'),
     errorHandler = require('../helpers/errorHandler'),
     usersRouter = require('../routes/userRoutes'),
     authRoutes = require('../routes/authRoutes')
-    calRoutes = require('../routes/authRoutes')
+    calRoutes = require('../routes/calRoutes')
 
 
 module.exports.init = function() {
@@ -34,7 +34,7 @@ app.use('/', express.static(__dirname + '/../../client'));
 // global error handler 
 //app.use(errorHandler);
 
-//links to user factory in frontend
+//links to factories in frontend
 app.use('/api/users', usersRouter);
 app.use('/api/cal', calRoutes);
 app.use('/api/auth', authRoutes);
