@@ -303,3 +303,7 @@ hr {
 .input-group{
     align-items: center;
 }
+
+.table-row{
+  width: 80%;
+}
