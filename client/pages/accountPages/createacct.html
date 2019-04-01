@@ -1,4 +1,4 @@
-<form action="/account.html" ng-controller="userController" ng-submit="addUser()">
+<form ng-controller="authController" ng-submit="register()">
     <div class="container">
       <h1>Register</h1>
       <p>Please complete this form to create an account.</p>
@@ -21,7 +21,7 @@
 
       <hr>
       <p>By creating an account you agree to our <a href="termsandconditions">Terms & Conditions</a>.</p>
-      <button type="submit" ng-submit="addListing()" class="registerbtn">Register</button>
+      <button type="submit" class="registerbtn">Register</button>
     </div>
 
     <div class="container signin">

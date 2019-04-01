@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head>   
     
-
+    
     <!-- Here angular and the 3rd party module ui-router are included -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.min.js"></script>
     
     <!-- boostrap 4 javascript source and css styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/angular.bootstrap/0.11.0/ui-bootstrap-tpls.js"></script>
     
     <!-- added font awesome cdn for extra styling (go crazy) -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -22,9 +24,23 @@
     <script src="js/config/states.js"></script>
     <script src="js/controllers/userController.js"></script>
     <script src="js/factories/userFactory.js"></script>
+    <script src="js/controllers/authController.js"></script>
+    <script src="js/factories/authFactory.js"></script>
+
+    <!-- References fullCalendar library -->
+    <link href='libraries/fullcalendar/packages/core/main.css' rel='stylesheet' />
+    <link href='libraries/fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
+    <link href='libraries/fullcalendar/packages/list/main.css' rel='stylesheet' />
+    <script src='libraries/fullcalendar/packages/core/main.js'></script>
+    <script src='libraries/fullcalendar/packages/interaction/main.js'></script>
+    <script src='libraries/fullcalendar/packages/daygrid/main.js'></script>
+    <script src='libraries/fullcalendar/packages/list/main.js'></script>
+    <script src='libraries/fullcalendar/packages/google-calendar/main.js'></script>
     
+    
+
     <!-- This sets the starting url and gets rid of #! -->
-    <base href="/">
+    <base href="/"/>
 
     <!-- Used to init bootstrap popovers-->
     <script>
@@ -32,10 +48,14 @@
         $('[data-toggle="popover"]').popover(); 
       });
     </script>     
+
+    
+
   </head>
  
     
   <body ng-app="SpoderApp">
+      
 
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
 
@@ -81,45 +101,42 @@
           <a ui-sref="account" class="nav-link" ui-sref-active="active">Account</a>
         </li>
 		
-		<li class="nav-item">
-       <a ui-sref="home" class= "nav-link" ui-sref-active="active" <button onclick="document.getElementById('id01').style.display='block'">Sign In</button> </a>
-     <!--
-      <a ui-sref="signin" class="nav-link" ui-sref-active="active">Sign In</a>
-     -->
+        <li class="nav-item">
+          <a class="nav-link" onclick="document.getElementById('signin-modal').style.display='block'">Sign In </a>
         </li>
 		
-      </ul>
-
-    </nav>
+    </ul>
+ </nav>
         
-
+    
+    
     <!-- This is where code gets injected from html files in /pages -->
-    <ui-view></ui-view>
-   <!-- The Modal (contains the Sign Up form) -->
-  
-<div id="id01" class="modal">
-    <form class="modal-content" action="/action_page.php">
+   <ui-view></ui-view>
+    
+
+   <div id="signin-modal" class="modal signin">
+    <form class="modal-content signin-content" ng-controller="authController" ng-submit="login()" >
       <div class="container">
         <h1>Sign In</h1>
         <p>Please create an account to access our resources.</p>
         <hr>
         <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+        <input type="text" placeholder="Enter Email" name="email" required ng-model="login.user.email">
   
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-  
-        <p>Don't have an account? Please create one to access our resources: <a href="createacct" onclick="document.getElementById('id01').style.display='none'" style="color:dodgerblue">Create Account</a></p>
+        <input type="password" placeholder="Enter Password" name="psw" required ng-model="login.user.password" >
+
+        <p>Don't have an account? Please create one to access our resources: <a href="createacct" onclick="document.getElementById('signin-modal').style.display='none'" style="color:dodgerblue">Create Account</a></p>
         <div class="clearfix">
-            <button type="submit" class="signup">Sign In</button>
-          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="submit" onclick="document.getElementById('signin-modal').style.display='none'" class="signup fullwidth">Sign In</button>
+          <button type="button" onclick="document.getElementById('signin-modal').style.display='none'" class="cancelbtn">Cancel</button>
         </div>
       </div>
     </form>
   </div>
   <script>
       // Get the modal
-      var modal = document.getElementById('id01');
+      var modal = document.getElementById('signin-modal');
       
       // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
@@ -127,5 +144,9 @@
               modal.style.display = "none";
           }
       }
-      </script>
+      </script>   
+  
+    
+    
+  </body>
 </html>

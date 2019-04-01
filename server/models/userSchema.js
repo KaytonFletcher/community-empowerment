@@ -9,11 +9,21 @@ var userSchema = new Schema({
     email: {
         type: String, 
         required: true, 
-        unique: true
-    }, 
+        unique: true, 
+        trim: true,
+        lowerCase: true,
+        match: [/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/]
+    },
+    organization: {
+        type: String
+    } , 
     password: {
         type: String,
         required: true, 
+    },
+    admin: {
+        type: Boolean,
+        required: true
     },
     created_at: Date,
     updated_at: Date
