@@ -303,3 +303,22 @@ hr {
 .input-group{
     align-items: center;
 }
+/* Below is for slide transition */
+
+
+.slide-content {
+    display: none;
+    width: 700px;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+  
+/*Above is for slide transition */  
+
+.navdrop-ovf{
+    overflow: visible;
+}
