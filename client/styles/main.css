@@ -306,6 +306,7 @@ hr {
 
 .table-row{
   width: 80%;
+<<<<<<< HEAD
 }
 
 tr.tbl-dropdown:hover td > ul{
@@ -321,4 +322,6 @@ tr.tbl-dropdown td > ul{
 }
 .fa-times {
   color: red;
+=======
+>>>>>>> 2e6c5095c306fb85baac3ce126e8ee1aeb11e4e0
 }
