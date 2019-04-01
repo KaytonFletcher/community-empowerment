@@ -49,7 +49,8 @@ angular.module('states').config(function ($stateProvider) {
       {
         name: 'calendar',
         url: '/calendar',
-        templateUrl: '../../pages/calendar.html'
+        templateUrl: '../../pages/calendar.html',
+        controller: 'calController as CC'
       },
 	    {
         name: 'signin',

@@ -1,12 +1,13 @@
-var path = require('path'),  
-    express = require('express'), 
-    mongoose = require('mongoose'),
-    morgan = require('morgan'),
-    bodyParser = require('body-parser'),
+var path = require('path')
+    express = require('express')
+    mongoose = require('mongoose')
+    morgan = require('morgan')
+    bodyParser = require('body-parser')
     config = require('./config')
-    errorHandler = require('../helpers/errorHandler');
+    errorHandler = require('../helpers/errorHandler')
     usersRouter = require('../routes/userRoutes')
     authRoutes = require('../routes/authRoutes')
+    calRoutes = require('../routes/authRoutes')
 
 
 module.exports.init = function() {
@@ -35,7 +36,7 @@ app.use('/', express.static(__dirname + '/../../client'));
 
 //links to user factory in frontend
 app.use('/api/users', usersRouter);
-
+app.use('/api/cal', calRoutes);
 app.use('/api/auth', authRoutes);
 
 
