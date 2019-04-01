@@ -20,15 +20,15 @@
           <div class="container"> 
           <button type="button" ng-click="canEdit = !canEdit" class="btn btn-primary edit-btn">Edit Info</button>
             <form ng-controller="authController"  ng-submit="update()">
-            <label for="name">Name</label>
-            <input required ng-model="updatedUser.name" ng-readonly="canEdit" class="form-control form-control-lg" id="name" type="text" placeholder="{{currentUser.name}}">
+            <label id="name-label" for="name">Name</label>
+            <input required ng-model="updatedUser.name" ng-readonly="!canEdit" class="form-control form-control-lg" id="name" type="text" placeholder="{{currentUser.name}}">
             
             <label for="email">Email</label>
-            <input required ng-model="updatedUser.email" ng-readonly="canEdit" class="form-control form-control-lg" id="email" type="text" placeholder="{{currentUser.email}}">
+            <input required ng-model="updatedUser.email" ng-readonly="!canEdit" class="form-control form-control-lg" id="email" type="text" placeholder="{{currentUser.email}}">
             
             <label for="organization">Organization</label>
-            <input ng-model="updatedUser.organization" ng-readonly="canEdit" class="form-control form-control-lg" id="organization" type="text" placeholder="{{currentUser.organization}}">
-            <button type="submit" ng-show="!canEdit" class="update-btn">Update</button>
+            <input ng-model="updatedUser.organization" ng-readonly="!canEdit" class="form-control form-control-lg" id="organization" type="text" placeholder="{{currentUser.organization}}">
+            <button type="submit" ng-show="canEdit" class="update-btn">Update</button>
           </form>
           </div>
         </div>

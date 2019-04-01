@@ -327,3 +327,7 @@ tr.tbl-dropdown td > ul{
   float: right;
 
 }
+
+#name-label {
+  margin-top: 20px;
+}

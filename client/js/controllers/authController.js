@@ -2,7 +2,6 @@
 //passed the ng scope objects, states to go to, and Authenticate factory to the controller function
 angular.module('users').controller('authController', ['$scope', '$rootScope', '$state','Authenticate', 
     function($scope, $rootScope, $state, Authenticate) {
-        $scope.canEdit = false;
         $scope.login = function() {
             console.log('logging in....');
             Authenticate.login($scope.login.user).then(function(res){
