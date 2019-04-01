@@ -12,6 +12,7 @@ exports.register = function(req, res) {
     name : req.body.name,
     email : req.body.email,
     password : hashedPassword,
+    organization: req.body.organization,
     admin : false
   });
   
@@ -63,6 +64,31 @@ exports.getUser = function(req, res, next) {
     
     console.log("\nFOUND USER LETS GOOOO\n");
     res.status(200).json({ user: user });
+  });
+
+};
+
+exports.updateUser = function(req, res, next) {
+  console.log("UPDATING");
+  User.findById(req.userId, { password: 0 }, function (err, user) {
+    if (err) return res.status(500).send("There was a problem finding the user.");
+    if (!user) return res.status(404).send("No user found.");
+    if(req.body.name){
+      user.name = req.body.name;
+    }
+    if(req.body.email){
+      user.email = req.body.email;
+    }
+    if(req.body.organization){
+      user.organization = req.body.organization;
+    }
+    user.save();
+
+    var token = jwt.sign({ id: user._id }, config.secret, {
+      expiresIn: 3600 // expires in 24 hours
+    });
+    console.log("updated");
+    res.status(200).json({ auth: true, admin: user.admin ,token: token });
   });
 
 };

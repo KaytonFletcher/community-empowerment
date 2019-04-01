@@ -322,3 +322,8 @@ tr.tbl-dropdown td > ul{
 .fa-times {
   color: red;
 }
+
+.edit-btn{
+  float: right;
+
+}

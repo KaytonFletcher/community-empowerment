@@ -18,7 +18,9 @@ app.run( function($transitions, Authenticate, $rootScope) {
         console.log("Checking if user is logged in!");
 
         Authenticate.getUser(localStorage.getItem('token')).then(function(res){
+            console.log("Got user " + res.data.user.name);
             $rootScope.currentUser = res.data.user;
+            
         },function(error){
             console.log('No token in storage or token expired', error);
         });
@@ -47,7 +49,7 @@ app.run( function($transitions, Authenticate, $rootScope) {
                             console.log("redirect to home, not admin");
                             return transition.router.stateService.target('home');
                        }else {
-                           console.log("success boys");
+                           console.log("getting current user " + res.data.user.name);
                            $rootScope.currentUser = res.data.user;
                        }
                 }

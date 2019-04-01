@@ -19,5 +19,8 @@ router.route('/verify')
 router.route('/getUser')    
     .get(verifyToken, auth.getUser)
 
+router.route('/updateUser')    
+    .post(verifyToken, auth.updateUser)    
+
 
 module.exports = router;
