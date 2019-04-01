@@ -15,9 +15,11 @@ angular.module('users').factory('Authenticate', function($http) {
         } 
         ,
         getUser: function(token) {
-            return $http.get('http://localhost:8080/api/auth/getUser', { headers: {'x-access-token': token} });
-            
+            return $http.get('http://localhost:8080/api/auth/getUser', { headers: {'x-access-token': token} });  
         },
+        updateUser: function(token, user) {
+            return $http.post('http://localhost:8080/api/auth/updateUser/', user , { headers: {'x-access-token': token} });  
+        }
     }
     
     return methods;
