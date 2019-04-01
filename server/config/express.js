@@ -3,9 +3,9 @@ var path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    config = require('./config')
-    errorHandler = require('../helpers/errorHandler');
-    usersRouter = require('../routes/userRoutes')
+    config = require('./config'),
+    errorHandler = require('../helpers/errorHandler'),
+    usersRouter = require('../routes/userRoutes'),
     authRoutes = require('../routes/authRoutes')
 
 

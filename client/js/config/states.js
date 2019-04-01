@@ -73,17 +73,6 @@ angular.module('states').config(function ($stateProvider) {
         }     
       },
       {
-        name: 'admin',
-        url: '/admin',
-        templateUrl: '../../pages/accountPages/admin.html' ,
-        controller: 'adminController as AC',
-        data: {
-          redirectTo: 'home' ,
-          authorization: true,
-          admin: true
-        }
-      },
-      {
         name: 'termsandconditions',
         url: '/termsandconditions',
         templateUrl: '../../pages/termsandconditions.html'
