@@ -6,8 +6,10 @@
   "author": "A Tribe Called SPODER",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^3.0.5",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^4.13.18",
     "morgan": "^1.6.1",
     "remove": "^0.1.5",

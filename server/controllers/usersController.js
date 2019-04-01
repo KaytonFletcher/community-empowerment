@@ -1,8 +1,11 @@
 var User = require('../models/userSchema.js');
 var mongoose = require('mongoose');
+var jwt = require('jsonwebtoken');
+var bcrypt = require('bcrypt');
+var config = require('../config/config');
+
 
 exports.list = function(req, res) {
-    /** TODO **/
    
     //editing find all function from bootcamp 3 to sort, empty brackets returns all users
     // .sort() returns alphabetically by default
@@ -14,20 +17,6 @@ exports.list = function(req, res) {
     }
     )
   };
-
-exports.create = function(req, res) {
-      var user = new User(req.body);
-  
-      user.save(function(err) {
-        if(err) {
-          console.log(err);
-          res.status(400).send(err);
-        } else {
-          console.log('user saved');
-          res.json(user);
-        }
-      });
-    };
 
 exports.delete = function(req, res) {
       // Gets user from request variable, then removes it and puts it in the response variable. 
@@ -41,6 +30,7 @@ exports.delete = function(req, res) {
     };
 
 exports.findUserId = function(req, res, next, id) {
+
   User.findById(id).exec(function(err, user) {
     if(err) {
       res.status(400).send(err);

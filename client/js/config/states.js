@@ -2,6 +2,11 @@ angular.module('states').config(function ($stateProvider) {
   var states =
     [
       {
+          name: "otherwise", 
+          url: "*path",
+          templateUrl: "../../pages/home.html"
+      },
+      {
         name: 'home',
         url: '/',
         templateUrl: '../../pages/home.html',   
@@ -49,29 +54,56 @@ angular.module('states').config(function ($stateProvider) {
 	    {
         name: 'signin',
         url: '/signin',
-        templateUrl: '../../pages/signin.html'
+        onEnter: function($modal){
+            var modalInstance;
+            modalInstance = $modal.open( { templateUrl: '../../pages/accountPages/signin.html'  });
+            console.log(modalInstance);
+
+        }
       },
 	    {
         name: 'createacct',
         url: '/createacct',
-        templateUrl: '../../pages/createacct.html',
-        controller: 'userController as UC'
+        templateUrl: '../../pages/accountPages/createacct.html', 
+        controller: 'authController as AC'
       },
 	    {
         name: 'resetpsw',
         url: '/resetpsw',
-        templateUrl: '../../pages/resetpsw.html'
+        templateUrl: '../../pages/accountPages/resetpsw.html'
       },
-	    {
-        name: 'termsandconditions',
-        url: '/termsandconditions',
-        templateUrl: '../../pages/termsandconditions.html'
-      },
+	    
       {
         name: 'account',
         url: '/account',
-        templateUrl: '../../pages/account.html' ,
-        controller: 'userController as UC'
+        templateUrl: '../../pages/accountPages/account.html'
+      },
+      {
+        name: 'userAccount',
+        url: '/account/user',
+        templateUrl: '../../pages/accountPages/user.html',
+        controller: 'userController as UC',
+        data: {
+          redirectTo: 'signin' ,
+          authorization: true,
+          admin: false
+        }     
+      },
+      {
+        name: 'adminAccount',
+        url: '/account/admin',
+        templateUrl: '../../pages/accountPages/admin.html' ,
+        controller: 'userController as UC',
+        data: {
+          redirectTo: 'signin' ,
+          authorization: true,
+          admin: true
+        }
+      },
+      {
+        name: 'termsandconditions',
+        url: '/termsandconditions',
+        templateUrl: '../../pages/termsandconditions.html'
       },
       {
         name: 'S',
@@ -105,6 +137,7 @@ angular.module('states').config(function ($stateProvider) {
       }
     ]
 
+
   //registers each state with angular
   states.forEach(function (state) {
     $stateProvider.state(state);
@@ -135,6 +168,3 @@ function openPage(pageName, elmnt, color) {
 	// Add the specific color to the button used to open the tab content
 	elmnt.style.backgroundColor = color;
 }
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
