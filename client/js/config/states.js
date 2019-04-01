@@ -53,16 +53,6 @@ angular.module('states').config(function ($stateProvider) {
         controller: 'calController as CC'
       },
 	    {
-        name: 'signin',
-        url: '/signin',
-        onEnter: function($modal){
-            var modalInstance;
-            modalInstance = $modal.open( { templateUrl: '../../pages/accountPages/signin.html'  });
-            console.log(modalInstance);
-
-        }
-      },
-	    {
         name: 'createacct',
         url: '/createacct',
         templateUrl: '../../pages/accountPages/createacct.html', 
@@ -73,33 +63,15 @@ angular.module('states').config(function ($stateProvider) {
         url: '/resetpsw',
         templateUrl: '../../pages/accountPages/resetpsw.html'
       },
-	    
       {
         name: 'account',
         url: '/account',
-        templateUrl: '../../pages/accountPages/account.html'
-      },
-      {
-        name: 'userAccount',
-        url: '/account/user',
         templateUrl: '../../pages/accountPages/user.html',
-        controller: 'userController as UC',
         data: {
-          redirectTo: 'signin' ,
+          redirectTo: 'home' ,
           authorization: true,
           admin: false
         }     
-      },
-      {
-        name: 'adminAccount',
-        url: '/account/admin',
-        templateUrl: '../../pages/accountPages/admin.html' ,
-        controller: 'userController as UC',
-        data: {
-          redirectTo: 'signin' ,
-          authorization: true,
-          admin: true
-        }
       },
       {
         name: 'termsandconditions',
@@ -145,3 +117,27 @@ angular.module('states').config(function ($stateProvider) {
   });
 
 });
+
+
+/*Tabs for Resources Page*/
+function openPage(pageName, elmnt, color) {
+	// Hide all elements with class="tabcontent" by default */
+	var i, tabcontent, tablinks;
+	tabcontent = document.getElementsByClassName("tabcontent");
+	
+	for (i = 0; i < tabcontent.length; i++) {
+		tabcontent[i].style.display = "none";
+	}
+
+	// Remove the background color of all tablinks/buttons
+	tablinks = document.getElementsByClassName("tablink");
+	for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].style.backgroundColor = "";
+	}
+
+	// Show the specific tab content
+	document.getElementById(pageName).style.display = "block";
+
+	// Add the specific color to the button used to open the tab content
+	elmnt.style.backgroundColor = color;
+}

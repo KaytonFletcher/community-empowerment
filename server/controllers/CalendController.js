@@ -5,7 +5,7 @@ var bcrypt = require('bcrypt');
 var config = require('../config/config');
 
 
-exports.register = function(req, res) {
+exports.submitReq = function(req, res) {
   
     var event = new Event ({
       title : req.body.title,
@@ -27,3 +27,39 @@ exports.register = function(req, res) {
         }
     });
   };
+
+  exports.listEvents = function(req, res) {
+   
+    //editing find all function from bootcamp 3 to sort, empty brackets returns all users
+    // .sort() returns alphabetically by default
+    Event.find().sort('date').then(events => {
+      res.send(events);
+    }).catch(err => {
+      res.status(400).send(err); 
+      console.log('error: ' + err); 
+    }
+    )
+  };
+
+  exports.deleteEvent = function(req, res) {
+    // Gets user from request variable, then removes it and puts it in the response variable. 
+    var event = req.eventReq; 
+    
+    event.remove(err=>{
+      if(err) throw err; 
+      res.json(event); 
+      console.log('event deleted');
+    })
+  };
+
+exports.findEventId = function(req, res, next, id) {
+
+Event.findById(id).exec(function(err, event) {
+  if(err) {
+    res.status(400).send(err);
+  } else {
+    req.event = event;
+    next();
+  }
+});
+};

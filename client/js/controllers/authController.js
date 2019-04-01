@@ -1,27 +1,24 @@
 
 //passed the ng scope objects, states to go to, and Authenticate factory to the controller function
-angular.module('users').controller('authController', ['$scope', '$state','Authenticate', 
-    function($scope, $state, Authenticate) {
+angular.module('users').controller('authController', ['$scope', '$rootScope', '$state','Authenticate', 
+    function($scope, $rootScope, $state, Authenticate) {
+        $rootScope.currentUser = undefined; 
+        
         $scope.login = function() {
             console.log('logging in....');
             Authenticate.login($scope.login.user).then(function(res){
-                console.log("after post");
-                console.log(res.data);
+                console.log("We logged in!");
+
                 if(res.data.auth){
                     localStorage.setItem('token', res.data.token);
                 
-                    $state.go('adminAccount')
-
-                    // if(res.data.admin){
-                    //     console.log("going to admin account");
-                    //     $state.go('adminAccount');
-                    // } else { $state.go('userAccount'); }
-                
+                    //calls getUser in app.js
+                    $state.go('account');
                 } else {
                     console.log("Wrong email or password");
                 }
             }, function(error) {
-
+                $rootScope.currentUser = undefined;
                /* DISPLAY ERROR MESSAGE TO USER IN HTML */
               console.log('Unable to login: ', error);
             })
@@ -36,26 +33,32 @@ angular.module('users').controller('authController', ['$scope', '$state','Authen
                 //after the backend has finished handling the post request
                 //whatever is sent back can be accessed through res.data.thingsentback
                 console.log("registered!!!")
+
                 localStorage.setItem('token', res.data.token);
 
-                //no one is an admin when registered, go to user account
-                $state.go('userAccount');
+                //calls getUser in app.js
+                $state.go('account');
             }, function(error) {
-
+                $scope.currentUser = undefined;
                 /* DISPLAY ERROR MESSAGE TO USER IN HTML */
               console.log('Unable to create new user: ', error);
             });
-          };
+        };
 
         $scope.getUser = function() {
             Authenticate.getUser(localStorage.getItem('token')).then(function(res){
-                
                 console.log("got the user!! " + res.data.user);
 
             },function(error){
-                /* DISPLAY ERROR MESSAGE TO USER IN HTML */
+                $scope.user = undefined;
                 console.log('User not authenticated ', error);
             });
+        };
+
+        $scope.logout = function() {       
+            localStorage.removeItem('token');
+            $rootScope.currentUser = undefined;
+            $state.go('home');
         };
     }     
 ]);

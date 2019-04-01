@@ -1,7 +1,6 @@
 .mybox{
     display: inline-block;
     position: relative;
-
     width: 140px;
     height: 140px;
     background-color: rgb(0, 204, 255);
@@ -24,12 +23,12 @@
     width: 20%;
     text-align: center;
 }
-.column-left.bl{    /*bottom left column (upcoming events)*/
-    /*border-top-style: solid;
+/* .column-left.bl{    bottom left column (upcoming events)
+    border-top-style: solid;
     border-top-color: black;
     border-right-style: solid;
-    border-right-color: black;*/
-}
+    border-right-color: black;
+} */
 
 .column-main{
     width: 80%;
@@ -110,7 +109,7 @@ button:hover {
 }
 
 /* The sign in Modal (background) */
-.modal.signin{
+.modal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -124,7 +123,7 @@ button:hover {
 }
 
 /* sign in Modal Content/Box */
-.modal-content.signin-content {
+.modal-content{
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
@@ -138,7 +137,7 @@ hr {
 }
 
 /* The sign in Close Button (x) */
-.close.signin-close {
+.close{
     position: absolute;
     right: 35px;
     top: 15px;
@@ -183,6 +182,109 @@ hr {
     text-align: left;
 }
 
+/*Resources Page Styling*/
+.video-item {
+  overflow: hidden;
+}
+
+.video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+
+.video-item iframe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 90%;
+}
+
+.video-item img {
+  display: block;
+  height: auto;
+  max-width: 90%;
+  height: 270px;	
+  width: 480px;		
+}
+
+@supports (display: grid) {
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    margin: 2em;
+  }
+  
+  .video-item {
+    margin-top: 0;
+  }
+  
+  .video-item iframe {
+    border: 0.125em solid;
+  }
+
+  .video-item:nth-child(1) {	
+    grid-column: 1 / 2;		
+    grid-row: 1 / 3;
+  }
+
+  .video-item:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .video-item:nth-child(3) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .video-item:nth-child(4) {	
+    grid-column: 1 / 2;		
+    grid-row: 4 / 6;
+  }
+
+  .video-item:nth-child(5) {
+    grid-column: 2 / 3;
+    grid-row: 4 / 6;
+  }
+
+  .video-item:nth-child(6) {
+    grid-column: 2 / 3;
+    grid-row: 5 / 8;
+  }
+}
+  
+.tablink {
+  background-color: rgb(0, 204, 255);
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #0077A6;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+/*#Documents {background-color: red;}
+#Videos {background-color: green;}*/
+
 .datetime-req{
     box-sizing: border-box;
     border: none;
@@ -196,4 +298,47 @@ hr {
 .req-moveup{
     position: relative;
     top: -15px;
+}
+
+.input-group{
+    align-items: center;
+}
+
+.table-row{
+  width: 80%;
+}
+
+tr.tbl-dropdown:hover td > ul{
+    display: block;
+    position:absolute;
+}
+
+tr.tbl-dropdown td > ul{
+  display: none;
+}
+.fa-check {
+  color: #4CAF50;
+}
+.fa-times {
+  color: red;
+}
+
+/* Below is for slide transition */
+
+
+.slide-content {
+  display: none;
+  width: 700px;
+  margin-top: 3%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+
+/*Above is for slide transition */  
+
+.navdrop-ovf{
+  overflow: visible;
 }

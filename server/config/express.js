@@ -1,11 +1,11 @@
-var path = require('path')
-    express = require('express')
-    mongoose = require('mongoose')
-    morgan = require('morgan')
-    bodyParser = require('body-parser')
-    config = require('./config')
-    errorHandler = require('../helpers/errorHandler')
-    usersRouter = require('../routes/userRoutes')
+var path = require('path'),  
+    express = require('express'), 
+    mongoose = require('mongoose'),
+    morgan = require('morgan'),
+    bodyParser = require('body-parser'),
+    config = require('./config'),
+    errorHandler = require('../helpers/errorHandler'),
+    usersRouter = require('../routes/userRoutes'),
     authRoutes = require('../routes/authRoutes')
     calRoutes = require('../routes/authRoutes')
 

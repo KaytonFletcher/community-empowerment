@@ -4,4 +4,8 @@ var cal = require('../controllers/CalendController.js'),
     verifyToken = require('../helpers/VerifyToken');
 
 router.route('/reqEvent')    
-    .post(verifyToken, cal.submitReq)    
+    .post(verifyToken, cal.submitReq)
+    .get(cal.listEvents) 
+    .delete(cal.deleteEvent)
+
+router.param('eventId', cal.findEventId);
