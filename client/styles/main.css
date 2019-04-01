@@ -109,7 +109,7 @@ button:hover {
 }
 
 /* The sign in Modal (background) */
-.modal.signin{
+.modal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -123,7 +123,7 @@ button:hover {
 }
 
 /* sign in Modal Content/Box */
-.modal-content.signin-content{
+.modal-content{
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
@@ -303,22 +303,22 @@ hr {
 .input-group{
     align-items: center;
 }
-/* Below is for slide transition */
 
-
-.slide-content {
-    display: none;
-    width: 700px;
-    margin-top: 3%;
-    margin-left: auto;
-    margin-right: auto;
-
+.table-row{
+  width: 80%;
 }
 
+tr.tbl-dropdown:hover td > ul{
+    display: block;
+    position:absolute;
+}
 
-  
-/*Above is for slide transition */  
-
-.navdrop-ovf{
-    overflow: visible;
+tr.tbl-dropdown td > ul{
+  display: none;
+}
+.fa-check {
+  color: #4CAF50;
+}
+.fa-times {
+  color: red;
 }
