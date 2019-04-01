@@ -92,3 +92,29 @@ exports.updateUser = function(req, res, next) {
   });
 
 };
+
+exports.changePsw = function(req, res, next) {
+  if(!req.body.oldPassword || !req.body.newPassword){
+    return res.status(500).send("No password provided");
+  }
+
+  console.log("Changing Password");
+  User.findById(req.userId, function (err, user) {
+    if (err) return res.status(500).send("There was a problem finding the user.");
+    if (!user) return res.status(404).send("No user found.");
+
+    console.log("Got user, checking if password is valid");
+    var passwordIsValid = bcrypt.compareSync(req.body.oldPassword, user.password);
+    if (!passwordIsValid) {console.log("bad password"); return res.status(401).send({ auth: false, token: null });}
+
+    var newHash = bcrypt.hashSync(req.body.newPassword, 8);
+    user.password = newHash;
+    user.save();
+
+    var token = jwt.sign({ id: user._id }, config.secret, {
+      expiresIn: 3600 // expires in 24 hours
+    });
+    console.log("updated password");
+    res.status(200).json({ auth: true, admin: user.admin, token: token });
+  });
+};

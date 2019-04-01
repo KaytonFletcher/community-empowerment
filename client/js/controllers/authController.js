@@ -68,10 +68,25 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
             console.log($scope.updatedUser);
             Authenticate.updateUser(localStorage.getItem('token'), $scope.updatedUser).then(function(res){
             console.log("updated");
+                $scope.updateUser = undefined;
                 
             }, function(error){
+                $scope.updateUser = undefined;
                 /* DISPLAY ERROR MESSAGE TO USER IN HTML */
-              console.log('Unable to update user: ', error);
+                console.log('Unable to update user: ', error);
+            });
+
+        }
+
+        $scope.changePsw = function() {
+            Authenticate.changePsw(localStorage.getItem('token'), $scope.updatedUser).then(function(res){
+                $scope.updateUser = undefined;
+                console.log("updated");
+                
+            }, function(error){
+                $scope.updateUser = undefined;
+                /* DISPLAY ERROR MESSAGE TO USER IN HTML */
+                console.log('Unable to update user: ', error);
             });
 
         }
