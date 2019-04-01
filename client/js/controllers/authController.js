@@ -43,7 +43,7 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
                 /* DISPLAY ERROR MESSAGE TO USER IN HTML */
               console.log('Unable to create new user: ', error);
             });
-          };
+        };
 
         $scope.getUser = function() {
             Authenticate.getUser(localStorage.getItem('token')).then(function(res){

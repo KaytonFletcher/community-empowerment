@@ -11,7 +11,7 @@
         <li class="nav-item">
           <a class="nav-link" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="calendar" aria-selected="false">Manage Events</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" ng-if="currentUser.admin">
             <a class="nav-link" id="users-tab" data-toggle="tab" href="#users" role="tab" aria-controls="users" aria-selected="false">Manage Users</a>
         </li>
         <li class="nav-item">
@@ -20,13 +20,13 @@
       </ul>
 
 
-
-
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">ACCOUNT DETAIL</div>
+        <div class="tab-pane fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">ACCOUNT DETAIL
+
+        </div>
         <div class="tab-pane fade" id="calendar" role="tabpanel" aria-labelledby="calendar-tab">HERE MANAGE CALENDAR EVENTS</div>
 
-        <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab">
+        <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab" ng-if="currentUser.admin">
             <h1>User Information</h1>  
             <div class="container d-flex flex-column">
             <div class="row">
