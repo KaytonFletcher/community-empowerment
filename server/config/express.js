@@ -40,7 +40,7 @@ app.use('/api/cal', calRoutes);
 app.use('/api/auth', authRoutes);
 
 
-app.use('/*', function(req, res) {
+app.get('/*', function(req, res) {
   res.sendFile(path.resolve('client/index.html'));
 });
 

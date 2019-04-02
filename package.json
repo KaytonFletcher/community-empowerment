@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Creating a community of amazing people",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "author": "A Tribe Called SPODER",
   "license": "MIT",
   "engines": {
