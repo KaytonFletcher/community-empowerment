@@ -85,11 +85,11 @@
    <ui-view></ui-view>
     
 
-   <div id="signin-modal" class="modal signin">
+   <div id="signin-modal" class="modal signin" ng-show="loginError || !currentUser">
     <form class="modal-content signin-content"  ng-controller="authController" ng-submit="login()" >
       <div class="container">
         <h1>Sign In</h1>
-        <p>Please create an account to access our resources.</p>
+        <h4 class="errorMsg">{{loginError}}</h4>
         <hr>
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter Email" name="email" required ng-model="login.user.email">
@@ -99,8 +99,8 @@
 
         <p>Don't have an account? Please create one to access our resources: <a href="createacct" onclick="document.getElementById('signin-modal').style.display='none'" style="color:dodgerblue">Create Account</a></p>
         <div class="clearfix">
-            <button type="submit" onclick="document.getElementById('signin-modal').style.display='none'" class="signup fullwidth">Sign In</button>
-          <button type="button" onclick="document.getElementById('signin-modal').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="submit" class="signup fullwidth">Sign In</button>
+          <button type="button" onclick="document.getElementById('signin-modal').style.display='none'" ng-click="loginError=undefined" class="cancelbtn">Cancel</button>
         </div>
       </div>
     </form>
@@ -128,7 +128,7 @@
       
       // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
-          if (event.target == signinModal) {
+          if (event.target == signinModal){
               signinModal.style.display = "none";
           }
           if(event.target == logoutModal) {

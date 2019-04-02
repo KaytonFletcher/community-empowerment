@@ -18,12 +18,18 @@ exports.register = function(req, res) {
   
   user.save(function(err) {
     if(err) {
-      console.log(err);
-      res.status(400).send(err);
-    } else {
-      console.log('user saved');
-      //res.json(user);
+      console.log("SAVE ERROR" + err);
 
+      if(err.name == 'ValidationError'){
+        return res.status(400).send("Invalid Email");
+      } else if(err.name == 'WriteError' || err.name == 'MongoError' ){
+        console.log("Write Error " + err);
+        return res.status(400).send("This email is already in use");
+      }
+        res.status(400).send(err.name);
+      
+    } else {
+      
       // create a token
       var token = jwt.sign({ id: user._id }, config.secret, {
             expiresIn: 3600 //86400 expires in 24 hours
@@ -42,11 +48,11 @@ exports.validate = function(req, res) {
       if (err) return res.status(500).send('Error on the server.');
 
       //no user in database with this email
-      if (!user) return res.status(404).send('No user found.');
+      if (!user) return res.status(404).send('Bad email or password');
 
       //compares hash of password sent to hash in database, returns true if matched
       var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-      if (!passwordIsValid) {console.log("bad password"); return res.status(401).send({ auth: false, token: null });}
+      if (!passwordIsValid) {console.log("Bad email or password"); return res.status(401).send('Bad email or password');}
       var token = jwt.sign({ id: user._id }, config.secret, {
         expiresIn: 3600 // expires in 24 hours
       });
@@ -59,10 +65,9 @@ exports.validate = function(req, res) {
 exports.getUser = function(req, res, next) {
 
   User.findById(req.userId, { password: 0 }, function (err, user) {
-    if (err) return res.status(500).send("There was a problem finding the user.");
+    if (err) return res.status(500).send("Server error finding user");
     if (!user) return res.status(404).send("No user found.");
     
-    console.log("\nFOUND USER LETS GOOOO\n");
     res.status(200).json({ user: user });
   });
 

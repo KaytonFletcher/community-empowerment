@@ -362,3 +362,9 @@ tr.tbl-dropdown td > ul{
 #name-label {
   margin-top: 20px;
 }
+
+.errorMsg {
+  font-size: 16px;
+  color: red;
+  font-style: italic;
+}

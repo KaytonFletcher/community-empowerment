@@ -2,6 +2,9 @@
 //passed the ng scope objects, states to go to, and Authenticate factory to the controller function
 angular.module('users').controller('authController', ['$scope', '$rootScope', '$state','Authenticate', 
     function($scope, $rootScope, $state, Authenticate) {
+        $scope.newUser = undefined;
+        $scope.registerError = undefined;
+
         $scope.login = function() {
             console.log('logging in....');
             Authenticate.login($scope.login.user).then(function(res){
@@ -19,6 +22,8 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
             }, function(error) {
                 $scope.login.user = undefined;
                 $rootScope.currentUser = undefined;
+                $scope.loginError = error.data;
+
                /* DISPLAY ERROR MESSAGE TO USER IN HTML */
               console.log('Unable to login: ', error);
             })
@@ -27,6 +32,13 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
           //this function is binded to the form submission in createacct.html (don't forget to include the controller in the form)
         $scope.register = function() {
 
+            if($scope.newUser.password !== $scope.newUser.pswCheck)
+            {
+                $scope.registerError = "Passwords do not match";
+                $scope.newUser = undefined;
+                $rootScope.currentUser = undefined;
+                return;
+            }
             //calls the factories register post request, passing the new user to the request
             Authenticate.register($scope.newUser).then(function(res){
                 //this is the "callback" function
@@ -34,14 +46,15 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
                 //whatever is sent back can be accessed through res.data.thingsentback
                 console.log("registered!!!")
                 $scope.newUser = undefined;
-
+                $scope.registerError = undefined;
                 localStorage.setItem('token', res.data.token);
 
                 //calls getUser in app.js
                 $state.go('account');
             }, function(error) {
                 $scope.newUser = undefined;
-                $scope.currentUser = undefined;
+                $rootScope.currentUser = undefined;
+                $scope.registerError = error.data;
                 /* DISPLAY ERROR MESSAGE TO USER IN HTML */
               console.log('Unable to create new user: ', error);
             });
