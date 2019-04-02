@@ -45,8 +45,8 @@
                     <th>Yes Box</th>
                     <th>No Box</th>
                   </tr>
-                  <tr>
-                    <td>SPODERVILLE USA</td>
+                  <tr ng-repeat="eventReq in eventReqs | filter : query">
+                    <td>{{eventReq.title}}</td>
                     <td>YES</td>
                     <td>NO</td>
                   </tr>

@@ -5,7 +5,6 @@ angular.module('users').controller('NavbarCtrl', function ($scope, Authenticate)
                     {'name': 'Resources', 'ref': 'entRes'},
                     {'name': 'Calendar', 'ref': 'calendar'},
                     {'name': 'Affiliates and Partners', 'ref': 'affil'},
-                    {'name': 'Community', 'ref': 'commentary'}
                 ];
 
     $scope.signinPages = [
@@ -13,7 +12,6 @@ angular.module('users').controller('NavbarCtrl', function ($scope, Authenticate)
         {'name': 'Resources', 'ref': 'entRes'},
         {'name': 'Calendar', 'ref': 'calendar'},
         {'name': 'Affiliates and Partners', 'ref': 'affil'},
-        {'name': 'Community', 'ref': 'commentary'}, 
         {'name': 'Account', 'ref': 'account'}
     ];
     //Removed   {'name': 'About Us', 'ref': 'home/abtUs'}, in both $scopes and added an href in index 

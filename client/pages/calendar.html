@@ -3,6 +3,7 @@
     
     
       var calendarEl = document.getElementById('calendar');
+      //var config = require('../../server/config/config');
       
       var calendar = new FullCalendar.Calendar(calendarEl, {
   
@@ -116,9 +117,9 @@
                 <div id='calendarList'></div>
 
                 <button style="margin-top: 5%" type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestEventModal" >Request Event</button>
+
                 <div id="requestEventModal" class="modal fade req-modal" role="dialog">
-                    <div class="modal-dialog">
-                  
+                    <form class="modal-dialog" ng-controller="calController" ng-submit="submitRequest()" >
                       <!-- Modal content-->
                       <div class="modal-content">
                         <div class="modal-header">
@@ -127,31 +128,31 @@
                         </div>
                         <div class="modal-body">
                           <label for="eventtitle"><b>Event Title</b></label>
-                          <input type="text" placeholder="Enter Event Title" name="eventtitle" required>
+                          <input type="text" placeholder="Enter Event Title" name="eventtitle" required ng-model="event.title">
 
                           <div class="req-moveup">
                           <label for="eventdate"><b>Date</b></label> <br>
-                          <input type="date" class="datetime-req" name="eventdate" required> <br>
+                          <input type="text" class="datetime-req" name="eventdate" ng-model="event.date"> <br>
 
                           <label for="starttime"><b>Time Period</b></label> <br>
 
-                          <input type="time" class="datetime-req" name="starttime" required>
+                          <input type="text" class="datetime-req" name="starttime" ng-model="event.startTime">
                           <span> to </span>
-                          <input type="time" class="datetime-req" name="endtime" required> <br>
+                          <input type="text" class="datetime-req" name="endtime" ng-model="event.endTime"> <br>
                           
                           
 
                           <label for="eventdesc"><b>Event Description</b></label>
-                          <textarea class="textarea-req" placeholder="Enter Event Description" name="eventdesc" required></textarea>
+                          <textarea class="textarea-req" type="text" placeholder="Enter Event Description" name="eventdesc" required ng-model="event.description"></textarea>
 
                           </div>
 
                           <button type="submit" class="signup fullwidth">Submit Request</button>
                         </div>
-                        
+                       
                       </div>
                   
-                    </div>
+                    </form>
                   </div>
 
                 
