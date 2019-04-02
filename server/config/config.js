@@ -1,7 +1,8 @@
 module.exports = {
     db: {
-        uri: 'monogodb://kaytonfletcher:xeqCi2-wipgup-bygdob@dds157735.mlab.com:57735/spoder'
+        uri: 'mongodb://kaytonfletcher:PuPxd7MuggxbaGS@ds157735.mlab.com:57735/spoder',
     } ,
-    port: process.env.PORT || 8080
-
+    port: process.env.PORT || 8080 ,
+    secret: 'this is the unique spoder key, must protec', 
+    calendarKey: 'AIzaSyCUCBUEbfvOFZ_k3VbNOWfA8B32Onx-nrg'
 }
