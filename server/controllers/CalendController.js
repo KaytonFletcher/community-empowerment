@@ -42,7 +42,7 @@ exports.submitReq = function(req, res) {
 
   exports.deleteEvent = function(req, res) {
     // Gets user from request variable, then removes it and puts it in the response variable. 
-    var event = req.eventReq; 
+    var event = req.event; 
     
     event.remove(err=>{
       if(err) throw err; 

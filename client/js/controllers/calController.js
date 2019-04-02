@@ -1,7 +1,7 @@
 angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenticate',
     function($scope, Cals) {
 
-      $scope.event.userID = Authenticate.getUser(localStorage.getItem('token')); 
+      // $scope.event.userID = Authenticate.getUser(localStorage.getItem('token')); 
 
         Cals.getAll().then(function(res) {
             $scope.eventReqs = res.data;
@@ -49,7 +49,7 @@ angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenti
                   'dateTime': $scope.event.endTime,
                   'timeZone': 'America/New_York',
                 },
-                
+
               };
               
               calendar.events.insert({

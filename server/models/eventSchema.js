@@ -26,10 +26,10 @@ var eventSchema = new Schema({
         required: true,
         trim: true
     },
-    userID: {
-        type: Number, 
-        required: true
-    },
+    // userID: {
+    //     type: Number, 
+    //     required: true
+    // },
     created_at: Date,
     updated_at: Date
 });
