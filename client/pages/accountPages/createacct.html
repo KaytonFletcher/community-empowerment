@@ -3,7 +3,7 @@
       <h1>Register</h1>
       <p>Please complete this form to create an account.</p>
       <hr>
-
+      <h4 class="errorMsg">{{registerError}}</h4>
       <label><b>Email</b></label>
       <input type="text" ng-model="newUser.email" placeholder="Enter Email" name="email" required>
 
@@ -11,7 +11,7 @@
       <input type="password" ng-model="newUser.password" placeholder="Enter Password" name="psw" required>
 
       <br><label><b>Confirm Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <input type="password" ng-model="newUser.pswCheck" placeholder="Repeat Password" name="psw-repeat" required>
       <!-- Name and organization are nonfunctional until the user schema is altered-->
       <br><label><b>Name</b></label>
       <input type="text" ng-model="newUser.name" placeholder="Enter Your Name">
@@ -23,9 +23,9 @@
       <p>By creating an account you agree to our <a href="termsandconditions" target="_blank">Terms & Conditions</a>.</p>
       <button type="submit" class="registerbtn">Register</button>
     </div>
-
-    <div class="container signin">
-    <br><br><br>
-      <p>Already have an account? <a href="signin">Sign in</a>.</p>
-    </div>
 </form>
+
+<div class="container signin">
+  <br>
+    <p>Already have an account? <button class="btn btn-success" onclick="document.getElementById('signin-modal').style.display='block'">Sign in</button></p>
+  </div>

@@ -428,3 +428,8 @@ tr.tbl-dropdown td > ul{
   text-align: center;
   font-size: 14pt;
 }
+.errorMsg {
+  font-size: 16px;
+  color: red;
+  font-style: italic;
+}
