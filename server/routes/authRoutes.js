@@ -1,4 +1,4 @@
-var auth = require('../controllers/authController.js'), 
+var auth = require('../controllers/AuthController.js'), 
     express = require('express'), 
     router = express.Router(),
     verifyToken = require('../helpers/VerifyToken');
