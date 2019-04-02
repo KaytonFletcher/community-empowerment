@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use('/js', express.static(__dirname + '/../../client/js'));
 app.use('/styles', express.static(__dirname + '/../../client/styles'));
 app.use('/', express.static(__dirname + '/../../client'));
-//app.use('/public', express.static(__dirname + '/../../public'));
+app.use('/public', express.static(__dirname + '/../../public'));
 
 // global error handler 
 //app.use(errorHandler);
@@ -40,7 +40,7 @@ app.use('/api/cal', calRoutes);
 app.use('/api/auth', authRoutes);
 
 
-app.get('/*', function(req, res) {
+app.all('/*', function(req, res) {
   res.sendFile(path.resolve('client/index.html'));
 });
 
