@@ -3,8 +3,52 @@
     position: relative;
     width: 140px;
     height: 140px;
-    background-color: rgb(0, 204, 255);
+    background-color: #9ED1EF;
 }
+
+#mikemorrispic {
+  float: left;
+  /* padding-right: 1em; */
+  margin-right: 20px;
+  margin-bottom: 1px;
+  vertical-align: middle;
+}
+
+#bookpic {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 1px;
+  vertical-align: middle;
+}
+
+#bookheader {
+  margin-left: auto;
+  margin-right: auto;
+  width: 860px;
+  text-align: left;
+}
+
+#aboutusheader{
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 860px;
+}
+
+.aboutus_parent {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #9ED1EF; 
+  /* border:3px;  */
+  border-style:solid; 
+  border-color:#9ED1EF; 
+  padding: 1em;
+  width: 860px;
+  border-radius: 5px;
+  height: auto;
+  margin-bottom: 25px;
+}
+
 
 .mybox .letter{
     text-align: center;
@@ -104,7 +148,7 @@ button:hover {
 }
 
 /* Add padding to container elements */
-    .container {
+.container {
     padding: 16px;
 }
 
@@ -341,4 +385,45 @@ tr.tbl-dropdown td > ul{
 
 .navdrop-ovf{
   overflow: visible;
+}
+
+.title{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 65%;
+  border:3px; 
+  border-style:solid; 
+  border-color:rgb(0, 204, 255); 
+  padding: 1em;
+  background-color: rgb(0, 204, 255);
+}
+
+.edit-btn{
+  float: right;
+}
+
+#name-label {
+  margin-top: 20px;
+}
+
+#whatisspoder {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 48pt;
+}
+
+#homeintro {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 24pt;
+}
+
+#introtext {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 14pt;
 }

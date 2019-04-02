@@ -13,11 +13,13 @@ router.route('/register')
 router.route('/login')
     .post(auth.validate);
     
-router.route('/verify')    
-    .get(verifyToken)
-    
 router.route('/getUser')    
     .get(verifyToken, auth.getUser)
 
+router.route('/updateUser')    
+    .post(verifyToken, auth.updateUser)  
+    
+router.route('/changePsw')    
+    .post(verifyToken, auth.changePsw)     
 
 module.exports = router;

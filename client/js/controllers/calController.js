@@ -37,7 +37,32 @@ angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenti
             )};
 
             $scope.acceptEvent = function(id) {
+              var event = {
+                'description': $scope.event.description,
+                'location': $scope.event.location,
+                'summary': $scope.event.title,
+                'start': {
+                  'dateTime': $scope.event.startTime,
+                  'timeZone': 'America/New_York',
+                },
+                'end': {
+                  'dateTime': $scope.event.endTime,
+                  'timeZone': 'America/New_York',
+                },
+                
+              };
               
+              calendar.events.insert({
+                auth: auth,
+                calendarId: 'primary',
+                resource: event,
+              }, function(err, event) {
+                if (err) {
+                  console.log('There was an error contacting the Calendar service: ' + err);
+                  return;
+                }
+                console.log('Event created: %s', event.htmlLink);
+              });
             }
               
     }
