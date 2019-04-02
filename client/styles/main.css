@@ -304,7 +304,7 @@ hr {
   
 .tablink {
   background-color: rgb(0, 204, 255);
-  color: white;
+  color: black;
   float: left;
   border: none;
   outline: none;
@@ -312,6 +312,7 @@ hr {
   padding: 14px 16px;
   font-size: 17px;
   width: 25%;
+  margin-left: 50px;
 }
 
 .tablink:hover {
@@ -426,4 +427,9 @@ tr.tbl-dropdown td > ul{
   margin-right: auto;
   text-align: center;
   font-size: 14pt;
+}
+.errorMsg {
+  font-size: 16px;
+  color: red;
+  font-style: italic;
 }

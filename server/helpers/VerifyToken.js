@@ -4,14 +4,13 @@ var config = require('../config/config');
 function verifyToken(req, res, next) {
   var token = req.headers['x-access-token'];
   console.log("token: " + token);
-  if (token == null) {
+  if (!token) {
     console.log("token is null"); 
-    return res.json({ auth: false, message: "No token provided." });
+    return res.status(401).send({ auth: false, message: "No logged in!" });
   }
   jwt.verify(token, config.secret, function(err, decoded) {
     if (err) {
-      return res.json({ auth: false, message: 'Failed to authenticate token.' });
-      console.log("not good");
+      return res.status(401).send({ auth: false, message: 'Your token has expired!' });
     }
     // if everything good, save to request for use in other routes
     req.userId = decoded.id;
