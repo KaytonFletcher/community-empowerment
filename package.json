@@ -5,6 +5,10 @@
   "main": "server.js",
   "author": "A Tribe Called SPODER",
   "license": "MIT",
+  "engines": {
+    "node": "10.15.0",
+    "npm": "6.7.0"
+  },
   "dependencies": {
     "bcrypt": "^3.0.5",
     "body-parser": "^1.14.1",
