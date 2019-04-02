@@ -39,6 +39,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/cal', calRoutes);
 app.use('/api/auth', authRoutes);
 
+app.use('/', express.static(path.join(__dirname+'/node_modules')));
 
 app.all('/*', function(req, res) {
   res.sendFile(path.resolve('client/index.html'));
