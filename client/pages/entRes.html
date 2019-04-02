@@ -29,8 +29,12 @@
 -->
 
 	<!--													   , 'color of choice)">Documents</button> -->
-	<button class="tablink" onclick="openPage('Documents', this)">Documents</button>
+	<script>
+			// Get the element with id="defaultOpen" and click on it
+			document.getElementById("defaultOpen").click();
+			</script>
 	<button class="tablink" onclick="openPage('Videos', this)" id="defaultOpen">Videos</button>
+	<button class="tablink" onclick="openPage('Documents', this)">Documents</button>
 	
 
 	<div id="Documents" class="tabcontent">
