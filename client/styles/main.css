@@ -433,3 +433,14 @@ tr.tbl-dropdown td > ul{
   color: red;
   font-style: italic;
 }
+.crop {
+  width: 100%;
+  height: 50%S;
+  overflow: hidden;
+}
+
+.crop img {
+  width: 100%;
+  height: 700px;
+  margin: -100px;
+}
