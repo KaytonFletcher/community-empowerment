@@ -47,18 +47,18 @@
 			<div id="addVideoModal" class="modal fade req-modal" role="dialog">
 				<form class="modal-dialog" ng-controller="addVideoController" ng-submit="submitRequest()" >
 					<!-- Modal content-->
-					<h5>Add Video: </h5>
+					<h5>Add Video: </h5> 
                     <div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 							<h4 class="modal-title"></h4>
 						</div>
 						<div class="modal-body">
-							<label for="videotitle"><b>Video Title</b></label>
+							<h6><font color="black">Video Title</font></h6>
 							<input type="text" placeholder="Enter Video Title" name="videotitle" required ng-model="video.title">
 
 							<div class="req-moveup">
-								<label for="videodesc"><b>Video Description</b></label>
+								<h6><font color="black">Video Description</font></h6>
 								<textarea class="textarea-req" type="text" placeholder="Enter Video Description" name="videodesc" required ng-model="video.description"></textarea>
 
 							</div>
