@@ -434,13 +434,19 @@ tr.tbl-dropdown td > ul{
   font-style: italic;
 }
 .crop {
-  width: 100%;
-  height: 50%S;
+  width: 70%;
+  height: 100%;
   overflow: hidden;
 }
 
 .crop img {
   width: 100%;
-  height: 700px;
-  margin: -100px;
+  height: 500px;
+  margin: 0px;
+}
+
+.bigBox{
+    width:100%;
+    height:500px;
+    background:	rgb(40, 45, 38);
 }
