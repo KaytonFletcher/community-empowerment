@@ -58,4 +58,4 @@ angular.module('users').controller('addVideoController', ['$scope', 'Vids', 'Aut
 			*/
               
     }
-]);
+    }]);
