@@ -30,6 +30,7 @@
     <script src="js/factories/authFactory.js"></script>
     <script src="js/controllers/calController.js"></script>
     <script src="js/factories/calFactory.js"></script>
+    <script src="js/controllers/addVideoController.js"></script>
 
     <!-- References fullCalendar library -->
     <link href='libraries/fullcalendar/packages/core/main.css' rel='stylesheet' />
@@ -41,10 +42,6 @@
     <script src='libraries/fullcalendar/packages/list/main.js'></script>
     <script src='libraries/fullcalendar/packages/google-calendar/main.js'></script>
     
-    <!--support for tags for videos-->
-	<link rel="stylesheet" href="libraries/bootstrap4-tagsinput/tagsinput.css"/>
-	<script src="libraries/bootstrap4-tagsinput/tagsinput.js"></script>
-
     <!-- This sets the starting url and gets rid of #! -->
     <base href="/"/>
 
@@ -93,8 +90,8 @@
         
     <!-- This is where code gets injected from html files in /pages -->
    <ui-view></ui-view>
-    
 
+  
    <div id="signin-modal" class="modal signin" ng-show="loginError || !currentUser">
     <form class="modal-content signin-content"  ng-controller="authController" ng-submit="login()" >
       <div class="container">
