@@ -1,5 +1,6 @@
 angular.module('states', []);
 angular.module('users', []);
+
 // var underscore = angular.module('underscore', []);
 // underscore.factory('_', ['$window', function($window) {
 //   return $window._; // assumes underscore has already been loaded on the page
@@ -9,8 +10,15 @@ var app = angular.module('SpoderApp', ['ui.router','states', 'users', 'ngTagsInp
 
 app.config(["$locationProvider" , function($locationProvider){
     $locationProvider.html5Mode(true);
+
 }]);
 
+
+app.filter('trusted', ['$sce', function ($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}]);
 
 app.run( function($transitions, Authenticate, $rootScope) {
    

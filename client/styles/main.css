@@ -262,18 +262,19 @@ hr {
 
   .video-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(2, 1fr);
     margin: 2em;
   }
-  
+  .video-item iframe {
+    border: 0.125em solid;
+  }
+   
   .video-item {
     margin-top: 0;
   }
   
-  .video-item iframe {
-    border: 0.125em solid;
-  }
+/* 
 
   .video-item:nth-child(1) {	
     grid-column: 1 / 2;		
@@ -303,7 +304,7 @@ hr {
   .video-item:nth-child(6) {
     grid-column: 2 / 3;
     grid-row: 5 / 8;
-  }
+  } */
 }
   
 .tablink {

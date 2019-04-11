@@ -36,10 +36,10 @@
 		<iframe src="https://drive.google.com/embeddedfolderview?id=1GmIEOv6DT92DIpFFYNOtFytxWJ2koS0c#grid" width="600" height="500" frameborder="0"></iframe>
 	</div>
 
-	<div id="Videos" class="tabcontent">
+	<div id="Videos" ng-controller="videoController">
 		<button style="margin-top: 5%" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVideoModal" >Add Video</button>
 			<div id="addVideoModal" class="modal fade req-modal" role="dialog">
-				<form class="modal-dialog" ng-controller="addVideoController">
+				<form class="modal-dialog" >
                     <div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"><i class="fas fa-times"></i></button>
@@ -67,46 +67,17 @@
                 </form>
             </div>         
 		<div class="video-grid">
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/gGruZGY4Gvk" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<div class="video-item" ng-repeat="video in videos"  style="padding:20px">
+					<div class="video-wrap">
+						   <iframe width="560" height="315" ng-src="{{video.url | trusted}}" 
+							 frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+					</div>	
 				</div>
-			</div>
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/JGHWVAN_yQg" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
-			</div>
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/CzwGcARRVok" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
-			</div>
-			
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/SYMi1QCzQEY" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
-			</div>
-			
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/3dW-6iJSqQI" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
-			</div>
-			
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/ZnWXtjQOxx0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
-			</div>
 		</div>
 		
 		<!--If admin hits the google drive storage maximum of 15 GB, can use youtube playlists. -->
-		<iframe width="640" height="360" src="https://www.youtube.com/embed/videoseries?list=PLbB_N7nmMobFLAITkcnjo6BONo3TpgCrc" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-		
-		<iframe src="https://drive.google.com/embeddedfolderview?id=1FVsWnqDxYR5zit834cEkheNdZnmAC0Jc#grid" width="600" height="500" frameborder="0"></iframe>
-
+		<!-- <iframe width="640" height="360" src="https://www.youtube.com/embed/videoseries?list=PLbB_N7nmMobFLAITkcnjo6BONo3TpgCrc" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		<iframe src="https://drive.google.com/embeddedfolderview?id=1FVsWnqDxYR5zit834cEkheNdZnmAC0Jc#grid" width="600" height="500" frameborder="0"></iframe> -->
 	</div>
 	
 	

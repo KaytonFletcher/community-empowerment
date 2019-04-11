@@ -6,7 +6,7 @@ var videos = require('../controllers/VideoController.js'),
 router.route('/')    
     .post(verifyToken, videos.add)
     .get(videos.list) 
-
+   
 router.route('/:videoId')
     .delete(verifyToken, videos.delete)
 
