@@ -1,46 +1,41 @@
-angular.module('users').controller('addVideoController', ['$scope', 'Vids', 'Authenticate',
-    function($scope, Vids) {
+angular.module('users').controller('addVideoController', ['$scope', 'Authenticate',
+    function($scope) {
 
       // $scope.event.userID = Authenticate.getUser(localStorage.getItem('token')); 
 
-        Vids.getAll().then(function(res) {
-            $scope.videoReqs = res.data;
-            console.log('Video data displayed');
-          }, function(error) {
-            console.log('Unable to retrieve requests: ', error);
-          });
+        // Vids.getAll().then(function(res) {
+        //     $scope.videoReqs = res.data;
+        //     console.log('Video data displayed');
+        //   }, function(error) {
+        //     console.log('Unable to retrieve requests: ', error);
+        // });
 
-            $scope.submitRequest = function() {
-                // requests event to be posted to database in factory
-                // var startTime = document.getElementById("startTime"); 
-                // var endTime = document.getElementById("endTime"); 
-                // $scope.event.startTime = startTime; 
-                // $scope.event.endTime = endTime; 
-                Vids.reqEvent($scope.video).then(function(res){
-                    if(!res){
-                        console.log('sorry video no work');
-                    } else {
-                        console.log('YeEt'); 
-                    }
-                })
-              };   
+        $scope.submitRequest = function() {
+          // requests event to be posted to database in factory
+          // var startTime = document.getElementById("startTime"); 
+          // var endTime = document.getElementById("endTime"); 
+          // $scope.event.startTime = startTime; 
+          // $scope.event.endTime = endTime; 
+                
+        };   
             
-            $scope.deleteVideo = function(id) {
-                Vids.delete(id).then(function(response){
-                  for(var i = 0; i < $scope.videoReqs.length; i++){
-                    if(response.data.title == $scope.videoReqs[i].title){
-                      $scope.videoReqs.splice(i, 1);  
-                    }}
-                  }, function(error) {
-                    console.log('Unable to delete user: ', error);
-                  }
-            )};
+        $scope.deleteVideo = function(id) {
+        //     Vids.delete(id).then(function(response){
+        //       for(var i = 0; i < $scope.videoReqs.length; i++){
+        //         if(response.data.title == $scope.videoReqs[i].title){
+        //           $scope.videoReqs.splice(i, 1);  
+        //         }}
+        //       }, function(error) {
+        //         console.log('Unable to delete user: ', error);
+        //       }
+        // )
+      };
 
-            $scope.acceptVideo = function(id) {
-              var video = {
-                'description': $scope.video.description,
-                'summary': $scope.video.title,
-              };
+        $scope.addVideo = function(id) {
+          var video = {
+            'description': $scope.video.description,
+            'summary': $scope.video.title,
+          };
               
 			  /*
               calendar.events.insert({
