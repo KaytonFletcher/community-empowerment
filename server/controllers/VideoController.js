@@ -1,12 +1,17 @@
 var Video = require('../models/videoSchema.js');
 
 exports.add = function(req, res) {
-  console.log(typeof req.body.tags);
+
+  console.log(req.body.tags);
+  var parsedTags = [];
+  req.body.tags.forEach(element => {
+    parsedTags.push(element.text);
+  });
   var video = new Video ({
     title : req.body.title,
     description: req.body.description,
     url : req.body.url,
-    tags: req.body.tags
+    tags: parsedTags
   });
   
   video.save(function(err) {
@@ -16,7 +21,7 @@ exports.add = function(req, res) {
       
     } else {
       //here is how you return data, can be accessed in authController front end with res.data.auth, res.data.token
-      return res.status(201).json({ added: true });
+      return res.status(201).send(video);
       }
   });
 }

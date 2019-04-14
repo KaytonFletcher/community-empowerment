@@ -22,63 +22,81 @@
 	</iframe>
 -->
 
-	<!--													   , 'color of choice)">Documents</button> -->
-	<script>
-	// Get the element with id="defaultOpen" and click on it
-	document.getElementById("defaultOpen").click();
-	</script>
+
+<div class="container"  ng-controller="videoController" >
+    <ul class="nav nav-tabs" id="resource-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="videos-tab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="true">Videos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="documents-tab" data-toggle="tab" href="#documents" role="tab" aria-controls="documents" aria-selected="false">Documents</a>
+		</li>
+	</ul>
+
 	
-	<button class="tablink" onclick="openPage('Videos', this)" id="defaultOpen">Videos</button>
-	<button class="tablink" onclick="openPage('Documents', this)">Documents</button>
-	
-
-	<div id="Documents" class="tabcontent">
-		<iframe src="https://drive.google.com/embeddedfolderview?id=1GmIEOv6DT92DIpFFYNOtFytxWJ2koS0c#grid" width="600" height="500" frameborder="0"></iframe>
-	</div>
-
-	<div id="Videos" class="tabcontent" ng-controller="videoController">
-		<button style="margin-top: 5%" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addVideoModal" >Add Video</button>
-			<div id="addVideoModal" class="modal fade req-modal" role="dialog">
-				<form class="modal-dialog" >
-                    <div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"><i class="fas fa-times"></i></button>
-							<h4 class="modal-title">Add Video:</h4>
-						</div>
-						<div class="modal-body">
-							<h6 class = "modal-title">Video Title</h6>
-							<input class="form-control" type="text" placeholder="Enter Video Title" name="videotitle" required ng-model="video.title">
-
-							<h6 class = "modal-title">Video URL</h6>
-							<input class="form-control" type="text" placeholder="Enter Video URL" name="videourl" required ng-model="video.url">
-							
-							<h6 class = "modal-title">Video Description</h6>
-							<textarea class="form-control textarea-req" type="text" placeholder="Enter Video Description" name="videodesc" required ng-model="video.description"></textarea>
-
-							<h6 class = "modal-title">Video Tags</h6>
-							<tags-input ng-model="tags"></tags-input>
-								
-							
-							<button type="submit" class="btn btn-success signup fullwidth">Add Video</button>
-						</div> 
-                       
-					</div>
-                  
-                </form>
-            </div>         
-		<div class="video-grid">
-				<div class="video-item" ng-repeat="video in videos"  style="padding:20px">
-					<div class="video-wrap">
-						   <iframe width="560" height="315" ng-src="{{video.url | trusted}}" 
-							 frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-					</div>	
-				</div>
+	<div class="tab-content" id="res-tab-content">
+		
+		<div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">		
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1GmIEOv6DT92DIpFFYNOtFytxWJ2koS0c#grid" 
+				width="600" height="500" frameborder="0"></iframe>
 		</div>
 		
+		<div class="tab-pane fade show active" id="videos" role="tabpanel" aria-labelledby="videos-tab">
+			<button type="button" class="float-right btn btn-primary" data-toggle="modal" data-target="#addVideoModal" >Add Video</button>
+
+			<div class="video-grid">
+				<div class="video-item" ng-repeat="video in videos"  style="padding:20px">
+					<div class="d-flex flex-column">
+						<h4>{{video.title}}</h4>
+						<div class="video-wrap">
+							<iframe width="560" height="315" ng-src="{{video.url | trusted}}" name="{{video.title}}"
+							frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+						</div>	
+						<div class="d-flex">
+							<span class="badge badge-pill badge-primary" style="display:inline-block; width:80px" ng-repeat="tag in video.tags">{{tag}}</span>
+						</div>
+					</div>	
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	
+<div id="addVideoModal" class="modal fade req-modal" role="dialog">
+	<form class="modal-dialog" ng-submit="addVideo()" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+				<h4 class="modal-title">Add Video:</h4>
+			</div>
+			<div class="modal-body">
+				<h6 class = "modal-title">Video Title</h6>
+				<input class="form-control" type="text" placeholder="Enter Video Title" name="videotitle" required ng-model="newVideo.title">
+
+				<h6 class = "modal-title">Video URL</h6>
+				<input class="form-control" type="text" placeholder="Enter Video URL" name="videourl" required ng-model="newVideo.url">
+				
+				<h6 class = "modal-title">Video Description</h6>
+				<textarea class="form-control textarea-req" type="text" placeholder="Enter Video Description" name="videodesc" required ng-model="newVideo.description"></textarea>
+
+				<h6 class = "modal-title">Video Tags</h6>
+				<tags-input ng-model="newVideo.tags"></tags-input>
+					
+				
+				<button type="submit" class="btn btn-success signup fullwidth">Add Video</button>
+			</div> 
+			
+		</div>
+		
+	</form>
+</div>      
+
+</div>
+
+
+
 		<!--If admin hits the google drive storage maximum of 15 GB, can use youtube playlists. -->
 		<!-- <iframe width="640" height="360" src="https://www.youtube.com/embed/videoseries?list=PLbB_N7nmMobFLAITkcnjo6BONo3TpgCrc" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		<iframe src="https://drive.google.com/embeddedfolderview?id=1FVsWnqDxYR5zit834cEkheNdZnmAC0Jc#grid" width="600" height="500" frameborder="0"></iframe> -->
-	</div>
-	
-	
-	
