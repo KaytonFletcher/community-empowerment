@@ -3,6 +3,14 @@ var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
 var config = require('../config/config');
+const { google } = require('googleapis')
+const key = require('../config/calendarAuth.json')
+const scopes = 'https://www.googleapis.com/auth/calendar'
+const jot = new google.auth.JWT(key.client_email, null, key.private_key, scopes)
+const view_id = 'XXXXXXX'
+
+process.env.GOOGLE_APPLICATION_CREDENTIALS = '../config/calendarAuth.json'
+
 
 
 exports.submitReq = function(req, res) {
@@ -62,3 +70,43 @@ exports.findEventId = function(req, res, next, id) {
     }
   });
 };
+
+exports.addEvent = function(req, res) {
+  var calendar = google.calendar('v3');
+
+  jot.authorize(function (err, tokens) {
+    if (err) {
+      console.log(err);
+      return;
+    } else {
+      console.log("Successfully connected!");
+    }
+   });
+
+  var event = {
+    'summary': 'Test Event 190',
+    'location': 'Gainesville, FL',
+    'description': 'Yeet',
+    'start': {
+      'dateTime': '2019-05-28T09:00:00-07:00',
+      'timeZone': 'America/New_York',
+    },
+    'end': {
+      'dateTime': '2019-05-28T17:00:00-07:00',
+      'timeZone': 'America/New_York',
+    },
+  };
+    
+    calendar.events.insert({
+      auth: jot,
+      calendarId: 'spoderdev@gmail.com',
+      resource: event,
+    }, function(err, event) {
+      if (err) {
+        console.log('There was an error contacting the Calendar service: ' + err);
+        return;
+      }
+      console.log('Event created: %s', event.htmlLink);
+    });
+  })
+}
