@@ -7,19 +7,13 @@ var eventSchema = new Schema({
         required: true,
         trim: true
     }, 
-    date: {
-        type: String, 
-        required: true
-    },
     startTime: {
         type: String,
         required: true, 
-        trim: true
     },
     endTime: {
         type: String,
         required: true,
-        trim: true
     },
     description: {
         type: String,
