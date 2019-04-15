@@ -455,3 +455,12 @@ tr.tbl-dropdown td > ul{
     height:500px;
     background:	rgb(40, 45, 38);
 }
+
+#sort-box > *{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#sort-box{
+  margin-top: 25px;
+}

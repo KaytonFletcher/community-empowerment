@@ -1,39 +1,24 @@
-angular.module('SpoderApp').controller('videoController', ['$scope', 'Video',
-    function($scope, Video) {
+angular.module('SpoderApp').controller('videoController', ['$scope', 'Video', '$filter',
+    function($scope, Video, $filter) {
+      $scope.tagList = [];
       $scope.videos = [];
+      $scope.filteredVideos = [];
+      $scope.allTags = ['Support', 'Preparation', 'Oppurtunuity','Differentiation', 'Economic', 'Resources'];
 
       // $scope.event.userID = Authenticate.getUser(localStorage.getItem('token')); 
 
         Video.getAll().then(function(res) {
-            console.log(res.data);
             $scope.videos = res.data;
-
-            console.log("IS IT AN ARRAY " + Array.isArray($scope.videos));
-
+            $scope.filteredVideos = $scope.videos;
         }, function(error) {
             console.log('Unable to retrieve requests: ', error);
           });
 
-      //   {
-      //     "url": "https://www.youtube.com/embed/gGruZGY4Gvk"
-
-      // },
-      // {
-      //     "url": "https://www.youtube.com/embed/JGHWVAN_yQg"
-      // }, 
-      // {
-      //   "url": "https://www.youtube.com/embed/CzwGcARRVok"
-      // }, 
-      // {
-      //   "url": "https://www.youtube.com/embed/SYMi1QCzQEY"
-      // }, 
-      // {
-      //   "url": "https://www.youtube.com/embed/3dW-6iJSqQI"
-      // }, 
-      // {
-      //   "url": "https://www.youtube.com/embed/ZnWXtjQOxx0"
-      // }
-            
+        $scope.tagCheck = function(){
+          console.log("Checking tags");
+          $scope.filteredVideos = $filter('tag')($scope.videos, $scope.tagList);
+        }
+          
         $scope.deleteVideo = function(id) {
             Video.delete(id, localStorage.getItem('token')).then(function(response){
               for(var i = 0; i < $scope.videoReqs.length; i++){
@@ -42,11 +27,15 @@ angular.module('SpoderApp').controller('videoController', ['$scope', 'Video',
                 }
               }
               }, function(error) {
-                console.log('Unable to delete user: ', error);
-              }
-        )
-      };
+                console.log('Unable to delete video: ', error);
+              });
+        };
 
+        $scope.loadTags = function($query){
+          return $scope.allTags.filter(function(tag) {
+            return tag.toLowerCase().indexOf($query.toLowerCase()) != -1;
+          });
+        }
         $scope.addVideo = function() {
           var url = $scope.newVideo.url.split('v=')[1];
           if(url){
