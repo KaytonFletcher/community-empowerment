@@ -61,22 +61,21 @@
 			</div>
 			<div class="modal-body">
 				<h6 class = "modal-title">Video Title</h6>
-				<input class="form-control" type="text" placeholder="Enter Video Title" name="videotitle" required ng-model="newVideo.title">
+				<input class="form-control custom-input" type="text" placeholder="Enter Video Title" name="videotitle" required ng-model="newVideo.title">
 
 				<h6 class = "modal-title">Video URL</h6>
-				<input class="form-control" type="text" placeholder="Enter Video URL" name="videourl" required ng-model="newVideo.url">
+				<input class="form-control custom-input" type="text" placeholder="Enter Video URL" name="videourl" required ng-model="newVideo.url">
 				
 				<h6 class = "modal-title">Video Description</h6>
 				<textarea class="form-control textarea-req" type="text" placeholder="Enter Video Description" name="videodesc" required ng-model="newVideo.description"></textarea>
 
 				<h6 class = "modal-title">Video Tags</h6>
-				<tags-input ng-model="newVideo.tags" add-from-autocomplete-only="true"> 
+				<tags-input ng-model="newVideo.tags" add-from-autocomplete-only="true" style="margin: 5px 0 22px 0"> 
 							<auto-complete source="loadTags($query)" min-length="0" 
 							load-on-focus="true" load-on-empty="true"> </auto-complete>
 					</tags-input>
-					
 				
-				<button type="submit" class="btn btn-success signup fullwidth">Add Video</button>
+				<button type="submit" class="btn btn-success fullwidth">Add Video</button>
 			</div> 
 			
 		</div>

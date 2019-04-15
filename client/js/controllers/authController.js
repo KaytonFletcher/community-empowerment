@@ -6,8 +6,8 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
         $scope.registerError = undefined;
 
         $scope.login = function() {
-            console.log('logging in....');
             Authenticate.login($scope.login.user).then(function(res){
+                angular.element(document.querySelectorAll( '#signin-modal' )).modal('hide');
                 console.log("We logged in!");
                 $scope.login.user = undefined;
                 if(res.data.auth){
@@ -23,7 +23,6 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
                 $scope.login.user = undefined;
                 $rootScope.currentUser = undefined;
                 $scope.loginError = error.data;
-
                /* DISPLAY ERROR MESSAGE TO USER IN HTML */
               console.log('Unable to login: ', error);
             })
