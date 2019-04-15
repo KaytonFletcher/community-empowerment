@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
 
-var videoSchema = new Schema({
+var announcementSchema = new Schema({
     title: {
         type: String, 
         required: true,
@@ -9,24 +9,14 @@ var videoSchema = new Schema({
     },
     description: {
         type: String,
-        trim: true
-    },
-    url: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true
-    },
-    tags: [{ 
-        type: String,
         required: true,
         trim: true
-     }],
+    },
     at: Date,
     updated_at: Date
 });
 
-videoSchema.pre('save', function(next) {
+announcementSchema.pre('save', function(next) {
     var currentTime = new Date;
     this.updated_at = currentTime;
     if(!this.created_at)
@@ -36,6 +26,6 @@ videoSchema.pre('save', function(next) {
     next();
 });
 
-var Video = mongoose.model('Video', videoSchema);
+var Announcement = mongoose.model('Announcement', announcementSchema);
 
-module.exports = Video;
+module.exports = Announcement;

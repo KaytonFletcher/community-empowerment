@@ -1,16 +1,60 @@
 angular.module('states', []);
 angular.module('users', []);
+
 // var underscore = angular.module('underscore', []);
 // underscore.factory('_', ['$window', function($window) {
 //   return $window._; // assumes underscore has already been loaded on the page
 // }]);
 
-var app = angular.module('SpoderApp', ['ui.router','states', 'users']);
+var app = angular.module('SpoderApp', ['ui.router','states', 'users', 'ngTagsInput']);
 
 app.config(["$locationProvider" , function($locationProvider){
     $locationProvider.html5Mode(true);
 }]);
 
+
+app.filter('trusted', ['$sce', function ($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}]);
+
+
+function checkList(video, tagList){
+    for(i in tagList){
+        console.log(tagList[i]);
+        console.log(video.tags);
+        if(!video.tags.includes(tagList[i].text)){return false;}
+    }
+    console.log("Tag did match in for loop");
+    return true;
+}
+
+
+app.filter('tag', function(){
+    console.log("checking for match");
+    return function(videoList, tagList){
+        console.log(videoList);
+        console.log(tagList);
+      var filteredList = [];  
+      //console.log("Video title: " + video.title);
+      if(tagList === undefined || tagList.length == 0){return videoList;}
+      videoList.forEach(video => {
+
+        console.log(checkList(video,tagList));
+        if(checkList(video, tagList))
+        {
+            console.log("Adding video");
+            filteredList.push(video);
+        } else {
+            console.log("Not adding video");
+        }
+      });
+      
+      console.log("FILTERED LIST: " + filteredList);
+      return filteredList;
+    }
+});
 
 app.run( function($transitions, Authenticate, $rootScope) {
    

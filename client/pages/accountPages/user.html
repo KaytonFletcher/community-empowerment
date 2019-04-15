@@ -26,8 +26,8 @@
             <input ng-model="updatedUser.email" ng-readonly="!canEdit" class="form-control form-control-lg" id="email" type="text" placeholder="{{currentUser.email}}">
             
             <label for="organization">Organization</label>
-            <input ng-model="updatedUser.organization" ng-readonly="!canEdit" class="form-control form-control-lg" id="organization" type="text" placeholder="{{currentUser.organization}}">
-            <button type="submit" ng-show="canEdit" class="update-btn">Update Account</button>
+            <input ng-model="updatedUser.organization" ng-readonly="!canEdit" class="form-control form-control-lg mb-3" id="organization" type="text" placeholder="{{currentUser.organization}}">
+            <button type="submit" ng-show="canEdit" class="btn btn-success mb-3">Update Account</button>
           </form>
 
             <h3>Change password</h3>
@@ -37,7 +37,7 @@
               <div class="mx-4"></div>
               <input required ng-model="updatedUser.newPassword" class="form-control form-control-lg" id="newpsw" type="password" placeholder="New password">
               <div class="mx-4"></div>
-              <button class="mb-4" type="submit">Change password</button>
+              <button class="btn btn-success btn-lg" type="submit">Change password</button>
             </form>
           </div>
         </div>
