@@ -11,11 +11,8 @@ angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenti
           });
 
             $scope.submitRequest = function() {
-                // requests event to be posted to database in factory
-                // var startTime = document.getElementById("startTime"); 
-                // var endTime = document.getElementById("endTime"); 
-                // $scope.event.startTime = startTime; 
-                // $scope.event.endTime = endTime; 
+                $scope.event.startTime = new Date($scope.event.startTime).toISOString(); 
+                $scope.event.endTime = new Date($scope.event.endTime).toISOString(); 
                 Cals.reqEvent($scope.event).then(function(res){
                     if(!res){
                         console.log('sorry event no work');
@@ -32,16 +29,16 @@ angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenti
                       $scope.eventReqs.splice(i, 1);  
                     }}
                   }, function(error) {
-                    console.log('Unable to delete user: ', error);
+                    console.log('Unable to delete event: ', error);
                   }
             )};
 
-            $scope.acceptEvent = function(id) {
-              Cals.addEvent().then(function(res){
+            $scope.acceptEvent = function(eid) {
+              Cals.addEvent(eid).then(function(res){
                 if(!res){
                   console.log('event not added');
               } else {
-                  console.log('YeEt'); 
+                  console.log('YeEt');  
               }
             }
           )};

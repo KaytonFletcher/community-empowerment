@@ -17,7 +17,6 @@ exports.submitReq = function(req, res) {
     console.log('bruuu');
     var event = new Event ({
       title : req.body.title,
-      date : req.body.date,
       startTime : req.body.startTime,
       endTime : req.body.endTime,
       description: req.body.description
@@ -83,16 +82,16 @@ exports.addEvent = function(req, res) {
     }
    });
 
-  var event = {
-    'summary': 'Test Event 190',
+  var eventToAdd = {
+    'summary': req.event.title,
     'location': 'Gainesville, FL',
-    'description': 'Yeet',
+    'description': req.event.description,
     'start': {
-      'dateTime': '2019-05-28T09:00:00-07:00',
+      'dateTime': req.event.startTime,
       'timeZone': 'America/New_York',
     },
     'end': {
-      'dateTime': '2019-05-28T17:00:00-07:00',
+      'dateTime': req.event.endTime,
       'timeZone': 'America/New_York',
     },
   };
@@ -100,7 +99,7 @@ exports.addEvent = function(req, res) {
     calendar.events.insert({
       auth: jot,
       calendarId: 'spoderdev@gmail.com',
-      resource: event,
+      resource: eventToAdd,
     }, function(err, event) {
       if (err) {
         console.log('There was an error contacting the Calendar service: ' + err);

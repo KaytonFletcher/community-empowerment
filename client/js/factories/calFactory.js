@@ -10,8 +10,8 @@ angular.module('users').factory('Cals', function($http) {
         delete: function(id) {
             return $http.delete('http://localhost:8080/api/cal/' + id);
         },
-        addEvent: function() {
-            return $http.post('http://localhost:8080/api/cal/admin');
+        addEvent: function(eid) {
+            return $http.post('http://localhost:8080/api/cal/admin/' + eid);
         }
     }
     

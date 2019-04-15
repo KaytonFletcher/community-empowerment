@@ -7,7 +7,7 @@ router.route('/')
     .post(cal.submitReq)
     .get(cal.listEvents) 
 
-router.route('/admin')
+router.route('/admin/:eventId')
     .post(cal.addEvent)
 
 router.route('/:eventId')
