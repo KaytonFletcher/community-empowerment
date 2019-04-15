@@ -108,5 +108,4 @@ exports.addEvent = function(req, res) {
       }
       console.log('Event created: %s', event.htmlLink);
     });
-  })
-}
+  }
