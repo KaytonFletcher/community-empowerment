@@ -455,3 +455,9 @@ tr.tbl-dropdown td > ul{
     height:500px;
     background:	rgb(40, 45, 38);
 }
+
+/* below is for announcements pg */
+.h4.mb-0.p-4.rounded-top{
+  background-color: #9ED1EF;
+  color: black;
+}
