@@ -458,3 +458,11 @@ tr.tbl-dropdown td > ul{
 #sort-box{
   margin-top: 25px;
 }
+
+#lightbulbfrontpg{
+  width: 10%;
+  size: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
