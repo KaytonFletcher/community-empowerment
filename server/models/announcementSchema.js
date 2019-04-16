@@ -12,7 +12,6 @@ var announcementSchema = new Schema({
         required: true,
         trim: true
     },
-    at: Date,
     updated_at: Date
 });
 

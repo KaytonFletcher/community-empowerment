@@ -9,6 +9,7 @@ var path = require('path'),
     authRoutes = require('../routes/authRoutes'),
     calRoutes = require('../routes/calRoutes'),
     videoRoutes = require('../routes/videoRoutes')
+    anncRoutes = require('../routes/anncRoutes')
 
 
 module.exports.init = function() {
@@ -40,6 +41,7 @@ app.use('/api/users', usersRouter);
 app.use('/api/cal', calRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/videos', videoRoutes);
+app.use('/api/annc', anncRoutes);
 
 app.use('/', express.static(path.join(__dirname+'/node_modules')));
 
