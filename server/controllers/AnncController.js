@@ -1,11 +1,12 @@
-var Annc = require('../models/announcementSchema.js');
+var Announcement = require('../models/announcementSchema.js');
 
 exports.list = function(req, res) {
    
     //editing find all function from bootcamp 3 to sort, empty brackets returns all users
     // .sort() returns alphabetically by default
-    Annc.find().sort('created_at').then(anncs => {
-      res.send(anncs);
+    Announcement.find().sort('-created_at').then(anncs => {
+        console.log('anncs sent');
+        res.send(anncs);
     }).catch(err => {
       res.status(400).send(err); 
       console.log('error: ' + err); 
@@ -26,7 +27,7 @@ exports.delete = function(req, res) {
 
 exports.findAnncId = function(req, res, next, id) {
 
-  Annc.findById(id).exec(function(err, user) {
+  Announcement.findById(id).exec(function(err, user) {
     if(err) {
       res.status(400).send(err);
     } else {
@@ -35,3 +36,23 @@ exports.findAnncId = function(req, res, next, id) {
     }
   });
 };
+
+exports.add = function(req, res) {
+    var annc = new Announcement ({
+      title : req.body.title,
+      description: req.body.description,
+      subject: req.body.subject
+    });
+
+    annc.save(function(err) {
+        if(err) {
+          console.log("SAVE ERROR" + err);
+          return res.status(400).send(err.name);
+          
+        } else {
+          //here is how you return data, can be accessed in authController front end with res.data.auth, res.data.token
+          console.log('annc added');
+          return res.status(201).send(annc);
+          }
+      });
+    };
