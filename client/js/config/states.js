@@ -74,6 +74,12 @@ angular.module('states').config(function ($stateProvider) {
         }     
       },
       {
+        name: 'allUsers',
+        parent: 'account',
+        url: '^account#users',
+        templateUrl: '../../pages/accountPages/allUsers.html'
+      },
+      {
         name: 'termsandconditions',
         url: '/termsandconditions',
         templateUrl: '../../pages/termsandconditions.html'

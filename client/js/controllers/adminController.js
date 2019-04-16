@@ -1,13 +1,17 @@
-angular.module('users').controller('adminController', ['$scope', 'Users', 'Authenticate',
-    function($scope, Users) {
+angular.module('users').controller('adminController', ['$scope', '$state', 'Users', 'Authenticate',
+    function($scope, $state, Users) {
         
+      $scope.loadUsers = function(){
         Users.getAll().then(function(res) {
-            $scope.users = res.data;
-            console.log('User data displayed');
-          }, function(error) {
-            console.log('Unable to retrieve users: ', error);
-          });
+          $scope.users = res.data;
+          $state.go('allUsers');
+          console.log('User data displayed');
+        }, function(error) {
+          console.log('Unable to retrieve users: ', error);
+        });
 
+      }
+       
       
           $scope.deleteUser = function(id) {
             Users.delete(id).then(function(response){
