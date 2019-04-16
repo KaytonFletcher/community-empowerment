@@ -9,13 +9,13 @@
 #mikemorrispic {
   float: left;
   /* padding-right: 1em; */
-  margin-right: 20px;
+  margin-left: 20px;
   margin-bottom: 1px;
   vertical-align: middle;
 }
 
 #bookpic {
-  float: right;
+  float: left;
   margin-left: 20px;
   margin-bottom: 1px;
   vertical-align: middle;
@@ -24,7 +24,7 @@
 #bookheader {
   margin-left: auto;
   margin-right: auto;
-  width: 860px;
+  width: auto;
   text-align: left;
 }
 
@@ -32,9 +32,15 @@
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  width: 860px;
+  width: auto;
 }
-
+.aboutuscontent{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .aboutus_parent {
   margin-left: auto;
   margin-right: auto;
@@ -43,10 +49,11 @@
   border-style:solid; 
   border-color:#9ED1EF; 
   padding: 1em;
-  width: 860px;
+  width: auto;
   border-radius: 5px;
-  height: auto;
+  height: 350px;
   margin-bottom: 25px;
+  position: relative;
 }
 
 
