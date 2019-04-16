@@ -123,31 +123,31 @@
                       <!-- Modal content-->
                       <div class="modal-content">
                         <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title"></h4>
+                          <button type="button" class="close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+				                  <h4 class="modal-title">Request Event:</h4>
                         </div>
                         <div class="modal-body">
                           <label for="eventtitle"><b>Event Title</b></label>
-                          <input type="text" placeholder="Enter Event Title" name="eventtitle" required ng-model="event.title">
+                          <input class="custom-input" type="text" placeholder="Enter Event Title" name="eventtitle" required ng-model="event.title">
 
                           <div class="req-moveup">
-                          <label for="eventdate"><b>Date</b></label> <br>
-                          <input type="text" class="datetime-req" name="eventdate" ng-model="event.date"> <br>
+                          <!-- <label for="eventdate"><b>Date</b></label> <br>
+                          <input class="custom-input" type="date" class="datetime-req" name="eventdate" ng-model="event.date"> <br>  -->
 
                           <label for="starttime"><b>Time Period</b></label> <br>
 
-                          <input type="text" class="datetime-req" name="starttime" ng-model="event.startTime">
+                          <input class="custom-input" type="datetime-local" class="datetime-req" name="starttime" ng-model="event.startTime">
                           <span> to </span>
-                          <input type="text" class="datetime-req" name="endtime" ng-model="event.endTime"> <br>
+                          <input class="custom-input" type="datetime-local" class="datetime-req" name="endtime" ng-model="event.endTime"> <br>
                           
                           
 
                           <label for="eventdesc"><b>Event Description</b></label>
-                          <textarea class="textarea-req" type="text" placeholder="Enter Event Description" name="eventdesc" required ng-model="event.description"></textarea>
+                          <textarea class="custom-input" type="text" placeholder="Enter Event Description" name="eventdesc" required ng-model="event.description"></textarea>
 
                           </div>
 
-                          <button type="submit" class="signup fullwidth">Submit Request</button>
+                          <button type="submit" class="btn btn-success fullwidth mb-3">Submit Request</button>
                         </div>
                        
                       </div>
