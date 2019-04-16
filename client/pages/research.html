@@ -1,4 +1,5 @@
-<h3>Links to Mike's research</h3>
+<div class="container"  ng-controller="researchController" >
+
 
 <button type="button" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addResearchModal" style="margin:0px" ng-if="currentUser.admin">Add Research Article</button>
 
@@ -28,14 +29,16 @@
 </div>  
 
 			<div>
-				<div class="research-item" ng-repeat="researches in filteredResearch track by research.url"  style="padding:20px">
+				<div class="research-item" ng-repeat="research in researches track by research.url"  style="padding:20px">
 					<div class="d-flex flex-column">
 						<h4>{{research.title}}</h4>
 						<div>
 							<iframe width="560" height="315" ng-src="{{research.url | trusted}}" name="{{research.title}}"
 							frameborder="0"></iframe>
+							<a ng-href = "{{research.url}}">Click Here</a>
 						</div>	
 					</div>	
 					
 				</div>
 			</div>
+</div>

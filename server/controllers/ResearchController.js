@@ -1,4 +1,4 @@
-var Video = require('../models/researchSchema.js');
+var Research = require('../models/researchSchema.js');
 
 exports.add = function(req, res) {
 
