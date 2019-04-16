@@ -17,6 +17,7 @@ angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenti
                     if(!res){
                         console.log('sorry event no work');
                     } else {
+                        angular.element(document.querySelectorAll( '#requestEventModal' )).modal('hide');
                         console.log('YeEt'); 
                     }
                 })
