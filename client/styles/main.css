@@ -407,7 +407,7 @@ tr.tbl-dropdown td > ul{
 }
 
 #whatisspoder {
-  padding-top: 210px;
+  padding-top: 390px; /* was 210px*/
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -512,3 +512,5 @@ tr.tbl-dropdown td > ul{
   background: #e4ddc7;
   top: -10px;
 }
+
+.wow { visibility: hidden; }
