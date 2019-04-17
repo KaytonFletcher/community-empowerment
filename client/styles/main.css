@@ -3,7 +3,7 @@
     position: relative;
     width: 140px;
     height: 140px;
-    background-color: #9ED1EF;
+    background-color: #031926;
 }
 
 #mikemorrispic {
@@ -53,8 +53,7 @@
 .mybox .letter{
     text-align: center;
     font-size: 96px;
-    color: black;
-    
+    color: white;
 }
 
 .spodersquares{
@@ -408,6 +407,7 @@ tr.tbl-dropdown td > ul{
 }
 
 #whatisspoder {
+  padding-top: 210px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -422,6 +422,8 @@ tr.tbl-dropdown td > ul{
 }
 
 #introtext {
+  width: 860px;
+  text-justify: left;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -459,10 +461,54 @@ tr.tbl-dropdown td > ul{
   margin-top: 25px;
 }
 
-#lightbulbfrontpg{
-  width: 10%;
-  size: 10%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.lightbulbfrontpg{
+  width: 30%;
+  size: 30%;
+  top: 13px;
+  
+}
+
+#over-img{
+  
+  margin:auto;
+  position:absolute;
+  left:0;
+  right:0;
+}
+
+.red-circ-front{
+  width:230px;
+  height:230px;
+  border-radius:115px;
+  background: #ad8944;
+  top: -10px;
+}
+
+.briefcasefrontpg{
+  width: 60%;
+  size: 60%;
+  top: -8px;
+  
+}
+
+.blue-circ-front{
+  width:230px;
+  height:230px;
+  border-radius:115px;
+  background: #4f5d73;
+  top: -10px;
+}
+
+.pcfrontpg{
+  width: 70%;
+  size: 70%;
+  top: -22px;
+}
+
+.brown-circ-front{
+  width:230px;
+  height:230px;
+  border-radius:115px;
+  background: #e4ddc7;
+  top: -10px;
 }
