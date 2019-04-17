@@ -3,7 +3,7 @@
     position: relative;
     width: 140px;
     height: 140px;
-    background-color: #031926;
+    background-color: #e0995e;
 }
 
 #mikemorrispic {
@@ -53,7 +53,7 @@
 .mybox .letter{
     text-align: center;
     font-size: 96px;
-    color: white;
+    color: black;
 }
 
 .spodersquares{
@@ -476,7 +476,7 @@ tr.tbl-dropdown td > ul{
   right:0;
 }
 
-.red-circ-front{
+.mediumbrown-circ-front{
   width:230px;
   height:230px;
   border-radius:115px;
