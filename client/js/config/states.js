@@ -67,17 +67,37 @@ angular.module('states').config(function ($stateProvider) {
         name: 'account',
         url: '/account',
         templateUrl: '../../pages/accountPages/user.html',
-        data: {
-          redirectTo: 'home' ,
-          authorization: true,
-          admin: false
-        }     
+        redirectTo: 'details'
       },
       {
         name: 'allUsers',
         parent: 'account',
-        url: '^account#users',
-        templateUrl: '../../pages/accountPages/allUsers.html'
+        templateUrl: '../../pages/accountPages/allUsers.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: true
+        }     
+      },
+      {
+        name: 'details',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/details.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
+      },
+      {
+        name: 'manageEvents',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/eventManager.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: true
+        }   
       },
       {
         name: 'termsandconditions',
