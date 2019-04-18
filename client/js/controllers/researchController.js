@@ -1,6 +1,5 @@
 angular.module('SpoderApp').controller('researchController', ['$scope', 'Research', '$filter',
     function($scope, Research, $filter) {
-      $scope.tagList = [];
       $scope.researches = [];
       $scope.filteredResearch = [];
 
