@@ -3,7 +3,7 @@
     position: relative;
     width: 140px;
     height: 140px;
-    background-color: #e0995e;
+    background-color: #5d6f8bc2;
 }
 
 #mikemorrispic {
@@ -407,7 +407,8 @@ tr.tbl-dropdown td > ul{
 }
 
 #whatisspoder {
-  padding-top: 390px; /* was 210px*/
+  margin-top: -150px;
+  margin-bottom: 75px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -415,6 +416,7 @@ tr.tbl-dropdown td > ul{
 }
 
 #homeintro {
+  margin-top: -12px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -514,3 +516,15 @@ tr.tbl-dropdown td > ul{
 }
 
 .wow { visibility: hidden; }
+
+#home-grad{
+  background-size: cover;
+  height: 450px;
+  background-color:#5d6f8bc2;
+}
+
+hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
