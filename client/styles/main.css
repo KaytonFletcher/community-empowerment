@@ -3,7 +3,7 @@
     position: relative;
     width: 140px;
     height: 140px;
-    background-color: #9ED1EF;
+    background-color: #5d6f8bc2;
 }
 
 #mikemorrispic {
@@ -61,7 +61,6 @@
     text-align: center;
     font-size: 96px;
     color: black;
-    
 }
 
 .spodersquares{
@@ -415,6 +414,8 @@ tr.tbl-dropdown td > ul{
 }
 
 #whatisspoder {
+  margin-top: -150px;
+  margin-bottom: 75px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -422,6 +423,7 @@ tr.tbl-dropdown td > ul{
 }
 
 #homeintro {
+  margin-top: -12px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -429,6 +431,8 @@ tr.tbl-dropdown td > ul{
 }
 
 #introtext {
+  width: 860px;
+  text-justify: left;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -464,4 +468,71 @@ tr.tbl-dropdown td > ul{
 
 #sort-box{
   margin-top: 25px;
+}
+
+.lightbulbfrontpg{
+  width: 40%;
+  size: 40%;
+  top: 10px;
+  
+}
+
+#over-img{
+  
+  margin:auto;
+  position:absolute;
+  left:0;
+  right:0;
+}
+
+.mediumbrown-circ-front{
+  width:230px;
+  height:230px;
+  border-radius:115px;
+  background: #e0995e;
+  top: -10px;
+}
+
+.briefcasefrontpg{
+  width: 60%;
+  size: 60%;
+  top: -8px;
+  
+}
+
+.blue-circ-front{
+  width:230px;
+  height:230px;
+  border-radius:115px;
+  background: #6e81a0;
+  top: -10px;
+}
+
+.pcfrontpg{
+  width: 70%;
+  size: 70%;
+  top: -22px;
+}
+
+.brown-circ-front{
+  width:230px;
+  height:230px;
+  border-radius:115px;
+  background: #e4ddc7;
+  top: -10px;
+}
+
+.wow { visibility: hidden; }
+
+#home-grad{
+  background-size: cover;
+  height: 450px;
+  background-color:#5d6f8bc2;
+}
+
+hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  width: 1300px;
 }
