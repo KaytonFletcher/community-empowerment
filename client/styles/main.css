@@ -56,6 +56,7 @@
     color: black;
 }
 
+
 .spodersquares{
     text-align: center;
     position: relative;
@@ -528,4 +529,23 @@ hr.style-two {
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
   width: 1300px;
+}
+
+/*SPODER Pages Styling*/
+.spodertitles{
+    text-align: left;
+    font-size: 72px;
+    color: black;
+}
+
+.bodytext{
+    text-align: left;
+    font-size: 20px;
+    color: black;
+}
+
+.centerimg {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
