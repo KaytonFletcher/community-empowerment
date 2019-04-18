@@ -10,7 +10,8 @@ var path = require('path'),
     calRoutes = require('../routes/calRoutes'),
     videoRoutes = require('../routes/videoRoutes')
     anncRoutes = require('../routes/anncRoutes')
-
+    reqHelpRoutes = require('../routes/reqHelpRoutes')
+    
 
 module.exports.init = function() {
 
@@ -42,6 +43,7 @@ app.use('/api/cal', calRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/videos', videoRoutes);
 app.use('/api/annc', anncRoutes);
+app.use('/api/req', reqHelpRoutes);
 
 app.use('/', express.static(path.join(__dirname+'/node_modules')));
 

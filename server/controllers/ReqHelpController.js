@@ -1,12 +1,12 @@
-var Announcement = require('../models/announcementSchema.js');
+var Request = require('../models/requestSchema.js');
 
 exports.list = function(req, res) {
    
     //editing find all function from bootcamp 3 to sort, empty brackets returns all users
     // .sort() returns alphabetically by default
-    Announcement.find().sort('-created_at').then(anncs => {
-        console.log('anncs sent');
-        res.send(anncs);
+    Request.find().sort('-created_at').then(reqs => {
+        console.log('reqs sent');
+        res.send(reqs);
     }).catch(err => {
       res.status(400).send(err); 
       console.log('error: ' + err); 
@@ -16,18 +16,18 @@ exports.list = function(req, res) {
 
 exports.delete = function(req, res) {
       // Gets user from request variable, then removes it and puts it in the response variable. 
-      var annc = req.annc; 
+      var request = req.request; 
       
-      annc.remove(err=>{
+      request.remove(err=>{
         if(err) throw err; 
-        res.json(annc); 
-        console.log('annc deleted');
+        res.json(request); 
+        console.log('request deleted');
       })
     };
 
-exports.findAnncId = function(req, res, next, id) {
+exports.findReqId = function(req, res, next, id) {
 
-  Announcement.findById(id).exec(function(err, annc) {
+  Request.findById(id).exec(function(err, request) {
     if(err) {
       res.status(400).send(err);
     } else {
@@ -38,21 +38,24 @@ exports.findAnncId = function(req, res, next, id) {
 };
 
 exports.add = function(req, res) {
-    var annc = new Announcement ({
-      title : req.body.title,
+    var request = new Request ({
+      subject : req.body.subject,
       description: req.body.description,
-      subject: req.body.subject
     });
 
-    annc.save(function(err) {
+    request.save(function(err) {
         if(err) {
           console.log("SAVE ERROR" + err);
           return res.status(400).send(err.name);
           
         } else {
           //here is how you return data, can be accessed in authController front end with res.data.auth, res.data.token
-          console.log('annc added');
+          console.log('request added');
           return res.status(201).send(annc);
           }
       });
     };
+
+    exports.request = function(req, res) {
+        
+        };
