@@ -33,6 +33,7 @@
   margin-left: auto;
   margin-right: auto;
   width: auto;
+  text-align: right;
 }
 .aboutuscontent{
   margin: 0;
@@ -42,7 +43,7 @@
   transform: translate(-50%, -50%);
 }
 .aboutus_parent {
-  margin-left: auto;
+  margin-left: 50%;
   margin-right: auto;
   background-color: #9ED1EF; 
   /* border:3px;  */
@@ -51,12 +52,10 @@
   padding: 1em;
   width: auto;
   border-radius: 5px;
-  height: 350px;
+  height: 620px;
   margin-bottom: 25px;
   position: relative;
 }
-
-
 .mybox .letter{
     text-align: center;
     font-size: 96px;
