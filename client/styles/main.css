@@ -9,53 +9,78 @@
 #mikemorrispic {
   float: left;
   /* padding-right: 1em; */
-  margin-left: 20px;
+  margin-left: 30%;
   margin-bottom: 1px;
   vertical-align: middle;
 }
 
 #bookpic {
   float: left;
-  margin-left: 20px;
-  margin-bottom: 1px;
+  margin-left: 20%;
   vertical-align: middle;
 }
 
 #bookheader {
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
+  margin-top: 15px;
   width: auto;
-  text-align: left;
 }
 
 #aboutusheader{
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
+  margin-top: 15px;
   width: auto;
 }
 .aboutuscontent{
+  font-size: 12pt;
   margin: 0;
   position: absolute;
-  top: 50%;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 20px;
+}
+.aboutus_parent {
+  margin-top: 11%;
+  text-align: Center;
+  width: auto;
+  height: auto;
+  position: relative;
+  
+}
+.litcontent{
+  font-size: 14pt;
+  margin: 0;
+  position: absolute;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.aboutus_parent {
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #9ED1EF; 
-  /* border:3px;  */
-  border-style:solid; 
-  border-color:#9ED1EF; 
-  padding: 1em;
+.lit_parent{
+  margin-top: 10%;
+  margin-left: 20%;
+  text-align: left;
   width: auto;
-  border-radius: 5px;
-  height: 350px;
-  margin-bottom: 25px;
+  height: 300px;
   position: relative;
 }
-
+.image-circle {
+  margin:auto;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.micSpoder {
+vertical-align : middle;
+display: inline;
+margin: 0 auto;
+margin-top: -10%;
+margin-left: -17%;
+height: auto;
+width: 205px;
+}
 
 .mybox .letter{
     text-align: center;
