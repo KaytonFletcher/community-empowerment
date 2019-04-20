@@ -1,14 +1,37 @@
-    <div class="bigBox"style="display: flex; justify-content: center;">
-      <div class ="crop" style="display: flex; justify-content: center;">
-        <!--This is both a placeholder and a picture with terrible resolution-->
-        <img src="https://i.imgur.com/9mwgG51.png?1" alt="Entrepreneurship Empowerment!">
-      <!--Maybe use google drive for images? https://drive.google.com/drive/u/1/folders/1YcYuurPX59RvOPTqvwzTYrvNmfSwy96O-->
+
+    
+    
+    <div id="home-grad">
+    <div class="container">
+      
+      <div class="row" style="margin-top: 45px;">
+        <div class="col">
+          <div class="blue-circ-front" id="over-img"></div>
+          <img src="https://i.imgur.com/P7n63Cj.png" class="briefcasefrontpg animated fadeInLeft" id="over-img">
+        </div>
+        <div class="col">
+          <!-- <img src="https://i.imgur.com/WdP1sbE.png" class="lightbulbfrontpg" id="over-img"> -->
+          <div class="mediumbrown-circ-front" id="over-img"></div>
+          <img src="https://i.imgur.com/cBvEfrf.png" class="lightbulbfrontpg animated rotateIn" id="over-img">  <!--lightbulb off (just bottom)-->
+          <img src="https://i.imgur.com/y0yTnll.png" class="lightbulbfrontpg animated fadeIn delayed1s" id="over-img"> <!--mid lightbulb-->
+          <img src="https://i.imgur.com/xkZecjE.png" class="lightbulbfrontpg animated fadeIn delayed11tenths" id="over-img">
+          <img src="https://i.imgur.com/JjulRl7.png" class="lightbulbfrontpg animated fadeIn delayed12tenths" id="over-img">
+          <img src="https://i.imgur.com/VBUzjIs.png" class="lightbulbfrontpg animated fadeIn delayed13tenths" id="over-img">
+          <img src="https://i.imgur.com/WEgM13h.png" class="lightbulbfrontpg animated fadeIn delayed14tenths" id="over-img">
+          <img src="https://i.imgur.com/J3fQDAr.png" class="lightbulbfrontpg animated fadeIn delayed15tenths" id="over-img">
+        </div>
+        <div class="col">
+          <div class="brown-circ-front" id="over-img"></div>
+          <img src="https://i.imgur.com/UIXKRMG.png" class="pcfrontpg animated fadeInRight" id="over-img">
+        </div>
       </div>
     </div>
+    </div>
     
-    <div id='whatisspoder'>What is Entrepreneurship Empowerment?</div>
-    <div id='homeintro'>Introduction<br><br></div>
-    <div id='introtext'>[Description of Entrepreneurship Empowerment and SPODER]<br>
+    <div id='whatisspoder' class="animated" >Entrepreneurship Empowerment<hr class="style-two"></div>
+    
+    <div id='homeintro'>Mission Statement</div>
+    <div id='introtext' class="animated">Entrepreneurship Empowerment exists to help individuals and communities overcome poverty and adverse conditions through entrepreneurship. We seek to share the empowering and transformative potential of entrepreneurship for enabling people to create their own jobs, futures,wealth, and ability to contribute to their communities.<br><br>
     To learn more about each part of SPODER, click on the letters below.
     
     Create a free account to access our research, resources, and join our community
@@ -18,34 +41,34 @@
     <div><br><br>
         <p> <a href="createacct" class="btn btn-success" role="button">Sign Up</a> </p>
     </div>
-
+    
     <!-- Below is SPODER popover boxes -->
-  
+    
     <div class="spodersquares">
         
-        <div tabindex="0" id="spoderslide-s" class="mybox rounded s" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Supportive architecture">
+        <div tabindex="0" id="spoderslide-s" class="mybox rounded s wow fadeInUp delay-1tenth" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Supportive architecture">
           <span class="letter">S</span>
         </div>
         
 
-        <div tabindex="1" id="spoderslide-p" class="mybox rounded p" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Preparation">
+        <div tabindex="1" id="spoderslide-p" class="mybox rounded p wow fadeInUp delay-2tenths" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Preparation">
           <span class="letter">P</span>
         </div>
         
   
-        <div tabindex="2" id="spoderslide-o" class="mybox rounded o" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Opportunity recognition">
+        <div tabindex="2" id="spoderslide-o" class="mybox rounded o wow fadeInUp delay-3tenths" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Opportunity recognition">
           <span class="letter">O</span>
         </div>
   
-        <div tabindex="3" id="spoderslide-d" class="mybox rounded d" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Differentiation of ideas">
+        <div tabindex="3" id="spoderslide-d" class="mybox rounded d wow fadeInUp delay-4tenths" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Differentiation of ideas">
           <span class="letter">D</span>
         </div>
   
-        <div tabindex="4" id="spoderslide-e" class="mybox rounded e" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Economic model">
+        <div tabindex="4" id="spoderslide-e" class="mybox rounded e wow fadeInUp delay-1half" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Economic model">
           <span class="letter">E</span>
         </div>
   
-        <div tabindex="5" id="spoderslide-r" class="mybox rounded r" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Resource leveraging">
+        <div tabindex="5" id="spoderslide-r" class="mybox rounded r wow fadeInUp delay-6tenths" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Resource leveraging">
           <span class="letter">R</span>
         </div>
         
@@ -106,7 +129,7 @@
 
       
 
-      <!---->
+      <!-- SPODER letters slidedowns-->
        <script>
        
         $('.mybox.rounded').click(function(){
@@ -120,6 +143,15 @@
         })
 
        </script>
+
+       <!-- Animate on scroll script (WOW) -->
+       <script>
+       
+       new WOW().init();
+       
+       </script>
+
+
 
        
       
