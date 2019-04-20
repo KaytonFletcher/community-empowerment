@@ -1,1 +1,44 @@
-<h3>Links to Mike's research</h3>
+<div class="container"  ng-controller="researchController" >
+
+<button type="button" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addResearchModal" style="margin:0px" ng-if="currentUser.admin">Add Research Article</button>
+
+<div id="addResearchModal" class="modal fade req-modal" role="dialog">
+	<form class="modal-dialog" ng-submit="addResearch()" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+				<h4 class="modal-title">Add Research:</h4>
+			</div>
+			<div class="modal-body">
+				<h6 class = "modal-title">Research Article Title</h6>
+				<input class="form-control custom-input" type="text" placeholder="Enter Research Article Title" name="reasearchtitle" required ng-model="newResearch.title">
+
+				<h6 class = "modal-title">Research Article URL</h6>
+				<input class="form-control custom-input" type="text" placeholder="Enter Research Article URL" name="researchurl" required ng-model="newResearch.url">
+				
+				<h6 class = "modal-title">Research Article Description</h6>
+				<textarea class="form-control textarea-req" type="text" placeholder="Enter Research Article Description" name="researchdesc" required ng-model="newResearch.description"></textarea>
+				
+				<button type="submit" class="btn btn-success fullwidth">Add Research Entry</button>
+			</div> 
+			
+		</div>
+		
+	</form>
+</div>  
+
+			<div>
+				<div class="research-item" ng-repeat="research in researches track by research.url"  style="padding:20px">
+					<div class="d-flex flex-column">
+						<h4>{{research.title}} <td ng-click="deleteResearch(research.id)"><span style="color: red;" class="fas fa-trash-alt"></span></td></h4>
+						<div>
+							<iframe width="560" height="315" ng-src="{{research.url | trusted}}" name="{{research.title}}"
+							frameborder="0"></iframe>
+							<a ng-href = "{{research.url}}">Click Here</a>
+						</div>	
+					</div>	
+					
+				</div>
+			</div>
+</div>
+
