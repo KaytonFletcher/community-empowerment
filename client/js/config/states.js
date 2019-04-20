@@ -66,7 +66,7 @@ angular.module('states').config(function ($stateProvider) {
       {
         name: 'account',
         url: '/account',
-        templateUrl: '../../pages/accountPages/user.html',
+        templateUrl: '../../pages/accountPages/account.html',
         redirectTo: 'details'
       },
       {
@@ -87,6 +87,16 @@ angular.module('states').config(function ($stateProvider) {
           redirectTo: 'home' ,
           authorization: true,
           admin: false
+        }   
+      },
+      {
+        name: 'userDetails',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/userDetails.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: true
         }   
       },
       {

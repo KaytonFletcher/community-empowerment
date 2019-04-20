@@ -26,7 +26,6 @@ function checkList(video, tagList){
         console.log(video.tags);
         if(!video.tags.includes(tagList[i].text)){return false;}
     }
-    console.log("Tag did match in for loop");
     return true;
 }
 
@@ -40,18 +39,11 @@ app.filter('tag', function(){
       //console.log("Video title: " + video.title);
       if(tagList === undefined || tagList.length == 0){return videoList;}
       videoList.forEach(video => {
-
         console.log(checkList(video,tagList));
-        if(checkList(video, tagList))
-        {
-            console.log("Adding video");
+        if(checkList(video, tagList)) {
             filteredList.push(video);
-        } else {
-            console.log("Not adding video");
-        }
+        } 
       });
-      
-      console.log("FILTERED LIST: " + filteredList);
       return filteredList;
     }
 });
@@ -59,10 +51,7 @@ app.filter('tag', function(){
 app.run( function($transitions, Authenticate, $rootScope) {
    
     if(!$rootScope.currentUser){
-        console.log("Checking if user is logged in!");
-
         Authenticate.getUser(localStorage.getItem('token')).then(function(res){
-            console.log("Got user " + res.data.user.name);
             $rootScope.currentUser = res.data.user;
             
         },function(error){
@@ -91,7 +80,7 @@ app.run( function($transitions, Authenticate, $rootScope) {
                 } else {
                        if(st.data.admin && !res.data.user.admin){
                             console.log("redirect to home, not admin");
-                            return transition.router.stateService.target('home');
+                            return transition.router.stateService.target(st.data.redirectTo);
                        }else {
                            console.log("getting current user " + res.data.user.name);
                            $rootScope.currentUser = res.data.user;
@@ -99,7 +88,7 @@ app.run( function($transitions, Authenticate, $rootScope) {
                 }
             },function(error){
                 console.log('User not authenticated ', error);
-                
+                return transition.router.stateService.target(st.data.redirectTo);
             })
         } else {
             console.log("no data or auth");

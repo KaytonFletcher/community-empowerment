@@ -1,29 +1,40 @@
-<h1>User Information</h1>  
-<div ng-controller="adminController" class="d-flex flex-column">
-  <div class="row justify-content-center">
-    <div class="input-group table-row">
-        <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input">
-        <span class="input-group-append">
-            <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                <i class="fa fa-search"></i>
-            </button>
-          </span>
+<div ng-controller="adminController" class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="users-tab">
+  <div class="container">
+    <h3>Member Information</h3>
+    <hr>  
+    <div class="d-flex flex-column" ng-show="!focusUser">
+      <div class="row justify-content-center">
+        <div class="input-group table-row">
+            <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input">
+            <span class="input-group-append">
+                <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </div>   
+      <div class="row justify-content-center">        
+        <div class="tableWrapper table-row">
+          <table class="table table-hover">
+            <tr>
+              <th>Name</th>
+              <th>E-mail</th>
+              <th>Delete</th>
+            </tr>
+            <tr ng-repeat="user in users | filter : query">
+              <td ng-click="focusOnUser($index)" td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td ng-click="deleteUser(user._id)"><span style="color: red;" class="fas fa-user-slash"></span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>   
-  <div class="row justify-content-center">        
-    <div class="tableWrapper table-row">
-      <table class="table table-hover">
-        <tr>
-          <th>Name</th>
-          <th>E-mail</th>
-          <th>Delete</th>
-        </tr>
-        <tr ng-repeat="user in users | filter : query">
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td ng-click="deleteUser(user._id)"><span style="color: red;" class="fas fa-user-slash"></span></td>
-        </tr>
-      </table>
+  
+    <div ng-show="focusUser"> 
+        <i ng-click="focusAllUsers()" class="fas fa-long-arrow-alt-left fa-5x" style="color:rgb(56, 179, 72);"></i>
+      <h3>{{focusUser.name}}</h3>
+      <h5>{{focusUser.email}}</h5>
     </div>
   </div>
 </div>
