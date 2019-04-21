@@ -26,19 +26,17 @@
 		
 	</form>
 </div>  
-
-			<div>
-				<div class="research-item" ng-repeat="research in researches track by research.url"  style="padding:20px">
-					<div class="d-flex flex-column">
-						<h4>{{research.title}} <td ng-click="deleteResearch(research.id)"><span style="color: red;" class="fas fa-trash-alt"></span></td></h4>
-						<div>
-							<iframe width="560" height="315" ng-src="{{research.url | trusted}}" name="{{research.title}}"
-							frameborder="0"></iframe>
-							<a ng-href = "{{research.url}}">Click Here</a>
-						</div>	
-					</div>	
-					
-				</div>
-			</div>
+	<div>
+		<div class="research-item" ng-repeat="research in researches track by research.url"  style="padding:20px">
+			<div class="d-flex flex-column">
+				<h4>{{research.title}} <td ng-click="deleteResearch(research.id)"><span style="color: red;" class="fas fa-trash-alt"></span></td></h4>
+				<div>
+					<iframe width="560" height="315" ng-src="{{research.url | trusted}}" name="{{research.title}}"
+					frameborder="0"></iframe>
+					<a ng-href = "{{research.url}}">Click Here</a>
+				</div>	
+			</div>	
+		</div>
+	</div>
 </div>
 
