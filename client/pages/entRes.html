@@ -74,7 +74,7 @@
 
 				<h6 class = "modal-title">Video Tags</h6>
 				<tags-input ng-model="newVideo.tags" add-from-autocomplete-only="true" style="margin: 5px 0 22px 0"> 
-							<auto-complete source="loadTags($query)" min-length="0" 
+							<auto-complete source="loadTags($query)" min-length="0" max-tags="20"
 							load-on-focus="true" load-on-empty="true"> </auto-complete>
 					</tags-input>
 				
