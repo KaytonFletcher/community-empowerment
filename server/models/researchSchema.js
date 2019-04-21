@@ -9,11 +9,11 @@ var researchSchema = new Schema({
     },
     description: {
         type: String,
+		required:true,
         trim: true
     },
     url: {
         type: String,
-        required: true,
         unique: true,
         trim: true
     },

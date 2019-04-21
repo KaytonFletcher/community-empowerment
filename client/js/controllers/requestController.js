@@ -1,15 +1,10 @@
-angular.module('SpoderApp').controller('requestController', ['$scope', 'Authenticate', 'Requests', 'Authenticate',
-function($scope, Requests) {
-
-    $scope.user = Authenticate.getUser(localStorage.getItem('token')).then(function(res){
-      console.log("got the user!! " + res.data.user);
-  },function(error){
-      $scope.user = undefined;
-      console.log('User not authenticated ', error);
-  });
+angular.module('SpoderApp').controller('requestController', ['$scope', '$rootScope', 'Requests',
+function($scope, $rootScope, Requests) {
+    console.log(Requests); 
 
     Requests.getAll().then(function(res) {
         $scope.requests = res.data;
+        console.log($scope.requests); 
         console.log('request data displayed');
       }, function(error) {
         console.log('Unable to retrieve requests: ', error);
@@ -28,7 +23,7 @@ function($scope, Requests) {
       
         $scope.addRequest = function() {      
             console.log('we made it');
-            $scope.request.user = $scope.user._id; 
+            $scope.request.user = $rootScope.currentUser._id; 
             $scope.request.subject = document.getElementById("requestList").value; 
             Requests.add($scope.request, localStorage.getItem('token')).then(function(res){  
               if(res.data){

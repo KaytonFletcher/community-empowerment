@@ -1,5 +1,5 @@
-angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenticate',
-    function($scope, Cals) {
+angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenticate', '$rootScope',
+    function($scope, Cals, $rootScope) {
 
       // $scope.event.userID = Authenticate.getUser(localStorage.getItem('token')); 
 
@@ -13,7 +13,7 @@ angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenti
             $scope.submitRequest = function() {
                 $scope.event.startTime = new Date($scope.event.startTime).toISOString(); 
                 $scope.event.endTime = new Date($scope.event.endTime).toISOString(); 
-                $scope.event.user = currentUser._id;
+                $scope.event.user = $rootScope.currentUser._id;
                 Cals.reqEvent($scope.event).then(function(res){
                     if(!res){
                         console.log('sorry event no work');
