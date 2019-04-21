@@ -26,18 +26,14 @@
 		
 	</form>
 </div>  
-
+	<div class="research-item" ng-repeat="research in researches track by research.url"  style="padding:20px">
+		<div class="d-flex flex-column">
+			<h4>{{research.title}} </h4>
 			<div>
-				<div class="research-item" ng-repeat="research in researches track by research.url"  style="padding:20px">
-					<div class="d-flex flex-column">
-						<h4>{{research.title}} </h4>
-						<div>
-							<h5> {{research.description}} </h5>
-							<a ng-hide="research.url == null" ng-href = "{{research.url}}">Link to Research</a>
-						</div>	
-					</div>	
-					
-				</div>
-			</div>
+				<h5> {{research.description}} </h5>
+				<a ng-hide="research.url == null" ng-href = "{{research.url}}">Link to Research</a>
+			</div>	
+		</div>	
+	</div>
 </div>
 
