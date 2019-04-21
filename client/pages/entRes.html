@@ -26,7 +26,7 @@
 			<div id="sort-box" class ="d-flex flex-row">
 				
 					<tags-input ng-model="tagList" on-tag-added="tagCheck()" placeholder="Search by Category"
-						on-tag-removed="tagCheck()" add-from-autocomplete-only="true" style="min-width: 400px"> 
+						on-tag-removed="tagCheck()" add-from-autocomplete-only="true" style="min-width: 400px;"> 
 							<auto-complete source="loadTags($query)" min-length="0" 
 							load-on-focus="true" load-on-empty="true"> </auto-complete>
 					</tags-input>
@@ -44,7 +44,7 @@
 							frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 						</div>	
 						<div class="d-flex">
-							<span class="badge badge-pill badge-primary" style="display:inline-block; width:80px" ng-repeat="tag in video.tags">{{tag}}</span>
+							<span class="badge badge-pill badge-primary" style="display:inline-block; width:auto;" ng-repeat="tag in video.tags">{{tag}}</span>
 						</div>
 					</div>	
 					
