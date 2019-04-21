@@ -134,7 +134,13 @@ width: 205px;
 #calendar {
     
     max-width: 800px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin-right: -60px;
+}
+
+#calendarList_wholecol{
+  margin-left: 60px;
+  margin-right: -30px;
 }
 
 * {box-sizing: border-box}
