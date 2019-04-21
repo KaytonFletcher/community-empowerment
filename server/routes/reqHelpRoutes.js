@@ -10,8 +10,8 @@ router.route('/')
 router.route('/:reqId')
     .delete(reqHelps.delete);
 
-router.route('/respond/:reqId')
-    .post(reqHelps.respond)
+// router.route('/respond/:reqId')
+//     .post(reqHelps.respond); 
 
 router.param('reqId', reqHelps.findReqId);
 

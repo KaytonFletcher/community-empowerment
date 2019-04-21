@@ -56,6 +56,6 @@ exports.add = function(req, res) {
       });
     };
 
-    exports.request = function(req, res) {
+    exports.respond = function(req, res) {
         
         };

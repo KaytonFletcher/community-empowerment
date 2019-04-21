@@ -30,6 +30,7 @@ function($scope, Requests) {
             console.log('we made it');
             $scope.request.userID = $scope.user._id; 
             $scope.request.userName = $scope.user.name; 
+            $scope.request.description = document.getElementById("requestList").value; 
             Requests.add($scope.request, localStorage.getItem('token')).then(function(res){  
               if(res.data){
                 $scope.requests.unshift($scope.request);

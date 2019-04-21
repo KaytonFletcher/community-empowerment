@@ -495,13 +495,11 @@ tr.tbl-dropdown td > ul{
 #sort-box{
   margin-top: 25px;
 }
-<<<<<<< HEAD
 /* below is for announcements pg */
 .h4.mb-0.p-4.rounded-top{
   background-color: #9ED1EF;
   color: black;
 }
-=======
 
 .lightbulbfrontpg{
   width: 40%;
@@ -606,5 +604,64 @@ hr.style-two {
   font-size: 16px;
 }
 
+.custom-select {
+  position: relative;
+  font-family: Helvetica;
+}
 
->>>>>>> 7a1813e4b237990460df77b1953bfb52497bf420
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: #999494;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: #b84646;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: rgb(172, 174, 177);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgb(75, 118, 153);
+}
+
+
+

@@ -43,12 +43,9 @@ app.use('/api/users', usersRouter);
 app.use('/api/cal', calRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/videos', videoRoutes);
-<<<<<<< HEAD
 app.use('/api/annc', anncRoutes);
 app.use('/api/req', reqHelpRoutes);
-=======
 app.use('/api/research', researchRoutes);
->>>>>>> 7a1813e4b237990460df77b1953bfb52497bf420
 
 app.use('/', express.static(path.join(__dirname+'/node_modules')));
 
