@@ -25,6 +25,13 @@ var userSchema = new Schema({
         type: Boolean,
         required: true
     },
+    eventReqs: [{
+        type: ObjectID,
+
+    }],
+    programReqs: [{
+
+    }],
     created_at: Date,
     updated_at: Date
 });
