@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
 
-var announcementSchema = new Schema({
+var researchSchema = new Schema({
     title: {
         type: String, 
         required: true,
@@ -9,23 +9,19 @@ var announcementSchema = new Schema({
     },
     description: {
         type: String,
-        required: true,
         trim: true
     },
-    subject: {
+    url: {
         type: String,
         required: true,
+        unique: true,
         trim: true
     },
-    date: {
-        type: String,
-        required: true,
-        trim: true
-    },
+    at: Date,
     updated_at: Date
 });
 
-announcementSchema.pre('save', function(next) {
+researchSchema.pre('save', function(next) {
     var currentTime = new Date;
     this.updated_at = currentTime;
     if(!this.created_at)
@@ -35,6 +31,6 @@ announcementSchema.pre('save', function(next) {
     next();
 });
 
-var Announcement = mongoose.model('Announcement', announcementSchema);
+var Research = mongoose.model('Research', researchSchema);
 
-module.exports = Announcement;
+module.exports = Research;

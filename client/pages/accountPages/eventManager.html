@@ -1,0 +1,39 @@
+<div class="tab-pane" id="calendar" role="tabpanel" aria-labelledby="calendar-tab" ng-if="currentUser.admin">
+  <div class="container">
+    <h3>Event Requests</h3>
+    <hr>
+    <div class="row justify-content-center">
+        <div class="input-group table-row">
+            <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input">
+            <span class="input-group-append">
+                <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </div>  
+    <div class="row justify-content-center" ng-controller="calController">
+          <div class="tableWrapper table-row">
+            <table class="table table-hover">
+              <tr>
+                <th>Request</th>
+                <th>Approve</th>
+                <th>Deny</th>
+              </tr>
+              <!-- CAN MAKE THIS AN NG-REPEAT -->
+              <tr ng-repeat="eventReq in eventReqs | filter : query" class ="tbl-dropdown">
+                <td>{{eventReq.title}}
+                    <ul class="list-group">
+                        <li class="list-group-item">{{eventReq.description}}</li>
+                        <li class="list-group-item">{{eventReq.date}}</li>
+                        <li class="list-group-item">Start Time: {{eventReq.startTime}}<hr> End Time: {{eventReq.endTime}}</li>
+                    </ul>    
+                </td>
+                <td ng-click="acceptEvent(eventReq._id); deleteEvent(eventReq._id)"><i class="fas fa-check fa-2x"></i></td>
+                <td ng-click="deleteEvent(eventReq._id)"><i class="fas fa-times fa-2x"></i></td>
+              </tr>
+            </table>
+          </div>
+      </div>
+      </div>
+</div>
