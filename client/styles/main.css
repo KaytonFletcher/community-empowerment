@@ -563,6 +563,27 @@ hr.style-two {
   width: 1300px;
 }
 
+.back-arrow{
+  color:rgb(56, 179, 72);
+  position: relative;
+  bottom: 35px;
+}
+
+.back-arrow:hover {
+  font-size:4.6em;
+  transition: 0.5s ease-out;
+}
+
+#focus-user-container{
+  position: relative;
+  bottom: 50px;
+  left: 30px;
+}
+
+#focus-user-name{
+  font-size: 40px;
+}
+
 /*SPODER Pages Styling*/
 .spodertitles{
     text-align: left;
@@ -598,5 +619,6 @@ hr.style-two {
   display: inline-block;
   font-size: 16px;
 }
+
 
 
