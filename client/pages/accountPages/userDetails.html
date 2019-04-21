@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Member</h2>
+    <hr>
+    <div>
+    <i ng-click="goBack()" class="fas fa-long-arrow-alt-left fa-4x back-arrow"
+    data-toggle="tooltip" data-placement="right" title="Go Back"></i>
+    </div>
+        <div id="focus-user-container">
+        <h2 id="focus-user-name">{{focusUser.name}}</h2>
+
+        <span id="focus-user-email">{{focusUser.email}}</span> 
+        
+        <button class="btn btn-default" ngclipboard data-clipboard-target="#focus-user-email"
+        data-toggle="tooltip" data-placement="right" title="Copy Email!"
+        onmouseenter="$(this).tooltip('show')">
+            <i  class="fas fa-envelope fa-2x"></i>
+        </button>
+
+        <hr>
+        <h3>Information Requests:</h3>
+        <br>
+        <h3>Events:</h3>
+
+    </div>
+</div>

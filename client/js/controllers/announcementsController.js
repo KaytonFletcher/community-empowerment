@@ -21,7 +21,8 @@ function($scope, Announcements) {
         )};
       
         $scope.addAnnc = function() {
-            console.log('we made it');
+            $scope.annc.date = new Date().toLocaleDateString();
+            console.log($scope.annc.date);
             Announcements.add($scope.annc, localStorage.getItem('token')).then(function(res){  
               if(res.data){
                 $scope.announcements.unshift($scope.annc);

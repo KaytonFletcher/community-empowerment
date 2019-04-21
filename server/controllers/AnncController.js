@@ -4,7 +4,7 @@ exports.list = function(req, res) {
    
     //editing find all function from bootcamp 3 to sort, empty brackets returns all users
     // .sort() returns alphabetically by default
-    Announcement.find().sort('-created_at').then(anncs => {
+    Announcement.find().sort({_id:-1}).then(anncs => {
         console.log('anncs sent');
         res.send(anncs);
     }).catch(err => {
@@ -41,6 +41,7 @@ exports.add = function(req, res) {
     var annc = new Announcement ({
       title : req.body.title,
       description: req.body.description,
+      date: req.body.date,
       subject: req.body.subject
     });
 

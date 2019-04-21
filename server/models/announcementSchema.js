@@ -17,6 +17,11 @@ var announcementSchema = new Schema({
         required: true,
         trim: true
     },
+    date: {
+        type: String,
+        required: true,
+        trim: true
+    },
     updated_at: Date
 });
 
