@@ -3,9 +3,10 @@ angular.module('SpoderApp').controller('videoController', ['$scope', 'Video', '$
       $scope.tagList = [];
       $scope.videos = [];
       $scope.filteredVideos = [];
-      $scope.allTags = ['Support', 'Preparation', 'Oppurtunuity','Differentiation', 'Economic', 'Resources'];
-
-      // $scope.event.userID = Authenticate.getUser(localStorage.getItem('token')); 
+      $scope.allTags = ['Business Plans', 'Case Studies', 'Program Design',
+      'Minority Entrepreneurship', 'Opportunity Horizon', 'Women and Entrepreneurship'
+      ,'Study Abroad Program', 'Established Businesses', 'Community-based', 
+      'Marketing', 'Financial Ventures', 'Avoiding Commodity Traps'];
 
         Video.getAll().then(function(res) {
             $scope.videos = res.data;
@@ -21,9 +22,9 @@ angular.module('SpoderApp').controller('videoController', ['$scope', 'Video', '$
           
         $scope.deleteVideo = function(id) {
             Video.delete(id, localStorage.getItem('token')).then(function(response){
-              for(var i = 0; i < $scope.videoReqs.length; i++){
-                if(response.data.title == $scope.videoReqs[i].title){
-                  $scope.videoReqs.splice(i, 1);  
+              for(var i = 0; i < $scope.filteredVideos.length; i++){
+                if(response.data.title == $scope.filteredVideos[i].title){
+                  $scope.filteredVideos.splice(i, 1);  
                 }
               }
               }, function(error) {

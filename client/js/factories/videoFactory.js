@@ -9,7 +9,7 @@ angular.module('SpoderApp').factory('Video', function($http) {
         },
         delete: function(id, token) {
             //this is the post request for register, appending the user object to it (go to authRoutes.js)
-            return $http.post('http://localhost:8080/api/videos/' + id, { headers: {'x-access-token': token} });
+            return $http.delete('http://localhost:8080/api/videos/' + id, { headers: {'x-access-token': token} });
         }
     }
     

@@ -639,6 +639,14 @@ hr.style-two {
 	margin-right: auto;
 }
 
+.gray-delete-circ{
+  float: right;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: rgba(100,100,150,.30);
+}
+
 .nextletterbutton {
   background-color: #5d6f8bc2; /* Green */
   border: none;
