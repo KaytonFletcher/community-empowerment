@@ -1,31 +1,27 @@
 var mongoose = require('mongoose'), 
     Schema = mongoose.Schema;
 
-var requestSchema = new Schema({
-    subject: {
-        type: String,
+var researchSchema = new Schema({
+    title: {
+        type: String, 
         required: true,
         trim: true
     },
     description: {
         type: String,
-        required: true,
         trim: true
     },
-    userID: {
-        type: String, 
+    url: {
+        type: String,
         required: true,
+        unique: true,
         trim: true
     },
-    userName: {
-        type: String, 
-        required: true,
-        trim: true
-    },
+    at: Date,
     updated_at: Date
 });
 
-requestSchema.pre('save', function(next) {
+researchSchema.pre('save', function(next) {
     var currentTime = new Date;
     this.updated_at = currentTime;
     if(!this.created_at)
@@ -35,6 +31,6 @@ requestSchema.pre('save', function(next) {
     next();
 });
 
-var Request = mongoose.model('Request', requestSchema);
+var Research = mongoose.model('Research', researchSchema);
 
-module.exports = Request;
+module.exports = Research;

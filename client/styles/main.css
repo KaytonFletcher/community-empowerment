@@ -3,59 +3,91 @@
     position: relative;
     width: 140px;
     height: 140px;
-    background-color: #9ED1EF;
+    background-color: #5d6f8bc2;
 }
 
 #mikemorrispic {
   float: left;
   /* padding-right: 1em; */
-  margin-right: 20px;
+  margin-left: 30%;
   margin-bottom: 1px;
   vertical-align: middle;
 }
 
 #bookpic {
-  float: right;
-  margin-left: 20px;
-  margin-bottom: 1px;
+  float: left;
+  margin-left: 20%;
   vertical-align: middle;
 }
 
 #bookheader {
-  margin-left: auto;
-  margin-right: auto;
-  width: 860px;
-  text-align: left;
+  text-align: center;
+  margin-top: 15px;
+  width: auto;
 }
 
 #aboutusheader{
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 860px;
+  text-align: center;
+  margin-top: 15px;
+  width: auto;
 }
-
+.aboutuscontent{
+  font-size: 12pt;
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 20px;
+}
 .aboutus_parent {
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #9ED1EF; 
-  /* border:3px;  */
-  border-style:solid; 
-  border-color:#9ED1EF; 
-  padding: 1em;
-  width: 860px;
-  border-radius: 5px;
+  margin-top: 11%;
+  text-align: Center;
+  width: auto;
   height: auto;
-  margin-bottom: 25px;
+  position: relative;
+  
 }
-
+.litcontent{
+  font-size: 14pt;
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.lit_parent{
+  margin-top: 10%;
+  margin-left: 20%;
+  text-align: left;
+  width: auto;
+  height: 300px;
+  position: relative;
+}
+.image-circle {
+  margin:auto;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.micSpoder {
+vertical-align : middle;
+display: inline;
+margin: 0 auto;
+margin-top: -10%;
+margin-left: -17%;
+height: auto;
+width: 205px;
+}
 
 .mybox .letter{
     text-align: center;
     font-size: 96px;
     color: black;
-    
 }
+
 
 .spodersquares{
     text-align: center;
@@ -408,6 +440,8 @@ tr.tbl-dropdown td > ul{
 }
 
 #whatisspoder {
+  margin-top: -150px;
+  margin-bottom: 75px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -415,6 +449,7 @@ tr.tbl-dropdown td > ul{
 }
 
 #homeintro {
+  margin-top: -12px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -422,6 +457,8 @@ tr.tbl-dropdown td > ul{
 }
 
 #introtext {
+  width: 860px;
+  text-justify: left;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -458,8 +495,116 @@ tr.tbl-dropdown td > ul{
 #sort-box{
   margin-top: 25px;
 }
+<<<<<<< HEAD
 /* below is for announcements pg */
 .h4.mb-0.p-4.rounded-top{
   background-color: #9ED1EF;
   color: black;
 }
+=======
+
+.lightbulbfrontpg{
+  width: 40%;
+  size: 40%;
+  top: 10px;
+  
+}
+
+#over-img{
+  
+  margin:auto;
+  position:absolute;
+  left:0;
+  right:0;
+}
+
+.mediumbrown-circ-front{
+  width:230px;
+  height:230px;
+  border-radius:115px;
+  background: #e0995e;
+  top: -10px;
+}
+
+.briefcasefrontpg{
+  width: 60%;
+  size: 60%;
+  top: -8px;
+  
+}
+
+.blue-circ-front{
+  width:230px;
+  height:230px;
+  border-radius:115px;
+  background: #6e81a0;
+  top: -10px;
+}
+
+.pcfrontpg{
+  width: 70%;
+  size: 70%;
+  top: -22px;
+}
+
+.brown-circ-front{
+  width:230px;
+  height:230px;
+  border-radius:115px;
+  background: #e4ddc7;
+  top: -10px;
+}
+
+.wow { visibility: hidden; }
+
+#home-grad{
+  background-size: cover;
+  height: 450px;
+  background-color:#5d6f8bc2;
+}
+
+hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  width: 1300px;
+}
+
+/*SPODER Pages Styling*/
+.spodertitles{
+    text-align: left;
+    font-size: 72px;
+    color: black;
+}
+
+.spodertitleslong{
+    text-align: left;
+    font-size: 65px;
+    color: black;
+}
+
+.bodytext{
+    text-align: left;
+    font-size: 20px;
+    color: black;
+}
+
+.centerimg {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nextletterbutton {
+  background-color: #5d6f8bc2; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+>>>>>>> 7a1813e4b237990460df77b1953bfb52497bf420

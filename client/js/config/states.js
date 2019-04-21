@@ -112,7 +112,12 @@ angular.module('states').config(function ($stateProvider) {
         name: 'R',
         url: '/R',
         templateUrl: '../../pages/R.html'
-      }
+      },
+      {
+        name: 'requestprogram',
+        url: '/requestprogram',
+        templateUrl: '../../pages/requestprogram.html'
+      },
     ]
 
 

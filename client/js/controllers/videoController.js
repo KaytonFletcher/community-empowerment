@@ -5,7 +5,7 @@ angular.module('SpoderApp').controller('videoController', ['$scope', 'Video', '$
       $scope.filteredVideos = [];
       $scope.allTags = ['Support', 'Preparation', 'Oppurtunuity','Differentiation', 'Economic', 'Resources'];
 
-      // $scope.event.userID = Authenticate.getUser(localStorage.getItem('token')); 
+       // $scope.user = Authenticate.getUser(localStorage.getItem('token')); 
 
         Video.getAll().then(function(res) {
             $scope.videos = res.data;

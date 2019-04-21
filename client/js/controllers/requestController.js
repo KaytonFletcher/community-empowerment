@@ -1,5 +1,12 @@
-angular.module('SpoderApp').controller('requestController', ['$scope', 'Requests', 'Authenticate',
+angular.module('SpoderApp').controller('requestController', ['$scope', 'Authenticate', 'Requests', 'Authenticate',
 function($scope, Requests) {
+
+    $scope.user = Authenticate.getUser(localStorage.getItem('token')).then(function(res){
+      console.log("got the user!! " + res.data.user);
+  },function(error){
+      $scope.user = undefined;
+      console.log('User not authenticated ', error);
+  });
 
     Requests.getAll().then(function(res) {
         $scope.requests = res.data;
@@ -21,6 +28,8 @@ function($scope, Requests) {
       
         $scope.addRequest = function() {
             console.log('we made it');
+            $scope.request.userID = $scope.user._id; 
+            $scope.request.userName = $scope.user.name; 
             Requests.add($scope.request, localStorage.getItem('token')).then(function(res){  
               if(res.data){
                 $scope.requests.unshift($scope.request);
