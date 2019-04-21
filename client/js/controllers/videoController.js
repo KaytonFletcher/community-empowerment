@@ -6,7 +6,7 @@ angular.module('SpoderApp').controller('videoController', ['$scope', 'Video', '$
       $scope.allTags = ['Business Plans', 'Case Studies', 'Program Design',
       'Minority Entrepreneurship', 'Opportunity Horizon', 'Women and Entrepreneurship'
       ,'Study Abroad Program', 'Established Businesses', 'Community-based', 
-      'Marketing', 'Financial Ventures', 'Avoiding Commodity Traps'];
+      'Marketing', 'Financial Ventures', 'Avoiding Commodity Traps', 'Microcredit'];
 
         Video.getAll().then(function(res) {
             $scope.videos = res.data;
