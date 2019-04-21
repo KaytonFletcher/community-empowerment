@@ -37,24 +37,12 @@
   text-align: center;
   margin-top: 15px;
   width: auto;
-  text-align: right;
-}
-.aboutuscontent{
-  font-size: 12pt;
-  margin: 0;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding-bottom: 20px;
-}
-.aboutus_parent {
-  margin-top: 11%;
-  text-align: Center;
-  width: auto;
-  height: auto;
-  position: relative;
-  
+} 
+.aboutus{
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-bottom: 7%;
 }
 .litcontent{
   margin-top: 10%;
@@ -462,7 +450,13 @@ tr.tbl-dropdown td > ul{
   margin-right: auto;
   text-align: center;
   font-size: 48pt;
+  font-style: helvetica;
+  color: white;
 }
+* {
+  font-size: 100%;
+  font-family: helvetica;
+ }
 
 #homeintro {
   margin-top: -12px;
