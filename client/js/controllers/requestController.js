@@ -26,11 +26,10 @@ function($scope, Requests) {
           }
         )};
       
-        $scope.addRequest = function() {
+        $scope.addRequest = function() {      
             console.log('we made it');
-            $scope.request.userID = $scope.user._id; 
-            $scope.request.userName = $scope.user.name; 
-            $scope.request.description = document.getElementById("requestList").value; 
+            $scope.request.user = $scope.user._id; 
+            $scope.request.subject = document.getElementById("requestList").value; 
             Requests.add($scope.request, localStorage.getItem('token')).then(function(res){  
               if(res.data){
                 $scope.requests.unshift($scope.request);
@@ -44,7 +43,8 @@ function($scope, Requests) {
         $scope.respondToRequest = function(id) {
             Requests.respond(id, localStorage.getItem('token')).then(function(res){  
               if(res.data){
-                $scope.deleteRequest(id); 
+                //$scope.deleteRequest(id); 
+                console.log('responded to request');
               } else {console.log("error responding to Requests");}
             }, function(err){
                 console.log(err);

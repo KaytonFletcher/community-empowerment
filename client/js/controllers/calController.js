@@ -13,6 +13,7 @@ angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenti
             $scope.submitRequest = function() {
                 $scope.event.startTime = new Date($scope.event.startTime).toISOString(); 
                 $scope.event.endTime = new Date($scope.event.endTime).toISOString(); 
+                $scope.event.user = currentUser._id;
                 Cals.reqEvent($scope.event).then(function(res){
                     if(!res){
                         console.log('sorry event no work');

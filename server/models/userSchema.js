@@ -26,11 +26,12 @@ var userSchema = new Schema({
         required: true
     },
     eventReqs: [{
-        type: ObjectID,
-
+        type: Schema.Types.ObjectId,
+        ref: 'Event'
     }],
     programReqs: [{
-
+        type: Schema.Types.ObjectId,
+        ref: 'Request'
     }],
     created_at: Date,
     updated_at: Date

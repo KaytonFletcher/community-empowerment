@@ -12,8 +12,11 @@
         <li class="nav-item" ng-if="currentUser.admin">
           <a class="nav-link" id="requests-tab" data-toggle="tab" href="#requests" role="tab" aria-controls="helprequests" aria-selected="false">Manage Help Requests</a>
         </li>
-        <li class="nav-item" ng-if="!currentUser.admin && currentUser">
-          <a class="nav-link" id="request-tab" data-toggle="tab" href="#yourrequests" role="tab" aria-controls="userrequests" aria-selected="false">Your Requests</a>
+        <li class="nav-item" ng-if="currentUser && !currentUser.admin">
+          <a class="nav-link" id="programs-tab" data-toggle="tab" href="#yourrequests" role="tab" aria-controls="userrequests" aria-selected="false">Your Program Requests</a>
+        </li>
+        <li class="nav-item" ng-if="currentUser && !currentUser.admin">
+          <a class="nav-link" id="events-tab" data-toggle="tab" href="#yourevents" role="tab" aria-controls="eventrequests" aria-selected="false">Your Event Requests</a>
         </li>
     </ul>
 

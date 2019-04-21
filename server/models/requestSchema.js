@@ -12,15 +12,10 @@ var requestSchema = new Schema({
         required: true,
         trim: true
     },
-    userID: {
-        type: String, 
+    user: {
+        type: Schema.Types.ObjectId,
         required: true,
-        trim: true
-    },
-    userName: {
-        type: String, 
-        required: true,
-        trim: true
+        ref: 'User'
     },
     updated_at: Date
 });
