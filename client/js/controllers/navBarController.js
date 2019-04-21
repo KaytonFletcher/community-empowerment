@@ -5,6 +5,7 @@ angular.module('users').controller('NavbarCtrl', function ($scope, Authenticate)
                     {'name': 'Resources', 'ref': 'entRes'},
 				    {'name': 'Research', 'ref': 'research'},
                     {'name': 'Calendar', 'ref': 'calendar'},
+                    {'name': 'Announcements', 'ref': 'announcements'},
                     {'name': 'Affiliates and Partners', 'ref': 'affil'},
                 ];
 
@@ -13,6 +14,7 @@ angular.module('users').controller('NavbarCtrl', function ($scope, Authenticate)
         {'name': 'Resources', 'ref': 'entRes'},
 		{'name': 'Research', 'ref': 'research'},
         {'name': 'Calendar', 'ref': 'calendar'},
+        {'name': 'Announcements', 'ref': 'announcements'},
         {'name': 'Affiliates and Partners', 'ref': 'affil'},
         {'name': 'Account', 'ref': 'account'},
     ];

@@ -37,6 +37,11 @@ angular.module('states').config(function ($stateProvider) {
         templateUrl: '../../pages/affil.html'
       },
       {
+        name: 'announcements',
+        url: '/announcements',
+        templateUrl: '../../pages/announcements.html'
+      },
+      {
         name: 'blog',
         url: '/blog',
         templateUrl: '../../pages/blog.html'

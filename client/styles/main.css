@@ -511,6 +511,11 @@ tr.tbl-dropdown td > ul{
 #sort-box{
   margin-top: 25px;
 }
+/* below is for announcements pg */
+.h4.mb-0.p-4.rounded-top{
+  background-color: #9ED1EF;
+  color: black;
+}
 
 .lightbulbfrontpg{
   width: 40%;
