@@ -1,4 +1,11 @@
-<div class="container" ng-controller="adminController"> 
-    <h3>{{focusUser.name}}</h3>
-    <h5>{{focusUser.email}}</h5>
-</div>
+
+<a ng-click="goBack()" ><i class="fas fa-long-arrow-alt-left fa-5x" style="color:rgb(56, 179, 72);"></i></a>
+
+<h4>{{focusUser.name}}</h4>
+<span id="focusUserEmail">{{focusUser.email}}</span> 
+
+<button class="btn btn-default"
+data-toggle="tooltip" data-placement="bottom" title="Copy Email!"
+onmouseenter="$(this).tooltip('show')">
+<i  class="fas fa-envelope fa-2x"></i>
+</button>
