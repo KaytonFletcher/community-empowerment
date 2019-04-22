@@ -17,6 +17,7 @@ angular.module('users').controller('NavbarCtrl', function ($scope, $state) {
         {'name': 'Calendar', 'ref': 'calendar'},
         {'name': 'Announcements', 'ref': 'announcements'},
         {'name': 'Affiliates and Partners', 'ref': 'affil'},
+        {'name': 'Request Program', 'ref': 'requestprogram'},
         {'name': 'Account', 'ref': 'account'},
     ];
 

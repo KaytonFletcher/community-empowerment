@@ -20,14 +20,14 @@ exports.delete = function(req, res) {
       
       annc.remove(err=>{
         if(err) throw err; 
-        res.json(user); 
+        res.json(annc); 
         console.log('annc deleted');
       })
     };
 
 exports.findAnncId = function(req, res, next, id) {
 
-  Announcement.findById(id).exec(function(err, user) {
+  Announcement.findById(id).exec(function(err, annc) {
     if(err) {
       res.status(400).send(err);
     } else {

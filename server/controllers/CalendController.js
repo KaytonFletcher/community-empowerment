@@ -19,7 +19,8 @@ exports.submitReq = function(req, res) {
       title : req.body.title,
       startTime : req.body.startTime,
       endTime : req.body.endTime,
-      description: req.body.description
+      description: req.body.description,
+      user: req.body.user
     });
     
     event.save(function(err) {
@@ -27,6 +28,13 @@ exports.submitReq = function(req, res) {
         console.log(err);
         res.status(400).send(err);
       } else {
+        User.findById(event.user).exec(function(err, user) {
+          if(err) {
+            console.log('no user found'); 
+          } else {
+            user.eventReqs.push(event._id); 
+          }
+        });
         console.log('event saved');
         //res.json(user);
         res.status(201).json({ success: true });
@@ -38,7 +46,7 @@ exports.submitReq = function(req, res) {
    
     //editing find all function from bootcamp 3 to sort, empty brackets returns all users
     // .sort() returns alphabetically by default
-    Event.find().sort('date').then(events => {
+    Event.find().sort('date').populate('user').then(events => {
       res.send(events);
     }).catch(err => {
       res.status(400).send(err); 
@@ -60,7 +68,7 @@ exports.submitReq = function(req, res) {
 
 exports.findEventId = function(req, res, next, id) {
 
-  Event.findById(id).exec(function(err, event) {
+  Event.findById(id).populate('user').exec(function(err, event) {
     if(err) {
       res.status(400).send(err);
     } else {
