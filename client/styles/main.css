@@ -82,7 +82,7 @@ width: 205px;
 .mybox .letter{
     text-align: center;
     /* font-size: 96px; */
-    font-size: 13vh;
+    font-size: 14vh;
     color: black;
 }
 
@@ -683,3 +683,9 @@ hr.style-two {
   float: right;
   margin-top: -8px;
 }
+
+#dispTags{
+  
+}
+
+
