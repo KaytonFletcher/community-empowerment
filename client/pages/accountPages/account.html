@@ -13,10 +13,10 @@
           <a class="nav-link" id="requests-tab" data-toggle="tab" ui-sref="requestManager" role="tab" aria-controls="requests" aria-selected="false">Manage Help Requests</a>
         </li>
         <li class="nav-item" ng-if="currentUser && !currentUser.admin">
-          <a class="nav-link" id="programs-tab" data-toggle="tab" ui-sref="userRequestManager" role="tab" aria-controls="programs" aria-selected="false">Your Program Requests</a>
-        </li>
+            <a class="nav-link" id="events-tab" data-toggle="tab" ui-sref="userEventManager" role="tab" aria-controls="events" aria-selected="false">Your Event Requests</a>
+          </li>
         <li class="nav-item" ng-if="currentUser && !currentUser.admin">
-          <a class="nav-link" id="events-tab" data-toggle="tab" ui-sref="userEventManager" role="tab" aria-controls="events" aria-selected="false">Your Event Requests</a>
+          <a class="nav-link" id="programs-tab" data-toggle="tab" ui-sref="userRequestManager" role="tab" aria-controls="programs" aria-selected="false">Your Program Requests</a>
         </li>
     </ul>
 
