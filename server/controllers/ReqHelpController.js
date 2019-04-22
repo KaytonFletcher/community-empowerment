@@ -16,6 +16,15 @@ exports.list = function(req, res) {
 exports.delete = function(req, res) {
       // Gets user from request variable, then removes it and puts it in the response variable. 
       var request = req.request; 
+      var userId = req.request.user; 
+
+      User.findByIdAndUpdate(userId).exec(function(err, user){
+        if(err) {
+          res.status(400).send(err);
+        } else {
+          user.eventReqs.remove(request._id); 
+        }
+      });
       
       request.remove(err=>{
         if(err) throw err; 

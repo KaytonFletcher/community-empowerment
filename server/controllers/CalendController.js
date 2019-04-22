@@ -57,6 +57,15 @@ exports.submitReq = function(req, res) {
   exports.deleteEvent = function(req, res) {
     // Gets user from request variable, then removes it and puts it in the response variable. 
     var event = req.event; 
+    var userId = event.user;
+
+    User.findByIdAndUpdate(userId).exec(function(err, user){
+      if(err) {
+        res.status(400).send(err);
+      } else {
+        user.programReqs.remove(event._id); 
+      }
+    });
     
     event.remove(err=>{
       if(err) throw err; 
