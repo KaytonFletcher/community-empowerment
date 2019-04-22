@@ -12,9 +12,73 @@
 	
 	<div class="tab-content" id="res-tab-content">
 		<!-- THIS IS DOCUMENTS TAB -->
-		<div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">		
-				<iframe src="https://drive.google.com/embeddedfolderview?id=1ERb2qtnedQrYNScst3KUv1vF_Wu06hkl#grid" 
-				width="600" height="500" frameborder="0"></iframe>
+		<div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
+				<br></br>
+				<h4>Creating Business Plans</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1OjsmiGV84JUJauyijQQcsjtt4UwLJXKl#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Case Studies</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1QyarCuCj3IkOQRPaJtKZ7bhkbgPEcm6q#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Profit Model (Low Income Venture)</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1a4PsjPuz0al7AKyTbmetRtG4t4-O45aa#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Opportunity Horizon</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1h7pdNSiEZ9ps5lDaFDf9vll4SR2ueNer#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Profit Model (Entrepreneur)</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1QCUpRMgT6WQUIZ-y9I8XdFLQoNFBqxVA#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Commodity Trap</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=19ZXY9udTw_xXw67qXLGizZ9Id7g8iuOO#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Women and Entreprneurship</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1Gg1g0LuANibC2tX4NFlW7im16DmTuv6y#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Microcredit</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1_mhWM7_YPzhTnlMtAi-b67P3-z6bHn-V#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Minority Entreprneurship</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1ERwvbcXRswW569IGRTDy_MJ9SBBmg0M4#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Entreprneurial Marketing</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1kQ9CCiWcZMezVKN7nEYt1gylJl-5w6OD#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>EESA (Study Abroad Poverty)</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1sBhzxr70Ynuu9O9BZi6K11R0D6SBJM8w#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Established Ventures</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1jQ2E5smFMPPPk0Dj8KpFAXKQJ2ZRtOHK#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Community-Based Entrepreneurship</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1j9P0xp9UOb4dPC0mjB9cdDT73Bv0gFgB#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
 		</div>
 
 		<!-- ng-repeat="video in videos | tag:tagList track by video.url"
@@ -26,7 +90,7 @@
 			<div id="sort-box" class ="d-flex flex-row">
 				
 					<tags-input ng-model="tagList" on-tag-added="tagCheck()" placeholder="Search by Category"
-						on-tag-removed="tagCheck()" add-from-autocomplete-only="true" style="min-width: 400px"> 
+						on-tag-removed="tagCheck()" add-from-autocomplete-only="true" style="min-width: 400px;"> 
 							<auto-complete source="loadTags($query)" min-length="0" 
 							load-on-focus="true" load-on-empty="true"> </auto-complete>
 					</tags-input>
@@ -44,7 +108,7 @@
 							frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 						</div>	
 						<div class="d-flex">
-							<span class="badge badge-pill badge-primary" style="display:inline-block; width:80px" ng-repeat="tag in video.tags">{{tag}}</span>
+							<span class="badge badge-pill badge-primary" style="display:inline-block; width:auto;" ng-repeat="tag in video.tags">{{tag}}</span>
 						</div>
 					</div>	
 					
