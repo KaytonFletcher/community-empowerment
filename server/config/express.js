@@ -8,8 +8,9 @@ var path = require('path'),
     usersRouter = require('../routes/userRoutes'),
     authRoutes = require('../routes/authRoutes'),
     calRoutes = require('../routes/calRoutes'),
+    videoRoutes = require('../routes/videoRoutes')
     anncRoutes = require('../routes/anncRoutes')
-    videoRoutes = require('../routes/videoRoutes'),
+    reqHelpRoutes = require('../routes/reqHelpRoutes')
 	  researchRoutes = require('../routes/researchRoutes')
 
 
@@ -43,6 +44,7 @@ app.use('/api/cal', calRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/videos', videoRoutes);
 app.use('/api/annc', anncRoutes);
+app.use('/api/req', reqHelpRoutes);
 app.use('/api/research', researchRoutes);
 
 app.use('/', express.static(path.join(__dirname+'/node_modules')));

@@ -105,6 +105,36 @@ angular.module('states').config(function ($stateProvider) {
         }   
       },
       {
+        name: 'requestManager',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/requestManager.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: true
+        }   
+      },
+      {
+        name: 'userEventManager',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/userEventManager.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
+      },
+      {
+        name: 'userRequestManager',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/userRequestManager.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
+      },
+      {
         name: 'manageEvents',
         parent: 'account',
         templateUrl: '../../pages/accountPages/eventManager.html',
@@ -148,7 +178,17 @@ angular.module('states').config(function ($stateProvider) {
         name: 'R',
         url: '/R',
         templateUrl: '../../pages/R.html'
-      }
+      },
+      {
+        name: 'requestprogram',
+        url: '/requestprogram',
+        templateUrl: '../../pages/requestprogram.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
+      },
     ]
 
 
@@ -158,27 +198,3 @@ angular.module('states').config(function ($stateProvider) {
   });
 
 });
-
-
-/*Tabs for Resources Page*/
-function openPage(pageName, elmnt, color) {
-	// Hide all elements with class="tabcontent" by default */
-	var i, tabcontent, tablinks;
-	tabcontent = document.getElementsByClassName("tabcontent");
-	
-	for (i = 0; i < tabcontent.length; i++) {
-		tabcontent[i].style.display = "none";
-	}
-
-	// Remove the background color of all tablinks/buttons
-	tablinks = document.getElementsByClassName("tablink");
-	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].style.backgroundColor = "";
-	}
-
-	// Show the specific tab content
-	document.getElementById(pageName).style.display = "block";
-
-	// Add the specific color to the button used to open the tab content
-	elmnt.style.backgroundColor = color;
-}

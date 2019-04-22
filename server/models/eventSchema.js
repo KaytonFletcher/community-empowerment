@@ -20,10 +20,11 @@ var eventSchema = new Schema({
         required: true,
         trim: true
     },
-    // userID: {
-    //     type: Number, 
-    //     required: true
-    // },
+    user: {
+        type: Schema.Types.ObjectId, 
+        required: true,
+        ref: 'User'
+    },
     created_at: Date,
     updated_at: Date
 });

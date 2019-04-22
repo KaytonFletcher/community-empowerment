@@ -36,7 +36,9 @@
     <script src="js/controllers/announcementsController.js"></script>
     <script src="js/factories/anncFactory.js"></script>
 	  <script src="js/factories/researchFactory.js"></script>
-	  <script src="js/controllers/researchController.js"></script>
+    <script src="js/controllers/researchController.js"></script>
+    <script src="js/factories/requestFactory.js"></script>
+	  <script src="js/controllers/requestController.js"></script>
 
 
     <!-- References fullCalendar library -->
@@ -79,7 +81,7 @@
     
           <ul ng-controller="NavbarCtrl" class="navbar-nav ml-auto" ng-if="!currentUser">
             <li class="nav-item" ng-repeat="page in signoutPages">
-                <a ui-sref="{{page.ref}}" ui-sref-active="active" class="nav-link">{{page.name}}</a> 
+                <a ng-click="checkState(page.ref)" ui-sref-active="active" class="nav-link">{{page.name}}</a> 
             </li>
             <li>
               <a href="./#abtUs" ui-sref-active="active" class="nav-link">About Us</a> 

@@ -5,7 +5,7 @@ exports.list = function(req, res) {
    
     //editing find all function from bootcamp 3 to sort, empty brackets returns all users
     // .sort() returns alphabetically by default
-    User.find().sort('name').then(users => {
+    User.find().sort('name').populate('programReqs').populate('eventReqs').then(users => {
       res.send(users);
     }).catch(err => {
       res.status(400).send(err); 
@@ -27,7 +27,7 @@ exports.delete = function(req, res) {
 
 exports.findUserId = function(req, res, next, id) {
 
-  User.findById(id).exec(function(err, user) {
+  User.findById(id).populate('programReqs').populate('eventReqs').exec(function(err, user) {
     if(err) {
       res.status(400).send(err);
     } else {
