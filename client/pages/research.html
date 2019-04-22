@@ -26,13 +26,16 @@
 		
 	</form>
 </div>  
-	<div class="research-item" ng-repeat="research in researches track by research.url"  style="padding:20px">
+	<div style="margin-top: 5px;"></div>
+	<div class="research-item" ng-repeat="research in researches track by research.url">
 		<div class="d-flex flex-column">
-			<h4>{{research.title}} </h4>
+			<div ng-class-odd="'odd-research'" ng-class-even="'even-research'">
+			<h4> <b>{{research.title}}</b> </h4>
 			<div>
-				<h5> {{research.description}} </h5>
-				<a ng-hide="research.url == null" ng-href = "{{research.url}}">Link to Research</a>
+				<h5> <i>{{research.description}}</i> </h5>
+				<a ng-hide="research.url == null" ng-href = "{{research.url}}" target="_blank">Link to Research</a>
 			</div>	
+			</div>
 		</div>	
 	</div>
 </div>
