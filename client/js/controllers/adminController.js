@@ -1,15 +1,14 @@
-angular.module('SpoderApp').controller('adminController', ['$scope', '$state', '$transitions', 'Users', 
-    function($scope, $state, $transitions ,Users) {
+angular.module('SpoderApp').controller('adminController', ['$scope', '$state', '$transitions', '$rootScope','Users', 
+    function($scope, $state, $transitions, $rootScope, Users) {
       $scope.users = [];
       $scope.previousState = undefined;
       $scope.focusUser = undefined;
 
-      $transitions.onSuccess({}, function(transition) {
-        console.log("Transitions from " + transition.from().name + "to" + transition.to().name);
+      console.log($rootScope.currentUser);
 
+      $transitions.onSuccess({}, function(transition) {
         $scope.previousState = transition.from().name;
       });
-
       
       $scope.loadUsers = function(){
         Users.getAll().then(function(res) {
@@ -20,7 +19,7 @@ angular.module('SpoderApp').controller('adminController', ['$scope', '$state', '
         });
       }
 
-      if($scope.users === undefined || $scope.users.length == 0){
+      if(($scope.users === undefined || $scope.users.length == 0) && $rootScope.currentUser.admin){
         $scope.loadUsers();
       }
 

@@ -2,9 +2,7 @@ var Request = require('../models/requestSchema.js');
 var User = require('../models/userSchema.js');
 
 exports.list = function(req, res) {
-   
-    //editing find all function from bootcamp 3 to sort, empty brackets returns all users
-    // .sort() returns alphabetically by default
+
     Request.find().sort('-created_at').populate('user').then(reqs => {
         console.log('reqs sent');
         res.send(reqs);
@@ -52,13 +50,13 @@ exports.add = function(req, res) {
           
         } else {
           //here is how you return data, can be accessed in authController front end with res.data.auth, res.data.token
-          User.findById(request.user).exec(function(err, user) {
-            if(err) {
-              console.log('no user found'); 
-            } else {
-              user.programReqs.push(request._id); 
-            }
+          User.findByIdAndUpdate(request.user,
+          { "$push": { "programReqs": request._id } },
+          { "new": true, "upsert": true },
+          function (err) {
+              if (err) throw err;
           });
+     
           console.log('request added');
           return res.status(201).send(request);
           }
@@ -67,4 +65,4 @@ exports.add = function(req, res) {
 
     exports.respond = function(req, res) {
         
-        };
+    };

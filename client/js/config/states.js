@@ -182,7 +182,12 @@ angular.module('states').config(function ($stateProvider) {
       {
         name: 'requestprogram',
         url: '/requestprogram',
-        templateUrl: '../../pages/requestprogram.html'
+        templateUrl: '../../pages/requestprogram.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
       },
     ]
 
