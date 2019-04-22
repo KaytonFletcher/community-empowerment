@@ -111,13 +111,13 @@ angular.module('states').config(function ($stateProvider) {
         data: {
           redirectTo: 'home' ,
           authorization: true,
-          admin: false
+          admin: true
         }   
       },
       {
         name: 'userEventManager',
         parent: 'account',
-        templateUrl: '../../pages/accountPages/userRequestManager.html',
+        templateUrl: '../../pages/accountPages/userEventManager.html',
         data: {
           redirectTo: 'home' ,
           authorization: true,
@@ -127,7 +127,7 @@ angular.module('states').config(function ($stateProvider) {
       {
         name: 'userRequestManager',
         parent: 'account',
-        templateUrl: '../../pages/accountPages/userEventManager.html',
+        templateUrl: '../../pages/accountPages/userRequestManager.html',
         data: {
           redirectTo: 'home' ,
           authorization: true,

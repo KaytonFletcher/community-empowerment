@@ -64,7 +64,7 @@ exports.validate = function(req, res) {
 
 exports.getUser = function(req, res, next) {
 
-  User.findById(req.userId, { password: 0 }, function (err, user) {
+  User.findById(req.userId, { password: 0 }).populate('programReqs').populate('eventReqs').exec(function (err, user) {
     if (err) return res.status(500).send("Server error finding user");
     if (!user) return res.status(404).send("No user found.");
     
@@ -75,7 +75,7 @@ exports.getUser = function(req, res, next) {
 
 exports.updateUser = function(req, res, next) {
   console.log("UPDATING");
-  User.findById(req.userId, { password: 0 }, function (err, user) {
+  User.findById(req.userId, { password: 0 }).populate('programReqs').populate('eventReqs').exec(function (err, user) {
     if (err) return res.status(500).send("There was a problem finding the user.");
     if (!user) return res.status(404).send("No user found.");
     if(req.body.name){
@@ -104,7 +104,7 @@ exports.changePsw = function(req, res, next) {
   }
 
   console.log("Changing Password");
-  User.findById(req.userId, function (err, user) {
+  User.findById(req.userId).populate('programReqs').populate('eventReqs').exec(function (err, user) {
     if (err) return res.status(500).send("There was a problem finding the user.");
     if (!user) return res.status(404).send("No user found.");
 

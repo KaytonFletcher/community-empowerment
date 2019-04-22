@@ -28,13 +28,12 @@ exports.submitReq = function(req, res) {
         console.log(err);
         res.status(400).send(err);
       } else {
-        User.findById(event.user).exec(function(err, user) {
-          if(err) {
-            console.log('no user found'); 
-          } else {
-            user.eventReqs.push(event._id); 
-          }
-        });
+        User.findByIdAndUpdate(event.user,
+          { "$push": { "eventReqs": event._id } },
+          { "new": true, "upsert": true },
+          function (err) {
+              if (err) throw err;
+          });
         console.log('event saved');
         //res.json(user);
         res.status(201).json({ success: true });

@@ -1,4 +1,4 @@
- <div ng-controller="requestController" class="tab-pane fade" id="requests" role="tabpanel" aria-labelledby="requests-tab" ng-if="currentUser.admin">
+ <div class="tab-pane" id="requests" role="tabpanel" aria-labelledby="requests-tab" ng-if="currentUser.admin">
      <div class="container">
             <h1>Help Request Information</h1>  
             <hr>
@@ -13,7 +13,7 @@
                       </span>
                 </div>
               </div>   
-              <div class="row justify-content-center">        
+              <div class="row justify-content-center"  ng-controller="requestController">        
                 <div class="tableWrapper table-row">
                   <table class="table table-hover">
                     <tr>
@@ -26,7 +26,7 @@
                       <td>{{request.user.name}}</td>
                       <td>{{request.subject}}</td>
                       <td>{{request.description}}</td>
-                      <td ng-click="respondToRequest(); delete()"><span style="color: green;" class="fas fa-user-check"></span></td>
+                      <td ng-click="deleteRequest(request._id)"><span style="color: green;" class="fas fa-user-check"></span></td>
                     </tr>
                   </table>
                 </div>
