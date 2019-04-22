@@ -608,10 +608,20 @@ hr.style-two {
   position: relative;
   bottom: 50px;
   left: 30px;
+  margin-top: 30px;
 }
 
 #focus-user-name{
-  font-size: 40px;
+  margin-bottom: 11px;
+}
+
+#focus-user-copyemail{
+  margin-bottom: 5px;
+}
+
+#focus-user-gen{
+  font-size: 24px;
+  margin-bottom: 2px;
 }
 
 /*SPODER Pages Styling*/
