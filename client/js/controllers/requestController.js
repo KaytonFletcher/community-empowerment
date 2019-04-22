@@ -5,7 +5,7 @@ function($scope, $rootScope, Requests) {
     Requests.getAll().then(function(res) {
         $scope.requests = res.data;
         console.log($scope.requests); 
-        console.log('request data displayed');
+        console.log($rootScope.currentUser);
       }, function(error) {
         console.log('Unable to retrieve requests: ', error);
       });

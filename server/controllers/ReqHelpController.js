@@ -52,10 +52,13 @@ exports.add = function(req, res) {
           
         } else {
           //here is how you return data, can be accessed in authController front end with res.data.auth, res.data.token
+          console.log(request.user); 
+          console.log(request._id); 
           User.findById(request.user).exec(function(err, user) {
             if(err) {
               console.log('no user found'); 
             } else {
+              console.log('program req added to user'); 
               user.programReqs.push(request._id); 
             }
           });

@@ -111,7 +111,7 @@ angular.module('states').config(function ($stateProvider) {
         data: {
           redirectTo: 'home' ,
           authorization: true,
-          admin: false
+          admin: true
         }   
       },
       {
