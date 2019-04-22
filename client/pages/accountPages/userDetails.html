@@ -6,22 +6,30 @@
     data-toggle="tooltip" data-placement="right" title="Go Back"></i>
     </div>
         <div id="focus-user-container">
+                <div id="focus-user-gen"><b>General User Information:</b></div>
 
-                <!-- <label id="name-label" for="name">Name</label>
-                <input ng-readonly="!canEdit" class="form-control form-control-lg" id="name" type="text" placeholder="{{focusUser.name}}"> -->
+                <label id="name-label" for="name">Name</label>
+                <div ng-readonly="!canEdit" class="form-control form-control-lg" id="name" type="text" placeholder="">{{focusUser.name}}</div>
 
-        <div id="focus-user-gen"><b>General User Information:</b></div>
-        <div id="focus-user-name">Name: {{focusUser.name}}</div>
+                <label id="name-label" for="org">Organization</label>
+                <div ng-readonly="!canEdit" class="form-control form-control-lg" id="org" type="text" placeholder="">{{focusUser.organization}}</div>
+
+                <label id="name-label" for="email">Email</label> 
+                <button id="focus-user-copyemail"class="btn btn-default btn-xs" ngclipboard data-clipboard-target="#email"
+                    data-toggle="tooltip" data-placement="right" title="Copy Email!"
+                    onmouseenter="$(this).tooltip('show')">
+                    <i  class="fas fa-envelope fa-1x"></i>
+                </button>
+                <div ng-readonly="!canEdit" class="form-control form-control-lg" id="email" type="text" placeholder="">{{focusUser.email}}</div>
+
+        <!-- <div id="focus-user-gen"><b>General User Information:</b></div> -->
+        <!-- <div id="focus-user-name">Name: {{focusUser.name}}</div>
         <div id="focus-user-organization">Organization: {{focusUser.organization}}</div>
         <span id="focus-user-emailword">Email: </span>
-        <span id="focus-user-email">{{focusUser.email}}</span> 
+        <span id="focus-user-email">{{focusUser.email}}</span>  -->
         
         
-        <button class="btn btn-default" ngclipboard data-clipboard-target="#focus-user-email"
-        data-toggle="tooltip" data-placement="right" title="Copy Email!"
-        onmouseenter="$(this).tooltip('show')">
-            <i  class="fas fa-envelope fa-2x"></i>
-        </button>
+        
 
         <hr>
         <h3><b>Information Requests:</b></h3>
