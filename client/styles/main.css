@@ -678,6 +678,12 @@ hr.style-two {
   display: inline;
 }
 
+.affilimg{
+  float: left; 
+  display: inline;
+  margin-right: 11px;
+}
+
 
 .btn.shiftright{
   float: right;
