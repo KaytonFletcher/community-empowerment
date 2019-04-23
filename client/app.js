@@ -69,29 +69,22 @@ app.run( function($transitions, Authenticate, $rootScope) {
                 if(!res) {
                     console.log("No response from server");
                 } else if(!res.data.user){
-                    console.log("no authenticated, redirecting...");
                     if(st.data.redirectTo){
-                        console.log("redirect to specified: " + st.data.redirectTo);
                         return transition.router.stateService.target(st.data.redirectTo);
                     }else {
-                        console.log("redirect to home, no redirect specified");
                         return transition.router.stateService.target('home');
                     }
                 } else {
                        if(st.data.admin && !res.data.user.admin){
-                            console.log("redirect to home, not admin");
                             return transition.router.stateService.target(st.data.redirectTo);
                        }else {
-                           console.log("getting current user " + res.data.user.name);
                            $rootScope.currentUser = res.data.user;
                        }
                 }
             },function(error){
-                console.log('User not authenticated ', error);
+                console.log(error);
                 return transition.router.stateService.target(st.data.redirectTo);
             })
-        } else {
-            console.log("no data or auth");
         }
     });
   });

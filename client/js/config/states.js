@@ -17,19 +17,24 @@ angular.module('states').config(function ($stateProvider) {
         templateUrl: '../../pages/about.html'
       },
       {
-        name: 'understand',
-        url: '/understand',
-        templateUrl: '../../pages/understand.html'
-      },
-      {
         name: 'research',
         url: '/research',
-        templateUrl: '../../pages/research.html'
+        templateUrl: '../../pages/research.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
       },
       {
         name: 'entRes',
         url: '/entRes',
-        templateUrl: '../../pages/entRes.html'
+        templateUrl: '../../pages/entRes.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
       },
       {
         name: 'affil',
@@ -39,17 +44,12 @@ angular.module('states').config(function ($stateProvider) {
       {
         name: 'announcements',
         url: '/announcements',
-        templateUrl: '../../pages/announcements.html'
-      },
-      {
-        name: 'blog',
-        url: '/blog',
-        templateUrl: '../../pages/blog.html'
-      },
-      {
-        name: 'commentary',
-        url: '/commentary',
-        templateUrl: '../../pages/commentary.html'
+        templateUrl: '../../pages/announcements.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
       },
       {
         name: 'calendar',
@@ -62,11 +62,6 @@ angular.module('states').config(function ($stateProvider) {
         url: '/createacct',
         templateUrl: '../../pages/accountPages/createacct.html', 
         controller: 'authController as AC'
-      },
-	    {
-        name: 'resetpsw',
-        url: '/resetpsw',
-        templateUrl: '../../pages/accountPages/resetpsw.html'
       },
       {
         name: 'account',
