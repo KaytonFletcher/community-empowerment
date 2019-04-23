@@ -1,7 +1,5 @@
 <!-- Below scripts if for full calendar -->
 <script>
-    
-    
       var calendarEl = document.getElementById('calendar');
       //var config = require('../../server/config/config');
       
@@ -19,8 +17,6 @@
           right: 'today'
         },
 
-        
-  
         displayEventTime: false, // don't show the time column in list view
   
         
@@ -117,8 +113,9 @@
                 
 
                 <div id='calendarList'></div>
-
-                <button style="margin-top: 5%" type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestEventModal" >Request Event</button>
+                <h5 ng-if="!currentUser">Sign in to request your own events!</h5>
+                <button ng-if="!currentUser" class="btn btn-primary" data-toggle="modal" data-target="#signin-modal" >Sign In </button>
+                <button ng-if="currentUser" style="margin-top: 5%" type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestEventModal" >Request Event</button>
 
                 <div id="requestEventModal" class="modal fade req-modal" role="dialog">
                     <form class="modal-dialog" ng-controller="calController" ng-submit="submitRequest()" >
@@ -149,6 +146,7 @@
 
                           </div>
 
+                         
                           <button type="submit" class="btn btn-success fullwidth mb-3">Submit Request</button>
                         </div>
                        
