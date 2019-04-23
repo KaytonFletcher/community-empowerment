@@ -10,6 +10,9 @@ angular.module('users').factory('Cals', function($http) {
         delete: function(id) {
             return $http.delete('https://efempowerment.herokuapp.com/api/cal/' + id);
         },
+        addEvent: function(eid) {
+            return $http.post('http://localhost:8080/api/cal/admin/' + eid);
+        }
     }
     
     return methods;

@@ -17,19 +17,24 @@ angular.module('states').config(function ($stateProvider) {
         templateUrl: '../../pages/about.html'
       },
       {
-        name: 'understand',
-        url: '/understand',
-        templateUrl: '../../pages/understand.html'
-      },
-      {
         name: 'research',
         url: '/research',
-        templateUrl: '../../pages/research.html'
+        templateUrl: '../../pages/research.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
       },
       {
         name: 'entRes',
         url: '/entRes',
-        templateUrl: '../../pages/entRes.html'
+        templateUrl: '../../pages/entRes.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
       },
       {
         name: 'affil',
@@ -37,14 +42,14 @@ angular.module('states').config(function ($stateProvider) {
         templateUrl: '../../pages/affil.html'
       },
       {
-        name: 'blog',
-        url: '/blog',
-        templateUrl: '../../pages/blog.html'
-      },
-      {
-        name: 'commentary',
-        url: '/commentary',
-        templateUrl: '../../pages/commentary.html'
+        name: 'announcements',
+        url: '/announcements',
+        templateUrl: '../../pages/announcements.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
       },
       {
         name: 'calendar',
@@ -58,20 +63,81 @@ angular.module('states').config(function ($stateProvider) {
         templateUrl: '../../pages/accountPages/createacct.html', 
         controller: 'authController as AC'
       },
-	    {
-        name: 'resetpsw',
-        url: '/resetpsw',
-        templateUrl: '../../pages/accountPages/resetpsw.html'
-      },
       {
         name: 'account',
         url: '/account',
-        templateUrl: '../../pages/accountPages/user.html',
+        templateUrl: '../../pages/accountPages/account.html',
+        redirectTo: 'details'
+      },
+      {
+        name: 'allUsers',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/allUsers.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: true
+        }     
+      },
+      {
+        name: 'details',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/details.html',
         data: {
           redirectTo: 'home' ,
           authorization: true,
           admin: false
-        }     
+        }   
+      },
+      {
+        name: 'userDetails',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/userDetails.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: true
+        }   
+      },
+      {
+        name: 'requestManager',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/requestManager.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: true
+        }   
+      },
+      {
+        name: 'userEventManager',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/userEventManager.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
+      },
+      {
+        name: 'userRequestManager',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/userRequestManager.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
+      },
+      {
+        name: 'manageEvents',
+        parent: 'account',
+        templateUrl: '../../pages/accountPages/eventManager.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: true
+        }   
       },
       {
         name: 'termsandconditions',
@@ -107,7 +173,17 @@ angular.module('states').config(function ($stateProvider) {
         name: 'R',
         url: '/R',
         templateUrl: '../../pages/R.html'
-      }
+      },
+      {
+        name: 'requestprogram',
+        url: '/requestprogram',
+        templateUrl: '../../pages/requestprogram.html',
+        data: {
+          redirectTo: 'home' ,
+          authorization: true,
+          admin: false
+        }   
+      },
     ]
 
 
@@ -117,27 +193,3 @@ angular.module('states').config(function ($stateProvider) {
   });
 
 });
-
-
-/*Tabs for Resources Page*/
-function openPage(pageName, elmnt, color) {
-	// Hide all elements with class="tabcontent" by default */
-	var i, tabcontent, tablinks;
-	tabcontent = document.getElementsByClassName("tabcontent");
-	
-	for (i = 0; i < tabcontent.length; i++) {
-		tabcontent[i].style.display = "none";
-	}
-
-	// Remove the background color of all tablinks/buttons
-	tablinks = document.getElementsByClassName("tablink");
-	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].style.backgroundColor = "";
-	}
-
-	// Show the specific tab content
-	document.getElementById(pageName).style.display = "block";
-
-	// Add the specific color to the button used to open the tab content
-	elmnt.style.backgroundColor = color;
-}

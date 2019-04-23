@@ -1,0 +1,59 @@
+<div class="container">
+    <h2>Member</h2>
+    <hr>
+    <div>
+    <i ng-click="goBack()" class="fas fa-long-arrow-alt-left fa-4x back-arrow"
+    data-toggle="tooltip" data-placement="right" title="Go Back"></i>
+    </div>
+        <div id="focus-user-container">
+                <div id="focus-user-gen"><b>General User Information:</b></div>
+
+                <label id="name-label" for="name">Name</label>
+                <div ng-readonly="!canEdit" class="form-control form-control-lg" id="name" type="text" placeholder="">{{focusUser.name}}</div>
+
+                <label id="name-label" for="org">Organization</label>
+                <div ng-readonly="!canEdit" class="form-control form-control-lg" id="org" type="text" placeholder="">{{focusUser.organization}}</div>
+
+                <label id="name-label" for="email">Email</label> 
+                <button id="focus-user-copyemail"class="btn btn-default btn-xs" ngclipboard data-clipboard-target="#email"
+                    data-toggle="tooltip" data-placement="right" title="Copy Email!"
+                    onmouseenter="$(this).tooltip('show')">
+                    <i  class="fas fa-envelope fa-1x"></i>
+                </button>
+                <div ng-readonly="!canEdit" class="form-control form-control-lg" id="email" type="text" placeholder="">{{focusUser.email}}</div>
+        <hr>
+        <h4><b>Program Requests:</b></h4>
+            <div class="tableWrapper table-row">
+                <table class="table table-hover">
+                  <tr ng-repeat="programReq in focusUser.programReqs" class ="tbl-dropdown">
+                    <td>{{programReq.description}}
+                            <ul class="list-group">
+                                    <li class="list-group-item">{{programReq.subject}}</li>
+                            </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+        <h4><b>Events:</b></h4>
+        <br>
+        <div class="tableWrapper table-row">
+                <table class="table table-hover">
+                  <tr>
+                    <th>Request Name</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                  </tr>
+                  <tr ng-repeat="eventReq in currentUser.eventReqs | filter : query" class ="tbl-dropdown">
+                    <td>{{eventReq.title}}
+                            <ul class="list-group">
+                                    <li class="list-group-item">{{eventReq.description}}</li>
+                            </ul>
+                    </td>
+                    <td>{{eventReq.startTime}}</td>
+                    <td>{{eventReq.endTime}}</td>
+                  </tr>
+                </table>
+              </div>
+
+    </div>
+</div>

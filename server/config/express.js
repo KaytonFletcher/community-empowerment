@@ -4,10 +4,13 @@ var path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     config = require('./config'),
-    errorHandler = require('../helpers/errorHandler'),
     usersRouter = require('../routes/userRoutes'),
-    authRoutes = require('../routes/authRoutes')
-    calRoutes = require('../routes/calRoutes')
+    authRoutes = require('../routes/authRoutes'),
+    calRoutes = require('../routes/calRoutes'),
+    videoRoutes = require('../routes/videoRoutes')
+    anncRoutes = require('../routes/anncRoutes')
+    reqHelpRoutes = require('../routes/reqHelpRoutes')
+	  researchRoutes = require('../routes/researchRoutes')
 
 
 module.exports.init = function() {
@@ -38,6 +41,10 @@ app.use('/public', express.static(__dirname + '/../../public'));
 app.use('/api/users', usersRouter);
 app.use('/api/cal', calRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/videos', videoRoutes);
+app.use('/api/annc', anncRoutes);
+app.use('/api/req', reqHelpRoutes);
+app.use('/api/research', researchRoutes);
 
 app.use('/', express.static(path.join(__dirname+'/node_modules')));
 

@@ -1,24 +1,57 @@
 angular.module('states', []);
 angular.module('users', []);
+
 // var underscore = angular.module('underscore', []);
 // underscore.factory('_', ['$window', function($window) {
 //   return $window._; // assumes underscore has already been loaded on the page
 // }]);
 
-var app = angular.module('SpoderApp', ['ui.router','states', 'users']);
+var app = angular.module('SpoderApp', ['ui.router','states', 'users', 'ngTagsInput', 'ngclipboard']);
 
 app.config(["$locationProvider" , function($locationProvider){
     $locationProvider.html5Mode(true);
 }]);
 
 
+app.filter('trusted', ['$sce', function ($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}]);
+
+
+function checkList(video, tagList){
+    for(i in tagList){
+        console.log(tagList[i]);
+        console.log(video.tags);
+        if(!video.tags.includes(tagList[i].text)){return false;}
+    }
+    return true;
+}
+
+
+app.filter('tag', function(){
+    console.log("checking for match");
+    return function(videoList, tagList){
+        console.log(videoList);
+        console.log(tagList);
+      var filteredList = [];  
+      //console.log("Video title: " + video.title);
+      if(tagList === undefined || tagList.length == 0){return videoList;}
+      videoList.forEach(video => {
+        console.log(checkList(video,tagList));
+        if(checkList(video, tagList)) {
+            filteredList.push(video);
+        } 
+      });
+      return filteredList;
+    }
+});
+
 app.run( function($transitions, Authenticate, $rootScope) {
    
     if(!$rootScope.currentUser){
-        console.log("Checking if user is logged in!");
-
         Authenticate.getUser(localStorage.getItem('token')).then(function(res){
-            console.log("Got user " + res.data.user.name);
             $rootScope.currentUser = res.data.user;
             
         },function(error){
@@ -36,29 +69,22 @@ app.run( function($transitions, Authenticate, $rootScope) {
                 if(!res) {
                     console.log("No response from server");
                 } else if(!res.data.user){
-                    console.log("no authenticated, redirecting...");
                     if(st.data.redirectTo){
-                        console.log("redirect to specified: " + st.data.redirectTo);
                         return transition.router.stateService.target(st.data.redirectTo);
                     }else {
-                        console.log("redirect to home, no redirect specified");
                         return transition.router.stateService.target('home');
                     }
                 } else {
                        if(st.data.admin && !res.data.user.admin){
-                            console.log("redirect to home, not admin");
-                            return transition.router.stateService.target('home');
+                            return transition.router.stateService.target(st.data.redirectTo);
                        }else {
-                           console.log("getting current user " + res.data.user.name);
                            $rootScope.currentUser = res.data.user;
                        }
                 }
             },function(error){
-                console.log('User not authenticated ', error);
-                
+                console.log(error);
+                return transition.router.stateService.target(st.data.redirectTo);
             })
-        } else {
-            console.log("no data or auth");
         }
     });
   });

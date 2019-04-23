@@ -2,14 +2,13 @@
 <html>
   <head>   
     
-    
-    <!-- Here angular and the 3rd party module ui-router are included -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.22/angular-ui-router.min.js"></script>
     
     <!-- boostrap 4 javascript source and css styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     
@@ -20,6 +19,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animate.css">
 
     <script src="app.js"></script>
     <script src="js/config/states.js"></script>
@@ -30,6 +30,15 @@
     <script src="js/factories/authFactory.js"></script>
     <script src="js/controllers/calController.js"></script>
     <script src="js/factories/calFactory.js"></script>
+    <script src="js/controllers/videoController.js"></script>
+    <script src="js/factories/videoFactory.js"></script>
+    <script src="js/controllers/announcementsController.js"></script>
+    <script src="js/factories/anncFactory.js"></script>
+	  <script src="js/factories/researchFactory.js"></script>
+    <script src="js/controllers/researchController.js"></script>
+    <script src="js/factories/requestFactory.js"></script>
+	  <script src="js/controllers/requestController.js"></script>
+
 
     <!-- References fullCalendar library -->
     <link href='libraries/fullcalendar/packages/core/main.css' rel='stylesheet' />
@@ -40,23 +49,25 @@
     <script src='libraries/fullcalendar/packages/daygrid/main.js'></script>
     <script src='libraries/fullcalendar/packages/list/main.js'></script>
     <script src='libraries/fullcalendar/packages/google-calendar/main.js'></script>
+
     
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.2.0/ng-tags-input.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.2.0/ng-tags-input.bootstrap.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/3.2.0/ng-tags-input.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     
+
+    <!-- Copy to clipboard library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngclipboard/2.0.0/ngclipboard.js"></script>
+
 
     <!-- This sets the starting url and gets rid of #! -->
     <base href="/"/>
 
-    <!-- Used to init bootstrap popovers-->
-    <script>
-      $(document).ready(function(){
-        $('[data-toggle="popover"]').popover(); 
-      });
-    </script>     
-
-    
-
   </head>
- 
     
   <body ng-app="SpoderApp">
       <nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -64,26 +75,32 @@
           <a ui-sref="Logo" class="navbar-brand" ui-sref-active="active">Entrepreneurship Empowerment</a>
     
           <ul ng-controller="NavbarCtrl" class="navbar-nav ml-auto" ng-if="!currentUser">
-            <li class="nav-item" ng-repeat="page in signoutPages">
-                <a ui-sref="{{page.ref}}" ui-sref-active="active" class="nav-link">{{page.name}}</a> 
+            <li>
+                <a href="./home" ui-sref-active="active" class="nav-link">Home</a> 
             </li>
             <li>
-              <a href="./#abtUs" ui-sref-active="active" class="nav-link">About Us</a> 
+                <a href="./#abtUs" ui-sref-active="active" class="nav-link">About Us</a> 
+            </li>
+            <li class="nav-item" ng-repeat="page in signoutPages">
+                <a ng-click="checkState(page.ref)" ui-sref-active="active" class="nav-link">{{page.name}}</a> 
             </li>
             <li class="nav-item">
-                <a class="nav-link" onclick="document.getElementById('signin-modal').style.display='block'">Sign In </a>
+                <a class="nav-link" data-toggle="modal" data-target="#signin-modal" >Sign In </a>
             </li>
           </ul>
 
           <ul ng-controller="NavbarCtrl" class="navbar-nav ml-auto" ng-if="currentUser">
+            <li>
+                <a href="./home" ui-sref-active="active" class="nav-link">Home</a> 
+            </li>
+            <li>
+                <a href="./#abtUs" ui-sref-active="active" class="nav-link">About Us</a> 
+            </li>
             <li class="nav-item"  ng-repeat="page in signinPages">
                 <a ui-sref="{{page.ref}}" ui-sref-active="active" class="nav-link">{{page.name}}</a> 
             </li>
-            <li>
-              <a href="./#abtUs" ui-sref-active="active" class="nav-link">About Us</a> 
-            </li>
             <li class="nav-item">
-                <a class="nav-link" onclick="document.getElementById('logout-modal').style.display='block'">Log out </a>
+                <a class="nav-link" data-toggle="modal" data-target="#logout-modal">Log out </a>
             </li>
           </ul>        
       </nav>
@@ -91,61 +108,54 @@
         
     <!-- This is where code gets injected from html files in /pages -->
    <ui-view></ui-view>
-    
+  
 
-   <div id="signin-modal" class="modal signin" ng-show="loginError || !currentUser">
-    <form class="modal-content signin-content"  ng-controller="authController" ng-submit="login()" >
-      <div class="container">
-        <h1>Sign In</h1>
+   <div id="signin-modal" class="modal fade req-modal" ng-show="loginError || !currentUser" role="dialog">
+    <form class="modal-dialog"  ng-controller="authController" ng-submit="login()" >
+      <div class="modal-content" >
+      <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+        <h4 class="modal-title">Sign in</h4>
+			</div>
+      <div class="modal-body">
         <h4 class="errorMsg">{{loginError}}</h4>
-        <hr>
         <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required ng-model="login.user.email">
+        <input class="form-control custom-input" type="text" placeholder="Enter Email" name="email" required ng-model="login.user.email">
   
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required ng-model="login.user.password" >
+        <input class="form-control custom-input" type="password" placeholder="Enter Password" name="psw" required ng-model="login.user.password" >
 
-        <p>Don't have an account? Please create one to access our resources: <a href="createacct" onclick="document.getElementById('signin-modal').style.display='none'" style="color:dodgerblue">Create Account</a></p>
-        <div class="clearfix">
-            <button type="submit" class="signup fullwidth">Sign In</button>
-          <button type="button" onclick="document.getElementById('signin-modal').style.display='none'" ng-click="loginError=undefined" class="cancelbtn">Cancel</button>
-        </div>
+        <p>Don't have an account? Please create one to access our resources: <a  href="createacct" onclick="$('#signin-modal').modal('hide');" style="color:dodgerblue">Create Account</a></p>
+        <button type="submit"  class="btn btn-success signup fullwidth" >Sign In</button>
+    
       </div>
+    </div>
     </form>
   </div>
 
 
-  <div id="logout-modal" class="modal signin">
-      <form class="modal-content signin-content" ng-controller="authController" ng-submit="logout()" >
-        <div class="container">
-          <h1>Log out</h1>
-          <p>Are you sure you wish to logout?</p>
-          <div class="clearfix">
-              <button type="submit" onclick="document.getElementById('logout-modal').style.display='none'" class="logout fullwidth">Log out</button>
-            <button type="button" onclick="document.getElementById('logout-modal').style.display='none'" class="cancelbtn">Cancel</button>
+  <div id="logout-modal" class="modal fade req-modal" role="dialog">
+      <form style="max-width: 300px" class="modal-dialog" ng-controller="authController" ng-submit="logout()" >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1>Log out</h1>
+           
+          </div>
+          <div class="modal-body">
+              <p>Are you sure you wish to logout?</p>
+              <button type="submit" onclick="$('#logout-modal').modal('hide');" class="btn btn-success fullwidth mb-3">Log out</button>
+              <button type="button" data-dismiss="modal" class="btn btn-danger fullwidth">Cancel</button>
           </div>
         </div>
       </form>
-    </div>
+    </div>    
 
+    
 
-  <script>
-      // Get the modal
-      var signinModal = document.getElementById('signin-modal');
-      var logoutModal = document.getElementById('logout-modal');
-      
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-          if (event.target == signinModal){
-              signinModal.style.display = "none";
-          }
-          if(event.target == logoutModal) {
-            logoutModal.style.display = "none";
-          }
-      }
-  </script>   
-  
-    
-    
+    <!-- References WOW-animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
   </body>
 </html>

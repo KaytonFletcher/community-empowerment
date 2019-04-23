@@ -1,91 +1,159 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  
-  <body>
-	
-<!--will not work due to page routing?-->
-<!--	<a href="./documents/SPODERtest.PDF" download>
-        <img src="./images/pdficon.png" width="75" height="75">
-	</a>
-	<a href="./documents/SPODERtest.docx" download>
-		<img src="./images/wordicon.jpg" width="75" height="75">
-	</a>
--->
 
-<!--works, but somehow files are corrupted when downloaded. html page by itself (no web server) works fine.
-	<a target="_self" href="./documents/SPODERtest.docx" download>
-		<img src="images/wordicon.jpg" width="75" height="75">
-	</a>
-	
-	<a target="_self" href="./documents/SPODERtest.PDF" download>
-		<img src="/images/pdficon.png" width="75" height="75">
-	</a>
-	
-	<br></br>
-	<iframe width="420" height="315" src="https://www.youtube.com/embed/gGruZGY4Gvk">
-	</iframe>
--->
+<div class="container"  ng-controller="videoController" >
+    <ul class="nav nav-tabs" id="resource-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="videos-tab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="true">Videos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="documents-tab" data-toggle="tab" href="#documents" role="tab" aria-controls="documents" aria-selected="false">Documents</a>
+		</li>
+	</ul>
 
-	<!--													   , 'color of choice)">Documents</button> -->
-	<script>
-			// Get the element with id="defaultOpen" and click on it
-			document.getElementById("defaultOpen").click();
-			</script>
-	<button class="tablink" onclick="openPage('Videos', this)" id="defaultOpen">Videos</button>
-	<button class="tablink" onclick="openPage('Documents', this)">Documents</button>
 	
+	<div class="tab-content" id="res-tab-content">
+		<!-- THIS IS DOCUMENTS TAB -->
+		<div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
+				<br></br>
+				<h4>Creating Business Plans</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1OjsmiGV84JUJauyijQQcsjtt4UwLJXKl#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Case Studies</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1QyarCuCj3IkOQRPaJtKZ7bhkbgPEcm6q#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Profit Model (Low Income Venture)</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1a4PsjPuz0al7AKyTbmetRtG4t4-O45aa#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Opportunity Horizon</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1h7pdNSiEZ9ps5lDaFDf9vll4SR2ueNer#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Profit Model (Entrepreneur)</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1QCUpRMgT6WQUIZ-y9I8XdFLQoNFBqxVA#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Commodity Trap</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=19ZXY9udTw_xXw67qXLGizZ9Id7g8iuOO#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Women and Entreprneurship</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1Gg1g0LuANibC2tX4NFlW7im16DmTuv6y#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Microcredit</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1_mhWM7_YPzhTnlMtAi-b67P3-z6bHn-V#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Minority Entreprneurship</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1ERwvbcXRswW569IGRTDy_MJ9SBBmg0M4#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Entreprneurial Marketing</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1kQ9CCiWcZMezVKN7nEYt1gylJl-5w6OD#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>EESA (Study Abroad Poverty)</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1sBhzxr70Ynuu9O9BZi6K11R0D6SBJM8w#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Established Ventures</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1jQ2E5smFMPPPk0Dj8KpFAXKQJ2ZRtOHK#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+				<h4>Community-Based Entrepreneurship</h4>
+				<iframe src="https://drive.google.com/embeddedfolderview?id=1j9P0xp9UOb4dPC0mjB9cdDT73Bv0gFgB#grid" 
+				frameborder="0" style= "width: 75em; height: 35em;"></iframe>
+				<br></br>
+				
+		</div>
 
-	<div id="Documents" class="tabcontent">
-		<h3>Documents</h3>
-		<iframe src="https://drive.google.com/embeddedfolderview?id=1GmIEOv6DT92DIpFFYNOtFytxWJ2koS0c#grid" width="600" height="500" frameborder="0"></iframe>
-	</div>
+		<!-- ng-repeat="video in videos | tag:tagList track by video.url"
+		 -->
 
-	<div id="Videos" class="tabcontent">
-		<h3>Videos</h3>
-		<div class="video-grid">
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/gGruZGY4Gvk" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
+		<!-- THIS IS VIDEOS TAB -->
+		<div class="tab-pane fade show active" id="videos" role="tabpanel" aria-labelledby="videos-tab">
+
+			<div id="sort-box" class ="d-flex flex-row">
+				
+					<tags-input ng-model="tagList" on-tag-added="tagCheck()" placeholder="Search by Category"
+						on-tag-removed="tagCheck()" add-from-autocomplete-only="true" style="min-width: 400px;"> 
+							<auto-complete source="loadTags($query)" min-length="0" 
+							load-on-focus="true" load-on-empty="true"> </auto-complete>
+					</tags-input>
+						<button type="button" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addVideoModal" style="margin:0px" ng-if="currentUser.admin">Add Video</button>
 			</div>
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/JGHWVAN_yQg" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
-			</div>
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/CzwGcARRVok" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
-			</div>
-			
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/SYMi1QCzQEY" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
-			</div>
-			
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/3dW-6iJSqQI" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
-			</div>
-			
-			<div class="video-item">
-				<div class="video-wrap">
-					<iframe src="https://www.youtube.com/embed/ZnWXtjQOxx0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<div class="video-grid">
+				<div class="video-item" ng-repeat="video in filteredVideos track by video.url"  style="padding:20px">
+					<div class="d-flex flex-column">
+						<h4>{{video.title}}
+								<div ng-click="deleteVideo(video._id)" ng-if="currentUser.admin" class="gray-delete-circ"><a class="btn" style="transform: translate(-6px,-6px);">
+							<i class="fas fa-times fa-2x"></i></a></div>
+						</h4>
+						<div class="video-wrap">
+							<iframe width="560" height="315" ng-src="{{video.url | trusted}}" name="{{video.title}}"
+							frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+						</div>	
+						<div class="d-flex">
+							<span class="badge badge-pill badge-primary" style="display:inline-block; width:auto;" ng-repeat="tag in video.tags">{{tag}}</span>
+						</div>
+					</div>	
+					
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	
-	
-	
 
 	
-  </body>
-  
-</html>
+	
+<div id="addVideoModal" class="modal fade req-modal" role="dialog">
+	<form class="modal-dialog" ng-submit="addVideo()" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+				<h4 class="modal-title">Add Video:</h4>
+			</div>
+			<div class="modal-body">
+				<h6 class = "modal-title">Video Title</h6>
+				<input class="form-control custom-input" type="text" placeholder="Enter Video Title" name="videotitle" required ng-model="newVideo.title">
+
+				<h6 class = "modal-title">Video URL</h6>
+				<input class="form-control custom-input" type="text" placeholder="Enter Video URL" name="videourl" required ng-model="newVideo.url">
+				
+				<h6 class = "modal-title">Video Description</h6>
+				<textarea class="form-control textarea-req" type="text" placeholder="Enter Video Description" name="videodesc" required ng-model="newVideo.description"></textarea>
+
+				<h6 class = "modal-title">Video Tags</h6>
+				<tags-input ng-model="newVideo.tags" add-from-autocomplete-only="true" style="margin: 5px 0 22px 0"> 
+							<auto-complete source="loadTags($query)" min-length="0" max-tags="20"
+							load-on-focus="true" load-on-empty="true"> </auto-complete>
+					</tags-input>
+				
+				<button type="submit" class="btn btn-success fullwidth">Add Video</button>
+			</div> 
+			
+		</div>
+		
+	</form>
+</div>      
+
+</div>
+
+
+
+		<!--If admin hits the google drive storage maximum of 15 GB, can use youtube playlists. -->
+		<!-- <iframe width="640" height="360" src="https://www.youtube.com/embed/videoseries?list=PLbB_N7nmMobFLAITkcnjo6BONo3TpgCrc" frameborder="0" allow="autoplay; encrypted-media" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		<iframe src="https://drive.google.com/embeddedfolderview?id=1FVsWnqDxYR5zit834cEkheNdZnmAC0Jc#grid" width="600" height="500" frameborder="0"></iframe> -->

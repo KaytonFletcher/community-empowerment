@@ -18,6 +18,9 @@ angular.module('users').factory('Authenticate', function($http) {
         },
         changePsw: function(token, user) {
             return $http.post('https://efempowerment.herokuapp.com/api/auth/changePsw/', user , { headers: {'x-access-token': token} });
+        },
+        deleteAccount: function(token) {
+            return $http.delete('https://efempowerment.herokuapp.com/api/auth/deleteAccount' , { headers: {'x-access-token': token} });
         }
     }
     

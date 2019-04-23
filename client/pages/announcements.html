@@ -1,0 +1,78 @@
+<div class="container my-3" ng-controller="anncsController">
+    <div class="row">
+        <div id="sort-box" class ="d-flex flex-row">
+                    <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                    <button type="button" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addAnncModal" style="margin-inline-end: 0px" ng-if="currentUser.admin">Add Announcement</button>
+                </div>
+        <div class="col-12">
+        <div class="annc_item" ng-repeat="announcement in announcements" style="padding:20px">
+            <h2 class="h4 mb-0 p-4 rounded-top">{{announcement.title}} 
+                    <a class="btn shiftright" href="#">
+                            <i class="fas fa-times fa-2x"></i></a>
+            </h2>
+            <table class="table table-striped table-bordered table-responsive-lg">
+            <tbody>
+                <tr>
+                <td class="post-col d-lg-flex justify-content-lg-between">
+                    <div><span class="font-weight-bold">Post subject:  </span>{{announcement.subject}}</div>
+                    <div><span class="font-weight-bold">Posted:  </span>{{announcement.date}}</div>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <p>{{announcement.description}}</p>
+                    
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </div> 
+        </div>
+      </div>
+
+      <div id="deleteAnncModal" class="modal fade req-modal" role="dialog">
+            <form class="modal-dialog" ng-submit="deleteAnnouncement(" >
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1>Log out</h1>
+                 
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you wish to logout?</p>
+                    <button type="submit" onclick="$('#logout-modal').modal('hide');" class="btn btn-success fullwidth mb-3">Log out</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger fullwidth">Cancel</button>
+                </div>
+              </div>
+            </form>
+          </div>    
+
+      <div id="addAnncModal" class="modal fade req-modal" role="dialog">
+            <form class="modal-dialog" ng-submit="addAnnc()" >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><i class="fas fa-times"></i></button>
+                        <h4 class="modal-title">Add Announcement:</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class = "modal-title">Announcement Title</h6>
+                        <input class="form-control custom-input" type="text" placeholder="Enter Announcement Title" name="anncTitle" required ng-model="annc.title">
+
+                        <h6 class = "modal-title">Announcement Subject</h6>
+                        <input class="form-control custom-input" type="text" placeholder="Enter Announcement Subject" name="anncSubj" required ng-model="annc.subject">
+        
+                        <h6 class = "modal-title">Announcement Description</h6>
+                        <textarea class="form-control custom-input" type="text" placeholder="Enter Announcment Description" name="anncDescription" required ng-model="annc.description"></textarea>
+                        
+                        <button type="submit" class="btn btn-success fullwidth">Add Announcement</button>
+                    </div> 
+                    
+                </div>
+                
+            </form>
+        </div>   
+    </div>

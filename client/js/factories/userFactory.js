@@ -1,7 +1,6 @@
 angular.module('users').factory('Users', function($http) {
 
-    var methods = {
-        
+    var methods = {  
         getAll: function() {
           return $http.get('https://efempowerment.herokuapp.com/api/users');
         },
@@ -9,8 +8,6 @@ angular.module('users').factory('Users', function($http) {
         delete: function(id) {
             return $http.delete('https://efempowerment.herokuapp.com/api/users/' + id);
         }
-
-
         
     }
     
