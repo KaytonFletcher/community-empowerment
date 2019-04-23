@@ -45,6 +45,7 @@ angular.module('SpoderApp').controller('videoController', ['$scope', 'Video', '$
           Video.add($scope.newVideo, localStorage.getItem('token')).then(function(res){  
             if(res.data){
               $scope.videos.push($scope.newVideo);
+              alert("You have added a video!");
             }else {console.log("error recieving video");}
             $scope.newVideo = undefined;
           }, function(err){

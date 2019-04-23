@@ -27,6 +27,7 @@ function($scope, $rootScope, Requests) {
             Requests.add($scope.request, localStorage.getItem('token')).then(function(res){  
               if(res.data){
                 $scope.requests.unshift($scope.request);
+                alert("You have submitted a program request!");
               } else {console.log("error recieving request");}
               $scope.request = undefined;
             }, function(err){

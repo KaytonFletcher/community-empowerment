@@ -14,6 +14,7 @@ function($scope, Announcements) {
             if(response.data._id == $scope.announcements[i]._id){
               $scope.announcements.splice(i, 1);  
             }}
+            alert("You have deleted an announcement!");
           }, function(error) {
             console.log('Unable to delete announcement: ', error);
           }

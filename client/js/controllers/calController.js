@@ -19,6 +19,7 @@ angular.module('users').controller('calController', ['$scope', '$rootScope', 'Ca
                         console.log('sorry event no work');
                     } else {
                         angular.element(document.querySelectorAll( '#requestEventModal' )).modal('hide');
+                        alert("You have submitted an event!");
                         console.log('YeEt'); 
                     }
                 })
@@ -41,6 +42,7 @@ angular.module('users').controller('calController', ['$scope', '$rootScope', 'Ca
                   console.log('event not added');
               } else {
                   console.log('YeEt');  
+                  alert("You have added an event to the calendar!");
               }
             }
           )};

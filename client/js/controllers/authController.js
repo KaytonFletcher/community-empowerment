@@ -67,6 +67,7 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
             localStorage.removeItem('token');
             $rootScope.currentUser = undefined;
             $state.go('home');
+            alert("You have logged out!");
         };
 
         $scope.update = function() {
