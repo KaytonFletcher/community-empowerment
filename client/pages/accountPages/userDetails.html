@@ -43,7 +43,7 @@
                     <th>Start Time</th>
                     <th>End Time</th>
                   </tr>
-                  <tr ng-repeat="eventReq in currentUser.eventReqs | filter : query" class ="tbl-dropdown">
+                  <tr ng-repeat="eventReq in focusUser.eventReqs | filter : query" class ="tbl-dropdown">
                     <td>{{eventReq.title}}
                             <ul class="list-group">
                                     <li class="list-group-item">{{eventReq.description}}</li>
