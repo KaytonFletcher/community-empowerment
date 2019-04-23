@@ -52,14 +52,10 @@
   padding-bottom: 7%;
 }
 .litcontent{
-  margin-top: 10%;
-  margin-left: 20%;
   font-size: 14pt;
-  margin: 0;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-right: 20%;
+  margin-left: 30%;
+  vertical-align: middle;
 }
 .lit_parent{
   margin-top: 10%;
@@ -67,7 +63,12 @@
   text-align: left;
   width: auto;
   height: 300px;
-  position: relative;
+ 
+}
+.lit{
+  margin-right: 20%;
+  margin-left: 50%;
+  vertical-align: middle;
 }
 .image-circle {
   margin:auto;
