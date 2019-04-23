@@ -121,6 +121,7 @@ exports.changePsw = function(req, res, next) {
 
 exports.deleteAccount = function(req,res){
   User.findById(req.userId).populate('programReqs').populate('eventReqs').exec(function (err, user) {
+    if(err){return res.status(500); }
     user.programReqs.forEach(program => {
       program.remove();
     });
@@ -129,4 +130,5 @@ exports.deleteAccount = function(req,res){
     });
     user.remove();
   });
+  return res.status(200).json({ message: "success"});
 }

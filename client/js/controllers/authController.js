@@ -62,7 +62,8 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
             });
         };
 
-        $scope.logout = function() {       
+        $scope.logout = function() {  
+            console.log("logging out");     
             localStorage.removeItem('token');
             $rootScope.currentUser = undefined;
             $state.go('home');
@@ -91,6 +92,7 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
 
         $scope.deleteAccount = function() {
             Authenticate.deleteAccount(localStorage.getItem('token')).then(function(res){
+                angular.element(document.querySelectorAll( '#delete-modal' )).modal('hide');
                 $scope.logout();
             }, function(error){
                 console.log('Unable to delete user: ', error);

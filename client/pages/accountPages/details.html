@@ -1,9 +1,10 @@
+<div ng-controller="authController">
 <div class="tab-pane fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
           <div class="container"> 
               <h3>Account details</h3>
               <hr>
             <button type="button" ng-click="canEdit = !canEdit" class="btn btn-primary edit-btn">Edit Info</button>
-            <form ng-controller="authController"  ng-submit="update()">
+            <form  ng-submit="update()">
             <label id="name-label" for="name">Name</label>
             <input ng-model="updatedUser.name" ng-readonly="!canEdit" class="form-control form-control-lg" id="name" type="text" placeholder="{{currentUser.name}}">
             
@@ -17,7 +18,7 @@
 
             <h3>Change password</h3>
             <hr>
-            <form  class="form-inline" ng-controller="authController" ng-submit="changePsw()">
+            <form  class="form-inline"  ng-submit="changePsw()">
               <input required ng-model="updatedUser.oldPassword" class="form-control form-control-lg" id="currentpsw" type="password" placeholder="Current password">
               <div class="mx-4"></div>
               <input required ng-model="updatedUser.newPassword" class="form-control form-control-lg" id="newpsw" type="password" placeholder="New password">
@@ -33,16 +34,17 @@
 
 
 <div id="delete-modal" class="modal fade req-modal" role="dialog">
-  <form style="max-width: 300px" class="modal-dialog" ng-controller="authController" ng-submit="deleteAccount()" >
+  <form style="max-width: 300px" class="modal-dialog" ng-submit="deleteAccount()" >
     <div class="modal-content">
       <div class="modal-header">
         <h1>Delete Account</h1>
       </div>
       <div class="modal-body">
           <p>Are you sure you want to delete your account?</p>
-          <button type="submit" onclick="$('#logout-modal').modal('hide');" class="btn btn-success fullwidth mb-3">Delete</button>
+          <button type="submit" onclick="$('#delete-modal').modal('hide');" class="btn btn-success fullwidth mb-3">Delete</button>
           <button type="button" data-dismiss="modal" class="btn btn-danger fullwidth">Cancel</button>
       </div>
     </div>
   </form>
 </div>    
+</div>
