@@ -74,7 +74,6 @@ exports.getUser = function(req, res, next) {
 };
 
 exports.updateUser = function(req, res, next) {
-  console.log("UPDATING");
   User.findById(req.userId, { password: 0 }).populate('programReqs').populate('eventReqs').exec(function (err, user) {
     if (err) return res.status(500).send("There was a problem finding the user.");
     if (!user) return res.status(404).send("No user found.");
@@ -92,7 +91,6 @@ exports.updateUser = function(req, res, next) {
     var token = jwt.sign({ id: user._id }, config.secret, {
       expiresIn: 3600 // expires in 24 hours
     });
-    console.log("updated");
     res.status(200).json({ auth: true, admin: user.admin ,token: token });
   });
 
@@ -103,23 +101,32 @@ exports.changePsw = function(req, res, next) {
     return res.status(500).send("No password provided");
   }
 
-  console.log("Changing Password");
   User.findById(req.userId).populate('programReqs').populate('eventReqs').exec(function (err, user) {
     if (err) return res.status(500).send("There was a problem finding the user.");
     if (!user) return res.status(404).send("No user found.");
 
-    console.log("Got user, checking if password is valid");
     var passwordIsValid = bcrypt.compareSync(req.body.oldPassword, user.password);
-    if (!passwordIsValid) {console.log("bad password"); return res.status(401).send({ auth: false, token: null });}
+    if (!passwordIsValid) {return res.status(401).send({ auth: false, token: null });}
 
-    var newHash = bcrypt.hashSync(req.body.newPassword, 8);
+    var newHash = bcrypt.hashSync(req.body.newPassword, 12);
     user.password = newHash;
     user.save();
 
     var token = jwt.sign({ id: user._id }, config.secret, {
-      expiresIn: 3600 // expires in 24 hours
+      expiresIn: 86400 // expires in 24 hours
     });
-    console.log("updated password");
     res.status(200).json({ auth: true, admin: user.admin, token: token });
   });
 };
+
+exports.deleteAccount = function(req,res){
+  User.findById(req.userId).populate('programReqs').populate('eventReqs').exec(function (err, user) {
+    user.programReqs.forEach(program => {
+      program.remove();
+    });
+    user.eventReqs.forEach(event => {
+      event.remove();
+    });
+    user.remove();
+  });
+}
