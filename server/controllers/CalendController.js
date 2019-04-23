@@ -64,7 +64,8 @@ exports.submitReq = function(req, res) {
       if(err) {
         res.status(400).send(err);
       } else {
-        user.programReqs.remove(event._id); 
+        console.log("Removing reference to event in user");
+        user.eventReqs.remove(event._id); 
       }
     });
     
