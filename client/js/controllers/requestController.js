@@ -22,7 +22,6 @@ function($scope, $rootScope, Requests) {
         )};
       
         $scope.addRequest = function() {      
-            console.log('we made it');
             $scope.request.user = $rootScope.currentUser._id; 
             $scope.request.subject = document.getElementById("requestList").value; 
             Requests.add($scope.request, localStorage.getItem('token')).then(function(res){  
@@ -39,7 +38,6 @@ function($scope, $rootScope, Requests) {
             Requests.respond(id, localStorage.getItem('token')).then(function(res){  
               if(res.data){
                 //$scope.deleteRequest(id); 
-                console.log('responded to request');
               } else {console.log("error responding to Requests");}
             }, function(err){
                 console.log(err);

@@ -42,7 +42,6 @@ exports.delete = function(req, res) {
       video.remove(err=>{
         if(err) throw err; 
         res.json(video); 
-        console.log('video deleted');
       })
     };
 

@@ -1,23 +1,12 @@
 var Research = require('../models/researchSchema.js');
 
 exports.add = function(req, res) {
-  var research = undefined;
-  console.log(req.body);
-  if(req.body.url) {
-
-   console.log("url provided");
-    research = new Research ({
-      title : req.body.title,
-      description: req.body.description,
-      url : req.body.url
-    });
-  } else {
-    research = new Research ({
-      title : req.body.title,
-      description: req.body.description,
-    });
-  }
-
+  var research = new Research ({
+    title : req.body.title,
+    description: req.body.description,
+    url : req.body.url
+  });
+ 
   research.save(function(err) {
     if(err) {
       console.log("SAVE ERROR" + err);
@@ -44,7 +33,6 @@ exports.delete = function(req, res) {
       var research = req.research; 
       research.remove(err=>{
         if(err) throw err; 
-        console.log('research deleted');
         return res.status(200).json(research); 
       })
     };
