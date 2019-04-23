@@ -4,7 +4,7 @@
                 <hr>
                 <div class="row justify-content-center">
                     <div class="input-group table-row">
-                        <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input">
+                        <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input" ng-model="progreqText">
                         <span class="input-group-append">
                             <button class="btn btn-outline-secondary border-left-0 border" type="button">
                                 <i class="fa fa-search"></i>
@@ -20,7 +20,7 @@
                             <th>Description</th>
                           </tr>
                           <!-- CAN MAKE THIS AN NG-REPEAT -->
-                          <tr ng-repeat="programReq in currentUser.programReqs | filter : query" class ="tbl-dropdown">
+                          <tr ng-repeat="programReq in currentUser.programReqs | filter : progreqText" class ="tbl-dropdown">
                             <td>{{programReq.subject}}</td>
                             <td>{{programReq.description}}</td>
                           </tr>

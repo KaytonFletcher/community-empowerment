@@ -1,7 +1,7 @@
 <div class="container my-3" ng-controller="anncsController">
     <div class="row">
         <div id="sort-box" class ="d-flex flex-row">
-                    <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input">
+                    <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input" ng-model="anncText">
                     <span class="input-group-append">
                         <button class="btn btn-outline-secondary border-left-0 border" type="button">
                             <i class="fa fa-search"></i>
@@ -10,7 +10,7 @@
                     <button type="button" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#addAnncModal" style="margin-inline-end: 0px" ng-if="currentUser.admin">Add Announcement</button>
                 </div>
         <div class="col-12">
-        <div class="annc_item" ng-repeat="announcement in announcements" style="padding:20px">
+        <div class="annc_item" ng-repeat="announcement in announcements | filter : anncText" style="padding:20px">
             <h2 class="h4 mb-0 p-4 rounded-top">{{announcement.title}} 
                     <a class="btn shiftright" ng-click="deleteAnnouncement(announcement._id)" ng-if="currentUser.admin">
                             <i class="fas fa-times fa-2x"></i></a>
