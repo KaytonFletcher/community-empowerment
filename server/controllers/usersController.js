@@ -21,7 +21,6 @@ exports.delete = function(req, res) {
       user.remove(err=>{
         if(err) throw err; 
         res.json(user); 
-        console.log('user deleted');
       })
     };
 

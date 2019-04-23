@@ -16,7 +16,6 @@ angular.module('SpoderApp').controller('videoController', ['$scope', 'Video', '$
           });
 
         $scope.tagCheck = function(){
-          console.log("Checking tags");
           $scope.filteredVideos = $filter('tag')($scope.videos, $scope.tagList);
         }
           

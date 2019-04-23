@@ -15,7 +15,6 @@ process.env.GOOGLE_APPLICATION_CREDENTIALS = '../config/calendarAuth.json'
 
 
 exports.submitReq = function(req, res) {
-    console.log('bruuu');
     var event = new Event ({
       title : req.body.title,
       startTime : req.body.startTime,
@@ -35,7 +34,6 @@ exports.submitReq = function(req, res) {
           function (err) {
               if (err) throw err;
           });
-        console.log('event saved');
         //res.json(user);
         res.status(201).json({ success: true });
         }
@@ -64,7 +62,6 @@ exports.submitReq = function(req, res) {
       if(err) {
         res.status(400).send(err);
       } else {
-        console.log("Removing reference to event in user");
         user.eventReqs.remove(event._id); 
       }
     });
@@ -95,8 +92,6 @@ exports.addEvent = function(req, res) {
     if (err) {
       console.log(err);
       return;
-    } else {
-      console.log("Successfully connected!");
     }
    });
 
@@ -123,6 +118,5 @@ exports.addEvent = function(req, res) {
         console.log('There was an error contacting the Calendar service: ' + err);
         return;
       }
-      console.log('Event created: %s', event.htmlLink);
     });
   }

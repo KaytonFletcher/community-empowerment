@@ -4,7 +4,6 @@ var User = require('../models/userSchema.js');
 exports.list = function(req, res) {
 
     Request.find().sort('-created_at').populate('user').then(reqs => {
-        console.log('reqs sent');
         res.send(reqs);
     }).catch(err => {
       res.status(400).send(err); 
@@ -29,7 +28,6 @@ exports.delete = function(req, res) {
       request.remove(err=>{
         if(err) throw err; 
         res.json(request); 
-        console.log('request deleted');
       })
     };
 
@@ -65,8 +63,6 @@ exports.add = function(req, res) {
           function (err) {
               if (err) throw err;
           });
-     
-          console.log('request added');
           return res.status(201).send(request);
           }
       });

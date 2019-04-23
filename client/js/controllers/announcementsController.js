@@ -3,7 +3,6 @@ function($scope, Announcements) {
 
     Announcements.getAll().then(function(res) {
         $scope.announcements = res.data;
-        console.log('announcement data displayed');
       }, function(error) {
         console.log('Unable to retrieve announcements: ', error);
       });

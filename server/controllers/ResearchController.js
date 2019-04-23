@@ -4,8 +4,6 @@ exports.add = function(req, res) {
   var research = undefined;
   console.log(req.body);
   if(req.body.url) {
-
-   console.log("url provided");
     research = new Research ({
       title : req.body.title,
       description: req.body.description,
@@ -44,7 +42,6 @@ exports.delete = function(req, res) {
       var research = req.research; 
       research.remove(err=>{
         if(err) throw err; 
-        console.log('research deleted');
         return res.status(200).json(research); 
       })
     };

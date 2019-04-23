@@ -4,8 +4,6 @@ angular.module('SpoderApp').controller('adminController', ['$scope', '$state', '
       $scope.previousState = undefined;
       $scope.focusUser = undefined;
 
-      console.log($rootScope.currentUser);
-
       $transitions.onSuccess({}, function(transition) {
         $scope.previousState = transition.from().name;
       });
@@ -13,7 +11,6 @@ angular.module('SpoderApp').controller('adminController', ['$scope', '$state', '
       $scope.loadUsers = function(){
         Users.getAll().then(function(res) {
           $scope.users = res.data;
-          console.log('User data displayed');
         }, function(error) {
           console.log('Unable to retrieve users: ', error);
         });

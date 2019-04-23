@@ -22,8 +22,6 @@ app.filter('trusted', ['$sce', function ($sce) {
 
 function checkList(video, tagList){
     for(i in tagList){
-        console.log(tagList[i]);
-        console.log(video.tags);
         if(!video.tags.includes(tagList[i].text)){return false;}
     }
     return true;
@@ -31,15 +29,11 @@ function checkList(video, tagList){
 
 
 app.filter('tag', function(){
-    console.log("checking for match");
     return function(videoList, tagList){
-        console.log(videoList);
-        console.log(tagList);
       var filteredList = [];  
       //console.log("Video title: " + video.title);
       if(tagList === undefined || tagList.length == 0){return videoList;}
       videoList.forEach(video => {
-        console.log(checkList(video,tagList));
         if(checkList(video, tagList)) {
             filteredList.push(video);
         } 

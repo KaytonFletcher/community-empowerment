@@ -56,8 +56,6 @@ exports.validate = function(req, res) {
       var token = jwt.sign({ id: user._id }, config.secret, {
         expiresIn: 3600 // expires in 24 hours
       });
-      console.log("sending status");
-
       res.status(200).json({ auth: true, admin: user.admin ,token: token });
   });
 };
