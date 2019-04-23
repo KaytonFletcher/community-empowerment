@@ -1,4 +1,5 @@
 var Event = require('../models/eventSchema.js');
+var User = require('../models/userSchema.js')
 var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcrypt');
