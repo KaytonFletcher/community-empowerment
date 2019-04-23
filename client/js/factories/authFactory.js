@@ -18,6 +18,9 @@ angular.module('users').factory('Authenticate', function($http) {
         },
         changePsw: function(token, user) {
             return $http.post('http://localhost:8080/api/auth/changePsw/', user , { headers: {'x-access-token': token} });
+        },
+        deleteAccount: function(token) {
+            return $http.delete('http://localhost:8080/api/auth/deleteAccount' , { headers: {'x-access-token': token} });
         }
     }
     
