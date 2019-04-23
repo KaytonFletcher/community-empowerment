@@ -4,7 +4,7 @@
       <hr>
       <div class="row justify-content-center">
           <div class="input-group table-row">
-              <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input">
+              <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input" ng-model="eventreq">
               <span class="input-group-append">
                   <button class="btn btn-outline-secondary border-left-0 border" type="button">
                       <i class="fa fa-search"></i>
@@ -20,7 +20,7 @@
                   <th>Start Time</th>
                   <th>End Time</th>
                 </tr>
-                <tr ng-repeat="eventReq in currentUser.eventReqs | filter : query" class ="tbl-dropdown">
+                <tr ng-repeat="eventReq in currentUser.eventReqs | filter : eventreq" class ="tbl-dropdown">
                   <td>{{eventReq.title}}</td>
                   <td>{{eventReq.startTime}}</td>
                   <td>{{eventReq.endTime}}</td>

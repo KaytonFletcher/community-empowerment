@@ -1,11 +1,11 @@
  <div class="tab-pane" id="requests" role="tabpanel" aria-labelledby="requests-tab" ng-if="currentUser.admin">
      <div class="container">
-            <h1>Help Request Information</h1>  
+            <h1>Program Request Information</h1>  
             <hr>
             <div class="d-flex flex-column">
               <div class="row justify-content-center">
                 <div class="input-group table-row">
-                    <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input">
+                    <input class="form-control py-2 border-right-0 border" type="search" placeholder="search" id="example-search-input" ng-model="progText">
                     <span class="input-group-append">
                         <button class="btn btn-outline-secondary border-left-0 border" type="button">
                             <i class="fa fa-search"></i>
@@ -22,7 +22,7 @@
                       <th>Description</th>
                       <th>Respond</th>
                     </tr>
-                    <tr ng-repeat="request in requests | filter : query">
+                    <tr ng-repeat="request in requests | filter : progText">
                       <td>{{request.user.name}}</td>
                       <td>{{request.subject}}</td>
                       <td>{{request.description}}</td>
