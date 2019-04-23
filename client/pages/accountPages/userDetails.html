@@ -29,12 +29,20 @@
         <span id="focus-user-email">{{focusUser.email}}</span>  -->
 
         <hr>
-        <h2><b>Program Requests:</b></h2>
-        <div id="focus-user-req" ng-repeat="programReq in focusUser.programReqs">
-            <span>Subject: {{programReq.subject}}</span>
-            <hr>
-        </div>
-        <h2><b>Events:</b></h2>
+        <h4><b>Program Requests:</b></h4>
+            <div class="tableWrapper table-row">
+                <table class="table table-hover">
+                  <tr ng-repeat="programReq in focusUser.programReqs" class ="tbl-dropdown">
+                    <td>{{programReq.description}}
+                            <ul class="list-group">
+                                    <li class="list-group-item">{{programReq.subject}}</li>
+                            </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+        <h4><b>Events:</b></h4>
+        <br>
         <div class="tableWrapper table-row">
                 <table class="table table-hover">
                   <tr>
@@ -42,9 +50,12 @@
                     <th>Start Time</th>
                     <th>End Time</th>
                   </tr>
-                  <!-- CAN MAKE THIS AN NG-REPEAT -->
                   <tr ng-repeat="eventReq in currentUser.eventReqs | filter : query" class ="tbl-dropdown">
-                    <td>{{eventReq.title}}</td>
+                    <td>{{eventReq.title}}
+                            <ul class="list-group">
+                                    <li class="list-group-item">{{eventReq.description}}</li>
+                            </ul>
+                    </td>
                     <td>{{eventReq.startTime}}</td>
                     <td>{{eventReq.endTime}}</td>
                   </tr>
