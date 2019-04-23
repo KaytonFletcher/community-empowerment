@@ -1,5 +1,5 @@
-angular.module('users').controller('calController', ['$scope', 'Cals', 'Authenticate', '$rootScope',
-    function($scope, Cals, $rootScope) {
+angular.module('users').controller('calController', ['$scope', '$rootScope', 'Cals',
+    function($scope, $rootScope, Cals) {
 
       // $scope.event.userID = Authenticate.getUser(localStorage.getItem('token')); 
 

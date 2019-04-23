@@ -35,6 +35,22 @@
         </div>
       </div>
 
+      <div id="deleteAnncModal" class="modal fade req-modal" role="dialog">
+            <form class="modal-dialog" ng-submit="deleteAnnouncement(" >
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1>Log out</h1>
+                 
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you wish to logout?</p>
+                    <button type="submit" onclick="$('#logout-modal').modal('hide');" class="btn btn-success fullwidth mb-3">Log out</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger fullwidth">Cancel</button>
+                </div>
+              </div>
+            </form>
+          </div>    
+
       <div id="addAnncModal" class="modal fade req-modal" role="dialog">
             <form class="modal-dialog" ng-submit="addAnnc()" >
                 <div class="modal-content">

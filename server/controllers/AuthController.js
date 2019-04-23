@@ -44,7 +44,7 @@ exports.register = function(req, res) {
 exports.validate = function(req, res) {
   
   //gets users by unique email
-  User.findOne({ email: req.body.email }, function (err, user) {
+  User.findOne({ email: req.body.email }).populate('programReqs').populate('eventReqs').exec(function (err, user) {
       if (err) return res.status(500).send('Error on the server.');
 
       //no user in database with this email
