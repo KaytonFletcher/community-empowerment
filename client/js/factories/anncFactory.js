@@ -12,6 +12,5 @@ angular.module('SpoderApp').factory('Announcements', function($http) {
         }
      
     }
-    
     return methods;
 });

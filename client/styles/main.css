@@ -12,6 +12,13 @@
   border-radius: 1vh;
 }
 
+.delete-research{
+  position: relative;
+  float: right;
+  bottom: 70px;
+  left: 10px;
+}
+
 #mikemorrispic {
   float: left;
   /* padding-right: 1em; */

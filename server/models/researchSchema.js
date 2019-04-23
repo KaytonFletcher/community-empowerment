@@ -15,7 +15,6 @@ var researchSchema = new Schema({
     },
     url: {
         type: String,
-        unique: true,
         trim: true
     },
     at: Date,

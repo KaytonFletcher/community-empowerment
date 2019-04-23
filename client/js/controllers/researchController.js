@@ -16,9 +16,9 @@ angular.module('SpoderApp').controller('researchController', ['$scope', 'Researc
           
         $scope.deleteResearch = function(id) {
             Research.delete(id, localStorage.getItem('token')).then(function(response){
-              for(var i = 0; i < $scope.researchReqs.length; i++){
-                if(response.data.title == $scope.researchReqs[i].title){
-                  $scope.researchReqs.splice(i, 1);  
+              for(var i = 0; i < $scope.filteredResearch.length; i++){
+                if(response.data.title == $scope.filteredResearch[i].title){
+                  $scope.filteredResearch.splice(i, 1);  
                 }
               }
               }, function(error) {
