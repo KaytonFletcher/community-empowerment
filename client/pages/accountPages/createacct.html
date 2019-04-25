@@ -5,37 +5,27 @@
       <hr>
       <h4 class="errorMsg">{{registerError}}</h4>
       <label><b>Email</b></label>
-      <input type="text" ng-model="newUser.email" placeholder="Enter Email" name="email" required>
+      <input class="form-control custom-input" type="text" ng-model="newUser.email" placeholder="Enter Email" name="email" required>
 
       <br><label><b>Password</b></label>
-      <input type="password" ng-model="newUser.password" placeholder="Enter Password" name="psw" required>
+      <input class="form-control custom-input" type="password" ng-model="newUser.password" placeholder="Enter Password" name="psw" required>
 
-<<<<<<< HEAD
-=======
       <br><label><b>Confirm Password</b></label>
-      <input type="password" ng-model="newUser.pswCheck" placeholder="Repeat Password" name="psw-repeat" required>
->>>>>>> 133fd984baf96757eab6ad5c7180a196f69c6e09
+      <input class="form-control custom-input"  type="password" ng-model="newUser.pswCheck" placeholder="Repeat Password" name="psw-repeat" required>
       <!-- Name and organization are nonfunctional until the user schema is altered-->
       <br><label><b>Name</b></label>
-<<<<<<< HEAD
-      <input type="text"  placeholder="Enter Your Name" ng-model="newUser.name">
+      <input class="form-control custom-input"  type="text" ng-model="newUser.name" placeholder="Enter Your Name">
 
       <br><label><b>Organization</b></label>
-      <input type="text"  placeholder="Enter Organization" ng-model="newUser.organization">
-=======
-      <input type="text" ng-model="newUser.name" placeholder="Enter Your Name">
-
-      <br><label><b>Organization</b></label>
-      <input type="text" ng-model="newUser.organization" placeholder="Enter Organization">
->>>>>>> 764a15826cbf3cfed4d30e929450c128b82c9991
+      <input class="form-control custom-input" type="text" ng-model="newUser.organization" placeholder="Enter Organization">
 
       <hr>
       <p>By creating an account you agree to our <a href="termsandconditions" target="_blank">Terms & Conditions</a>.</p>
-      <button type="submit" class="registerbtn">Register</button>
+      <button type="submit" class="btn btn-success signup">Register</button>
     </div>
 </form>
 
 <div class="container signin">
   <br>
-    <p>Already have an account? <button class="btn btn-success" onclick="document.getElementById('signin-modal').style.display='block'">Sign in</button></p>
+  <p>Already have an account? <br> <br><button class="btn btn-success signup" data-toggle="modal" data-target="#signin-modal">Sign in</button></p>
   </div>

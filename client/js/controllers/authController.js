@@ -6,24 +6,19 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
         $scope.registerError = undefined;
 
         $scope.login = function() {
-            console.log('logging in....');
             Authenticate.login($scope.login.user).then(function(res){
-                console.log("We logged in!");
+                angular.element(document.querySelectorAll( '#signin-modal' )).modal('hide');
                 $scope.login.user = undefined;
                 if(res.data.auth){
-                    
                     localStorage.setItem('token', res.data.token);
                 
                     //calls getUser in app.js
                     $state.go('account');
-                } else {
-                    console.log("Wrong email or password");
                 }
             }, function(error) {
                 $scope.login.user = undefined;
                 $rootScope.currentUser = undefined;
                 $scope.loginError = error.data;
-
                /* DISPLAY ERROR MESSAGE TO USER IN HTML */
               console.log('Unable to login: ', error);
             })
@@ -44,7 +39,6 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
                 //this is the "callback" function
                 //after the backend has finished handling the post request
                 //whatever is sent back can be accessed through res.data.thingsentback
-                console.log("registered!!!")
                 $scope.newUser = undefined;
                 $scope.registerError = undefined;
                 localStorage.setItem('token', res.data.token);
@@ -62,27 +56,24 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
 
         $scope.getUser = function() {
             Authenticate.getUser(localStorage.getItem('token')).then(function(res){
-                console.log("got the user!! " + res.data.user);
-
             },function(error){
                 $scope.user = undefined;
                 console.log('User not authenticated ', error);
             });
         };
 
-        $scope.logout = function() {       
+        $scope.logout = function() {  
+            console.log("logging out");     
             localStorage.removeItem('token');
             $rootScope.currentUser = undefined;
             $state.go('home');
+            alert("You have logged out!");
         };
 
         $scope.update = function() {
-            console.log("UPDATING!");
-            console.log($scope.updatedUser);
             Authenticate.updateUser(localStorage.getItem('token'), $scope.updatedUser).then(function(res){
-            console.log("updated");
                 $scope.updateUser = undefined;
-                
+                $state.reload();
             }, function(error){
                 $scope.updateUser = undefined;
                 /* DISPLAY ERROR MESSAGE TO USER IN HTML */
@@ -94,14 +85,21 @@ angular.module('users').controller('authController', ['$scope', '$rootScope', '$
         $scope.changePsw = function() {
             Authenticate.changePsw(localStorage.getItem('token'), $scope.updatedUser).then(function(res){
                 $scope.updateUser = undefined;
-                console.log("updated");
-                
+                $state.reload();
             }, function(error){
                 $scope.updateUser = undefined;
-                /* DISPLAY ERROR MESSAGE TO USER IN HTML */
                 console.log('Unable to update user: ', error);
             });
 
+        }
+
+        $scope.deleteAccount = function() {
+            Authenticate.deleteAccount(localStorage.getItem('token')).then(function(res){
+                angular.element(document.querySelectorAll( '#delete-modal' )).modal('hide');
+                $scope.logout();
+            }, function(error){
+                console.log('Unable to delete user: ', error);
+            });
         }
     }     
 ]);

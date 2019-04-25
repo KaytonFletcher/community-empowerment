@@ -1,4 +1,4 @@
-var auth = require('../controllers/authController.js'), 
+var auth = require('../controllers/AuthController.js'), 
     express = require('express'), 
     router = express.Router(),
     verifyToken = require('../helpers/VerifyToken');
@@ -17,7 +17,10 @@ router.route('/getUser')
     .get(verifyToken, auth.getUser)
 
 router.route('/updateUser')    
-    .post(verifyToken, auth.updateUser)  
+    .post(verifyToken, auth.updateUser)
+    
+router.route('/deleteAccount')
+    .delete(verifyToken, auth.deleteAccount)
     
 router.route('/changePsw')    
     .post(verifyToken, auth.changePsw)     

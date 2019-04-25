@@ -3,9 +3,7 @@ var config = require('../config/config');
 
 function verifyToken(req, res, next) {
   var token = req.headers['x-access-token'];
-  console.log("token: " + token);
   if (!token) {
-    console.log("token is null"); 
     return res.status(401).send({ auth: false, message: "No logged in!" });
   }
   jwt.verify(token, config.secret, function(err, decoded) {
